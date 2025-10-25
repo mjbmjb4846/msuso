@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<!--
+    MSU Science Olympiad Website
+    
+    Navigation Component Usage:
+    - <msu-navbar> generates the top navigation with mobile menu
+    - <msu-footer> generates the footer with sitemap
+    
+    Both components accept a 'page-links' attribute for page-specific links:
+    page-links='[{"href":"#section","text":"Section Name"},...]'
+    
+    Site-wide links (index.html, future.html, etc.) are automatically included.
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Michigan State University Science Olympiad - Supporting Michigan Science Olympiad">
+    <title>MSU Science Olympiad</title>
+    <link rel="stylesheet" href="global.css">
+    <!-- Ionicons: modern icon library -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="navigation.js"></script>
+</head>
+<body>
+    <!-- Navigation Component -->
+    <msu-navbar page-links='[{"href":"#about","text":"About"},{"href":"#events","text":"Events"},{"href":"#resources","text":"Resources"},{"href":"#contact","text":"Contact"}]'></msu-navbar>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container hero-content">
+            <span class="badge">2026 Season</span>
+            <h1>Michigan State University<br>Science Olympiad</h1>
+            <p>Supporting Michigan Science Olympiad through tournament volunteering, resource development, and community building</p>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="#about" class="btn btn-primary btn-lg">Learn More</a>
+                <a href="#events" class="btn btn-secondary btn-lg">View Events</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section bg-secondary" id="about">
+        <div class="container">
+            <div class="text-center" style="max-width: 800px; margin: 0 auto;">
+                <h2>About MSU Science Olympiad</h2>
+                <p style="font-size: var(--font-size-lg);">
+                    We are a college student organization dedicated to supporting Science Olympiad across Michigan. 
+                    Our volunteers help run tournaments, develop educational resources, and create event kit designs 
+                    all to empower middle and high school students to excel in STEM competitions.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Grid -->
+    <section class="section">
+        <div class="container">
+            <h2 class="text-center mb-8">What We Do</h2>
+            <div class="grid grid-3">
+                <div class="card card-green">
+                    <div style="font-size: 3rem; margin-bottom: var(--space-4);"><ion-icon name="people-outline" style="font-size:3rem;"></ion-icon></div>
+                    <h3 class="card-title">Tournament Volunteering</h3>
+                    <p class="card-text">
+                        Our members volunteer at regional and invitational tournaments across Michigan,
+                        serving as event supervisors, test writers, and coaches.
+                    </p>
+                </div>
+
+                <div class="card card-green">
+                    <div style="font-size: 3rem; margin-bottom: var(--space-4);"><ion-icon name="trophy-outline" style="font-size:3rem;"></ion-icon></div>
+                    <h3 class="card-title">State Tournament</h3>
+                    <p class="card-text">
+                        Each year, MSU hosts the Michigan Science Olympiad state tournament.
+                        Our members help to create this world-class competition experience.
+                    </p>
+                </div>
+
+                <div class="card card-green">
+                    <div style="font-size: 3rem; margin-bottom: var(--space-4);"><ion-icon name="book-outline" style="font-size:3rem;"></ion-icon></div>
+                    <h3 class="card-title">Resources & Kits</h3>
+                    <p class="card-text">
+                        We develop comprehensive resources, study guides, and build event kit designs
+                        to help teams prepare and tournaments run smoothly.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section class="section bg-tertiary" id="events">
+        <div class="container">
+            <h2 class="text-center mb-8">2026 Division C Events</h2>
+            
+            <!-- Earth & Space Science -->
+            <h3 style="margin-bottom: var(--space-4); color: var(--color-primary);">Earth & Space Science</h3>
+            <div class="grid grid-4" style="margin-bottom: var(--space-8);">
+                <div class="card">
+                    <h4 class="card-title">Astronomy</h4>
+                    <p class="card-text">Explore stellar evolution, galaxies, and deep space objects.</p>
+                    <span class="purple-badge badge">Test</span>
+                    <span class="badge">Space</span>
+                </div>
+                <div class="card">
+                    <h4 class="card-title">Dynamic Planet</h4>
+                    <p class="card-text">Study Earth's dynamic processes and geological features.</p>
+                    <span class="purple-badge badge">Test</span>
+                    <span class="badge">Earth</span>
+                </div>
+                <div class="card">
+                    <h4 class="card-title">Remote Sensing</h4>
+                    <p class="card-text">Analyze satellite imagery and remote sensing technologies.</p>
+                    <span class="purple-badge badge">Test</span>
+                    <span class="badge">Earth</span>
+                    <span class="badge">Space</span>
+                </div>
+                <div class="card">
+                    <h4 class="card-title">Rocks and Minerals</h4>
+                    <p class="card-text">Identify and classify rocks, minerals, and their properties.</p>
+                    <span class="purple-badge badge">Test</span>
+                    <span class="badge">Earth</span>
+                </div>
+            </div>
+
+            <!-- Inquiry & Nature of Science -->
+            <h3 style="margin-bottom: var(--space-4); color: var(--color-primary);">Inquiry & Nature of Science</h3>
+            <div class="grid grid-4" style="margin-bottom: var(--space-8);">
+                <div class="card">
+                    <h4 class="card-title">Bungee Drop</h4>
+                    <p class="card-text">Design a bungee cord to stop a falling mass at a target point.</p>
+                    <span class="purple-badge badge">Build</span>
+                    <span class="badge">Inquiry</span>
+                </div>
+                <div class="card">
+                    <h4 class="card-title">Codebusters</h4>
+                    <p class="card-text">Crack codes and ciphers using cryptography techniques.</p>
+                    <span class="purple-badge badge">Test</span>
+                    <span class="badge">Inquiry</span>
+                </div>
+                <div class="card">
+                    <h4 class="card-title">Experimental Design</h4>
+                    <p class="card-text">Design and conduct experiments using the scientific method.</p>
+                    <span class="purple-badge badge">Test</span>
+                    <span class="badge">Inquiry</span>
+                </div>
+                <div class="card">
+                    <h4 class="card-title">Engineering CAD</h4>
+                    <p class="card-text">Create computer-aided designs and technical drawings.</p>
+                    <span class="purple-badge badge">Lab</span>
+                    <span class="badge">Inquiry</span>
+                    <span class="badge">Engineering</span>
+                </div>
+            </div>
+
+            <!-- Life, Personal & Social Science -->
+            <h3 style="margin-bottom: var(--space-4); color: var(--color-primary);">Life, Personal & Social Science</h3>
+            <div class="grid grid-4" style="margin-bottom: var(--space-8);">
+                <div class="card">
+                    <h4 class="card-title">Anatomy and Physiology</h4>
+                    <p class="card-text">Master human body systems through detailed study and testing.</p>
+                    <span class="purple-badge badge">Test</span>
+                    <span class="badge">Biology</span>
+                </div>
+                <div class="card">
+                    <h4 class="card-title">Disease Detectives</h4>
+                    <p class="card-text">Investigate disease outbreaks and epidemiological patterns.</p>
+                    <span class="purple-badge badge">Test</span>
+                    <span class="badge">Biology</span>
+                </div>
+                <div class="card">
+                    <h4 class="card-title">Designer Genes</h4>
+                    <p class="card-text">Explore molecular biology, genetics, and biotechnology.</p>
+                    <span class="purple-badge badge">Test</span>
+                    <span class="badge">Biology</span>
+                </div>
+                <div class="card">
+                    <h4 class="card-title">Entomology</h4>
+                    <p class="card-text">Study insect classification, ecology, and behavior.</p>
+                    <span class="purple-badge badge">Test</span>
+                    <span class="badge">Biology</span>
+                </div>
+                <div class="card">
+                    <h4 class="card-title">Water Quality</h4>
+                    <p class="card-text">Test and analyze water samples for chemical and biological quality.</p>
+                    <span class="purple-badge badge">Build</span>
+                    <span class="purple-badge badge">Test</span>
+                    <span class="badge">Biology</span>
+                </div>
+            </div>
+
+            <!-- Physical Science & Chemistry -->
+            <h3 style="margin-bottom: var(--space-4); color: var(--color-primary);">Physical Science & Chemistry</h3>
+            <div class="grid grid-4" style="margin-bottom: var(--space-8);">
+                <div class="card">
+                    <h4 class="card-title">Chemistry Lab</h4>
+                    <p class="card-text">Conduct experiments and analyze chemical reactions in real-time.</p>
+                    <span class="purple-badge badge">Lab</span>
+                    <span class="purple-badge badge">Test</span>
+                    <span class="badge">Chemistry</span>
+                </div>
+                <div class="card">
+                    <h4 class="card-title">Circuit Lab</h4>
+                    <p class="card-text">Design and analyze electrical circuits and components.</p>
+                    <span class="purple-badge badge">Lab</span>
+                    <span class="purple-badge badge">Test</span>
+                    <span class="badge">Physics</span>
+                    <span class="badge">Engineering</span>
+                </div>
+                <div class="card">
+                    <h4 class="card-title">Forensics</h4>
+                    <p class="card-text">Analyze evidence and solve crimes using scientific methods.</p>
+                    <span class="purple-badge badge">Lab</span>
+                    <span class="badge">Chemistry</span>
+                </div>
+                <div class="card">
+                    <h4 class="card-title">Hovercraft</h4>
+                    <p class="card-text">Build and race a hovercraft powered by batteries.</p>
+                    <span class="purple-badge badge">Build</span>
+                    <span class="badge">Physics</span>
+                    <span class="badge">Engineering</span>
+                </div>
+                <div class="card">
+                    <h4 class="card-title">Machines</h4>
+                    <p class="card-text">Build a device using simple and compound machines.</p>
+                    <span class="purple-badge badge">Build</span>
+                    <span class="purple-badge badge">Test</span>
+                    <span class="badge">Physics</span>
+                </div>
+                <div class="card">
+                    <h4 class="card-title">Materials Science</h4>
+                    <p class="card-text">Study material properties, structures, and applications.</p>
+                    <span class="purple-badge badge">Lab</span>
+                    <span class="purple-badge badge">Test</span>
+                    <span class="badge">Chemistry</span>
+                </div>
+            </div>
+
+            <!-- Technology & Engineering -->
+            <h3 style="margin-bottom: var(--space-4); color: var(--color-primary);">Technology & Engineering</h3>
+            <div class="grid grid-4" style="margin-bottom: var(--space-8);">
+                <div class="card">
+                    <h4 class="card-title">Robot Tour</h4>
+                    <p class="card-text">Design a robot to navigate a course and complete tasks.</p>
+                    <span class="purple-badge badge">Build</span>
+                    <span class="badge">Engineering</span>
+                </div>
+                <div class="card">
+                    <h4 class="card-title">Electric Vehicle</h4>
+                    <p class="card-text">Build an electric vehicle optimized for distance and speed.</p>
+                    <span class="purple-badge badge">Build</span>
+                    <span class="badge">Engineering</span>
+                </div>
+                <div class="card">
+                    <h4 class="card-title">Boomilever</h4>
+                    <p class="card-text">Construct a lightweight cantilever beam to support maximum load.</p>
+                    <span class="purple-badge badge">Build</span>
+                    <span class="badge">Engineering</span>
+                </div>
+                <div class="card">
+                    <h4 class="card-title">Helicopter</h4>
+                    <p class="card-text">Build and fly a rubber-powered helicopter for flight time.</p>
+                    <span class="purple-badge badge">Build</span>
+                    <span class="badge">Engineering</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="text-center mb-8">Our Impact</h2>
+            <div class="grid grid-4">
+                <div class="text-center">
+                    <div style="font-size: var(--font-size-5xl); font-weight: var(--font-weight-bold); color: var(--color-primary); margin-bottom: var(--space-2);">370+</div>
+                    <p style="font-size: var(--font-size-lg); color: var(--color-text-secondary);">Michigan SciOly Teams</p>
+                </div>
+                <div class="text-center">
+                    <div style="font-size: var(--font-size-5xl); font-weight: var(--font-weight-bold); color: var(--color-primary); margin-bottom: var(--space-2);">23+</div>
+                    <p style="font-size: var(--font-size-lg); color: var(--color-text-secondary);">SciOly and Trial Events</p>
+                </div>
+                <div class="text-center">
+                    <div style="font-size: var(--font-size-5xl); font-weight: var(--font-weight-bold); color: var(--color-primary); margin-bottom: var(--space-2);">6+</div>
+                    <p style="font-size: var(--font-size-lg); color: var(--color-text-secondary);">Annual Tournaments Attended</p>
+                </div>
+                <div class="text-center">
+                    <div style="font-size: var(--font-size-5xl); font-weight: var(--font-weight-bold); color: var(--color-primary); margin-bottom: var(--space-2);">3</div>
+                    <p style="font-size: var(--font-size-lg); color: var(--color-text-secondary);">National Tournaments Hosted</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="section bg-secondary">
+        <div class="container text-center">
+            <h2>Get Involved</h2>
+            <p style="font-size: var(--font-size-lg); max-width: 600px; margin: 0 auto var(--space-8);">
+                Whether you're interested in volunteering at tournaments, developing resources, 
+                or helping with event supervision, we welcome MSU students passionate about STEM education.
+            </p>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="#contact" class="btn btn-primary btn-lg">Join Our Team</a>
+                <a href="#resources" class="btn btn-secondary btn-lg">View Resources</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Typography Showcase -->
+    <section class="section" id="resources">
+        <div class="container">
+            <h2 class="text-center mb-8">Typography & Component Examples</h2>
+            <div class="grid grid-2">
+                <div>
+                    <h3>Heading Levels</h3>
+                    <h1 style="font-size: var(--font-size-3xl); margin-bottom: var(--space-2);">Heading 1</h1>
+                    <h2 style="font-size: var(--font-size-2xl); margin-bottom: var(--space-2);">Heading 2</h2>
+                    <h3 style="font-size: var(--font-size-xl); margin-bottom: var(--space-2);">Heading 3</h3>
+                    <h4 style="font-size: var(--font-size-lg); margin-bottom: var(--space-2);">Heading 4</h4>
+                    <p>Regular paragraph text with <a href="#">link styles</a> and <strong>bold text</strong> for emphasis.</p>
+                </div>
+
+                <div>
+                    <h3>Button Variations</h3>
+                    <div style="display: flex; flex-direction: column; gap: var(--space-3); align-items: flex-start;">
+                        <button class="btn btn-primary">Primary Button</button>
+                        <button class="btn btn-secondary">Secondary Button</button>
+                        <button class="btn btn-primary btn-lg">Large Button</button>
+                        <button class="btn btn-primary btn-sm">Small Button</button>
+                    </div>
+                    <div style="margin-top: var(--space-4);">
+                        <h4>Badges</h4>
+                        <div style="display: flex; gap: var(--space-2); flex-wrap: wrap; margin-top: var(--space-2);">
+                            <span class="badge">New</span>
+                            <span class="badge">Popular</span>
+                            <span class="badge">Featured</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section bg-secondary" id="contact">
+        <div class="container text-center">
+            <h2>Contact Us</h2>
+            <p style="font-size: var(--font-size-lg); max-width: 600px; margin: 0 auto var(--space-6);">
+                Interested in volunteering or learning more about MSU Science Olympiad? 
+                We'd love to hear from you!
+            </p>
+            <p style="font-size: var(--font-size-xl); margin-bottom: var(--space-4);">
+                <a href="mailto:scioly@msuso.org" style="font-weight: var(--font-weight-semibold);">scioly@msuso.org</a>
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer Component -->
+    <msu-footer page-links='[{"href":"#about","text":"About"},{"href":"#events","text":"Events"},{"href":"#resources","text":"Resources"},{"href":"#contact","text":"Contact"}]'></msu-footer>
+
+    <!-- Animation Script -->
+    <script>
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards
+        document.querySelectorAll('.card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>

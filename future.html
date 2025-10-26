@@ -2,14 +2,26 @@
 <!--
     MSU Science Olympiad Website
     
-    Navigation Component Usage:
+    Component Usage:
     - <msu-navbar> generates the top navigation with mobile menu
     - <msu-footer> generates the footer with sitemap
+    - <msu-card> creates event/feature cards with badges
+    - <msu-badge> creates individual badges with color variants
     
-    Both components accept a 'page-links' attribute for page-specific links:
+    Navigation components accept 'page-links' attribute:
     page-links='[{"href":"#section","text":"Section Name"},...]'
     
-    Site-wide links (index.html, future.html, etc.) are automatically included.
+    Card component attributes:
+    - title: Card title
+    - description: Card description
+    - badges: JSON array of badge texts - e.g., '["Test", "Space"]'
+    - color-badges: JSON array of colored badges - e.g., '[{"text":"Build","color":"purple"}]'
+    - variant: 'green' for green gradient background
+    - icon: Ionicon name (optional)
+    
+    Badge component attributes:
+    - variant: 'purple' | 'orange' (uses predefined colors)
+    - color: Custom hex/rgb color (overrides variant)
 -->
 <html lang="en">
 <head>
@@ -22,6 +34,7 @@
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <script src="navigation.js"></script>
+    <script src="card.js"></script>
 </head>
 <body>
     <!-- Navigation Component -->
@@ -30,7 +43,7 @@
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="container hero-content">
-            <span class="badge">2026 Season</span>
+            <msu-badge>2026 Season</msu-badge>
             <h1>Michigan State University<br>Science Olympiad</h1>
             <p>Supporting Michigan Science Olympiad through tournament volunteering, resource development, and community building</p>
             <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
@@ -59,32 +72,26 @@
         <div class="container">
             <h2 class="text-center mb-8">What We Do</h2>
             <div class="grid grid-3">
-                <div class="card card-green">
-                    <div style="font-size: 3rem; margin-bottom: var(--space-4);"><ion-icon name="people-outline" style="font-size:3rem;"></ion-icon></div>
-                    <h3 class="card-title">Tournament Volunteering</h3>
-                    <p class="card-text">
-                        Our members volunteer at regional and invitational tournaments across Michigan,
-                        serving as event supervisors, test writers, and coaches.
-                    </p>
-                </div>
+                <msu-card
+                    title="Tournament Volunteering"
+                    description="Our members volunteer at regional and invitational tournaments across Michigan, serving as event supervisors, test writers, and coaches."
+                    variant="green"
+                    icon="people-outline">
+                </msu-card>
 
-                <div class="card card-green">
-                    <div style="font-size: 3rem; margin-bottom: var(--space-4);"><ion-icon name="trophy-outline" style="font-size:3rem;"></ion-icon></div>
-                    <h3 class="card-title">State Tournament</h3>
-                    <p class="card-text">
-                        Each year, MSU hosts the Michigan Science Olympiad state tournament.
-                        Our members help to create this world-class competition experience.
-                    </p>
-                </div>
+                <msu-card
+                    title="State Tournament"
+                    description="Each year, MSU hosts the Michigan Science Olympiad state tournament. Our members help to create this world-class competition experience."
+                    variant="green"
+                    icon="trophy-outline">
+                </msu-card>
 
-                <div class="card card-green">
-                    <div style="font-size: 3rem; margin-bottom: var(--space-4);"><ion-icon name="book-outline" style="font-size:3rem;"></ion-icon></div>
-                    <h3 class="card-title">Resources & Kits</h3>
-                    <p class="card-text">
-                        We develop comprehensive resources, study guides, and build event kit designs
-                        to help teams prepare and tournaments run smoothly.
-                    </p>
-                </div>
+                <msu-card
+                    title="Resources & Kits"
+                    description="We develop comprehensive resources, study guides, and build event kit designs to help teams prepare and tournaments run smoothly."
+                    variant="green"
+                    icon="book-outline">
+                </msu-card>
             </div>
         </div>
     </section>
@@ -97,173 +104,205 @@
             <!-- Earth & Space Science -->
             <h3 style="margin-bottom: var(--space-4); color: var(--color-primary);">Earth & Space Science</h3>
             <div class="grid grid-4" style="margin-bottom: var(--space-8);">
-                <div class="card">
-                    <h4 class="card-title">Astronomy</h4>
-                    <p class="card-text">Explore stellar evolution, galaxies, and deep space objects.</p>
-                    <span class="purple-badge badge">Test</span>
-                    <span class="badge">Space</span>
-                </div>
-                <div class="card">
-                    <h4 class="card-title">Dynamic Planet</h4>
-                    <p class="card-text">Study Earth's dynamic processes and geological features.</p>
-                    <span class="purple-badge badge">Test</span>
-                    <span class="badge">Earth</span>
-                </div>
-                <div class="card">
-                    <h4 class="card-title">Remote Sensing</h4>
-                    <p class="card-text">Analyze satellite imagery and remote sensing technologies.</p>
-                    <span class="purple-badge badge">Test</span>
-                    <span class="badge">Earth</span>
-                    <span class="badge">Space</span>
-                </div>
-                <div class="card">
-                    <h4 class="card-title">Rocks and Minerals</h4>
-                    <p class="card-text">Identify and classify rocks, minerals, and their properties.</p>
-                    <span class="purple-badge badge">Test</span>
-                    <span class="badge">Earth</span>
-                </div>
+                <msu-card 
+                    title="Astronomy"
+                    description="Explore stellar evolution, galaxies, and deep space objects."
+                    badges='["Space"]'
+                    color-badges='[{"text":"Test","color":"#3b82f6"}]'
+                    href="events/astronomy.html">
+                </msu-card>
+                
+                <msu-card 
+                    title="Dynamic Planet"
+                    description="Study Earth's dynamic processes and geological features."
+                    badges='["Earth"]'
+                    color-badges='[{"text":"Test","color":"#3b82f6"}]'
+                    href="events/dynamic-planet.html">
+                </msu-card>
+                
+                <msu-card 
+                    title="Remote Sensing"
+                    description="Analyze satellite imagery and remote sensing technologies."
+                    badges='["Earth", "Space"]'
+                    color-badges='[{"text":"Test","color":"#3b82f6"}]'
+                    href="events/remote-sensing.html">
+                </msu-card>
+                
+                <msu-card 
+                    title="Rocks and Minerals"
+                    description="Identify and classify rocks, minerals, and their properties."
+                    badges='["Earth"]'
+                    color-badges='[{"text":"Test","color":"#3b82f6"}]'
+                    href="events/rocks-and-minerals.html">
+                </msu-card>
             </div>
 
             <!-- Inquiry & Nature of Science -->
             <h3 style="margin-bottom: var(--space-4); color: var(--color-primary);">Inquiry & Nature of Science</h3>
             <div class="grid grid-4" style="margin-bottom: var(--space-8);">
-                <div class="card">
-                    <h4 class="card-title">Bungee Drop</h4>
-                    <p class="card-text">Design a bungee cord to stop a falling mass at a target point.</p>
-                    <span class="purple-badge badge">Build</span>
-                    <span class="badge">Inquiry</span>
-                </div>
-                <div class="card">
-                    <h4 class="card-title">Codebusters</h4>
-                    <p class="card-text">Crack codes and ciphers using cryptography techniques.</p>
-                    <span class="purple-badge badge">Test</span>
-                    <span class="badge">Inquiry</span>
-                </div>
-                <div class="card">
-                    <h4 class="card-title">Experimental Design</h4>
-                    <p class="card-text">Design and conduct experiments using the scientific method.</p>
-                    <span class="purple-badge badge">Test</span>
-                    <span class="badge">Inquiry</span>
-                </div>
-                <div class="card">
-                    <h4 class="card-title">Engineering CAD</h4>
-                    <p class="card-text">Create computer-aided designs and technical drawings.</p>
-                    <span class="purple-badge badge">Lab</span>
-                    <span class="badge">Inquiry</span>
-                    <span class="badge">Engineering</span>
-                </div>
+                <msu-card 
+                    title="Bungee Drop"
+                    description="Design a bungee cord to stop a falling mass at a target point."
+                    badges='["Inquiry"]'
+                    color-badges='[{"text":"Build","color":"purple"}]'
+                    href="events/bungee-drop.html">
+                </msu-card>
+                
+                <msu-card 
+                    title="Codebusters"
+                    description="Crack codes and ciphers using cryptography techniques."
+                    badges='["Inquiry"]'
+                    color-badges='[{"text":"Test","color":"#3b82f6"}]'
+                    href="events/codebusters.html">
+                </msu-card>
+                
+                <msu-card 
+                    title="Experimental Design"
+                    description="Design and conduct experiments using the scientific method."
+                    badges='["Inquiry"]'
+                    color-badges='[{"text":"Test","color":"#3b82f6"}]'
+                    href="events/experimental-design.html">
+                </msu-card>
+                
+                <msu-card 
+                    title="Engineering CAD"
+                    description="Create computer-aided designs and technical drawings."
+                    badges='["Inquiry", "Engineering"]'
+                    color-badges='[{"text":"Lab","color":"orange"}]'
+                    href="events/engineering-cad.html">
+                </msu-card>
             </div>
 
             <!-- Life, Personal & Social Science -->
             <h3 style="margin-bottom: var(--space-4); color: var(--color-primary);">Life, Personal & Social Science</h3>
             <div class="grid grid-4" style="margin-bottom: var(--space-8);">
-                <div class="card">
-                    <h4 class="card-title">Anatomy and Physiology</h4>
-                    <p class="card-text">Master human body systems through detailed study and testing.</p>
-                    <span class="purple-badge badge">Test</span>
-                    <span class="badge">Biology</span>
-                </div>
-                <div class="card">
-                    <h4 class="card-title">Disease Detectives</h4>
-                    <p class="card-text">Investigate disease outbreaks and epidemiological patterns.</p>
-                    <span class="purple-badge badge">Test</span>
-                    <span class="badge">Biology</span>
-                </div>
-                <div class="card">
-                    <h4 class="card-title">Designer Genes</h4>
-                    <p class="card-text">Explore molecular biology, genetics, and biotechnology.</p>
-                    <span class="purple-badge badge">Test</span>
-                    <span class="badge">Biology</span>
-                </div>
-                <div class="card">
-                    <h4 class="card-title">Entomology</h4>
-                    <p class="card-text">Study insect classification, ecology, and behavior.</p>
-                    <span class="purple-badge badge">Test</span>
-                    <span class="badge">Biology</span>
-                </div>
-                <div class="card">
-                    <h4 class="card-title">Water Quality</h4>
-                    <p class="card-text">Test and analyze water samples for chemical and biological quality.</p>
-                    <span class="purple-badge badge">Build</span>
-                    <span class="purple-badge badge">Test</span>
-                    <span class="badge">Biology</span>
-                </div>
+                <msu-card
+                    title="Anatomy and Physiology"
+                    description="Master human body systems through detailed study and testing."
+                    badges='["Biology"]'
+                    color-badges='[{"text":"Test","color":"#3b82f6"}]'
+                    href="events/anatomy-and-physiology.html">
+                </msu-card>
+
+                <msu-card
+                    title="Disease Detectives"
+                    description="Investigate disease outbreaks and epidemiological patterns."
+                    badges='["Biology"]'
+                    color-badges='[{"text":"Test","color":"#3b82f6"}]'
+                    href="events/disease-detectives.html">
+                </msu-card>
+
+                <msu-card
+                    title="Designer Genes"
+                    description="Explore molecular biology, genetics, and biotechnology."
+                    badges='["Biology"]'
+                    color-badges='[{"text":"Test","color":"#3b82f6"}]'
+                    href="events/designer-genes.html">
+                </msu-card>
+
+                <msu-card
+                    title="Entomology"
+                    description="Study insect classification, ecology, and behavior."
+                    badges='["Biology"]'
+                    color-badges='[{"text":"Test","color":"#3b82f6"}]'
+                    href="events/entomology.html">
+                </msu-card>
+
+                <msu-card
+                    title="Water Quality"
+                    description="Test and analyze water samples for chemical and biological quality."
+                    badges='["Biology"]'
+                    color-badges='[{"text":"Build","color":"purple"},{"text":"Test","color":"#3b82f6"}]'
+                    href="events/water-quality.html">
+                </msu-card>
             </div>
 
             <!-- Physical Science & Chemistry -->
             <h3 style="margin-bottom: var(--space-4); color: var(--color-primary);">Physical Science & Chemistry</h3>
             <div class="grid grid-4" style="margin-bottom: var(--space-8);">
-                <div class="card">
-                    <h4 class="card-title">Chemistry Lab</h4>
-                    <p class="card-text">Conduct experiments and analyze chemical reactions in real-time.</p>
-                    <span class="purple-badge badge">Lab</span>
-                    <span class="purple-badge badge">Test</span>
-                    <span class="badge">Chemistry</span>
-                </div>
-                <div class="card">
-                    <h4 class="card-title">Circuit Lab</h4>
-                    <p class="card-text">Design and analyze electrical circuits and components.</p>
-                    <span class="purple-badge badge">Lab</span>
-                    <span class="purple-badge badge">Test</span>
-                    <span class="badge">Physics</span>
-                    <span class="badge">Engineering</span>
-                </div>
-                <div class="card">
-                    <h4 class="card-title">Forensics</h4>
-                    <p class="card-text">Analyze evidence and solve crimes using scientific methods.</p>
-                    <span class="purple-badge badge">Lab</span>
-                    <span class="badge">Chemistry</span>
-                </div>
-                <div class="card">
-                    <h4 class="card-title">Hovercraft</h4>
-                    <p class="card-text">Build and race a hovercraft powered by batteries.</p>
-                    <span class="purple-badge badge">Build</span>
-                    <span class="badge">Physics</span>
-                    <span class="badge">Engineering</span>
-                </div>
-                <div class="card">
-                    <h4 class="card-title">Machines</h4>
-                    <p class="card-text">Build a device using simple and compound machines.</p>
-                    <span class="purple-badge badge">Build</span>
-                    <span class="purple-badge badge">Test</span>
-                    <span class="badge">Physics</span>
-                </div>
-                <div class="card">
-                    <h4 class="card-title">Materials Science</h4>
-                    <p class="card-text">Study material properties, structures, and applications.</p>
-                    <span class="purple-badge badge">Lab</span>
-                    <span class="purple-badge badge">Test</span>
-                    <span class="badge">Chemistry</span>
-                </div>
+                <msu-card 
+                    title="Chemistry Lab"
+                    description="Conduct experiments and analyze chemical reactions in real-time."
+                    badges='["Chemistry"]'
+                    color-badges='[{"text":"Lab","color":"orange"},{"text":"Test","color":"#3b82f6"}]'
+                    href="events/chemistry-lab.html">
+                </msu-card>
+                
+                <msu-card 
+                    title="Circuit Lab"
+                    description="Design and analyze electrical circuits and components."
+                    badges='["Physics", "Engineering"]'
+                    color-badges='[{"text":"Lab","color":"orange"},{"text":"Test","color":"#3b82f6"}]'
+                    href="events/circuit-lab.html">
+                </msu-card>
+                
+                <msu-card 
+                    title="Forensics"
+                    description="Analyze evidence and solve crimes using scientific methods."
+                    badges='["Chemistry"]'
+                    color-badges='[{"text":"Lab","color":"orange"}]'
+                    href="events/forensics.html">
+                </msu-card>
+                
+                <msu-card 
+                    title="Hovercraft"
+                    description="Build and race a hovercraft powered by batteries."
+                    badges='["Physics", "Engineering"]'
+                    color-badges='[{"text":"Build","color":"purple"}]'
+                    href="events/hovercraft.html">
+                </msu-card>
+                
+                <msu-card 
+                    title="Machines"
+                    description="Build a device using simple and compound machines."
+                    badges='["Physics"]'
+                    color-badges='[{"text":"Build","color":"purple"},{"text":"Test","color":"#3b82f6"}]'
+                    href="events/machines.html">
+                </msu-card>
+                
+                <msu-card 
+                    title="Materials Science"
+                    description="Study material properties, structures, and applications."
+                    badges='["Chemistry"]'
+                    color-badges='[{"text":"Lab","color":"orange"},{"text":"Test","color":"#3b82f6"}]'
+                    href="events/materials-science.html">
+                </msu-card>
             </div>
 
             <!-- Technology & Engineering -->
             <h3 style="margin-bottom: var(--space-4); color: var(--color-primary);">Technology & Engineering</h3>
             <div class="grid grid-4" style="margin-bottom: var(--space-8);">
-                <div class="card">
-                    <h4 class="card-title">Robot Tour</h4>
-                    <p class="card-text">Design a robot to navigate a course and complete tasks.</p>
-                    <span class="purple-badge badge">Build</span>
-                    <span class="badge">Engineering</span>
-                </div>
-                <div class="card">
-                    <h4 class="card-title">Electric Vehicle</h4>
-                    <p class="card-text">Build an electric vehicle optimized for distance and speed.</p>
-                    <span class="purple-badge badge">Build</span>
-                    <span class="badge">Engineering</span>
-                </div>
-                <div class="card">
-                    <h4 class="card-title">Boomilever</h4>
-                    <p class="card-text">Construct a lightweight cantilever beam to support maximum load.</p>
-                    <span class="purple-badge badge">Build</span>
-                    <span class="badge">Engineering</span>
-                </div>
-                <div class="card">
-                    <h4 class="card-title">Helicopter</h4>
-                    <p class="card-text">Build and fly a rubber-powered helicopter for flight time.</p>
-                    <span class="purple-badge badge">Build</span>
-                    <span class="badge">Engineering</span>
-                </div>
+                <msu-card
+                    title="Robot Tour"
+                    description="Design a robot to navigate a course and complete tasks."
+                    badges='["Engineering"]'
+                    color-badges='[{"text":"Build","color":"purple"}]'
+                    href="events/robot-tour.html">
+                </msu-card>
+
+                <msu-card
+                    title="Electric Vehicle"
+                    description="Build an electric vehicle optimized for distance and speed."
+                    badges='["Engineering"]'
+                    color-badges='[{"text":"Build","color":"purple"}]'
+                    href="events/electric-vehicle.html">
+                </msu-card>
+
+                <msu-card
+                    title="Boomilever"
+                    description="Construct a lightweight cantilever beam to support maximum load."
+                    badges='["Engineering"]'
+                    color-badges='[{"text":"Build","color":"purple"}]'
+                    href="events/boomilever.html">
+                </msu-card>
+
+                <msu-card
+                    title="Helicopter"
+                    description="Build and fly a rubber-powered helicopter for flight time."
+                    badges='["Engineering"]'
+                    color-badges='[{"text":"Build","color":"purple"}]'
+                    href="events/helicopter.html">
+                </msu-card>
             </div>
         </div>
     </section>

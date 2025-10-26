@@ -5,13 +5,13 @@
 
 // Default site-wide navigation links (pages)
 const defaultSiteLinks = [
-    { href: 'index.html', text: 'Home' },
-    { href: 'future.html', text: 'Demo' }
+    { href: '/index.html', text: 'Home' },
+    { href: '/future.html', text: 'Demo' }
 ];
 
 // Global configuration
 const siteConfig = {
-    brandName: 'MSU SciOly',
+    brandName: 'MSU SO',
     email: 'scioly@msuso.org',
     description: 'Supporting Michigan Science Olympiad through tournament volunteering, resources, and community building.'
 };

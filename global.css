@@ -607,30 +607,6 @@ strong, b {
     margin: 0 auto var(--space-8);
 }
 
-/* Badge */
-.badge {
-    display: inline-block;
-    padding: var(--space-1) var(--space-3);
-    font-size: var(--font-size-sm);
-    font-weight: var(--font-weight-medium);
-    border-radius: var(--radius-full);
-    background-color: var(--color-primary-light);
-    color: var(--color-primary);
-}
-
-/* Badge color variants */
-.purple-badge {
-    background-color: var(--color-purple-100);
-    color: var(--color-purple-700);
-    border: 1px solid rgba(109,40,217,0.28);
-}
-
-.orange-badge {
-    background-color: var(--color-orange-100);
-    color: var(--color-orange-700);
-    border: 1px solid rgba(180,83,9,0.28);
-}
-
 /* Dark theme adjustments for badges */
 [data-theme="dark"] .purple-badge {
     background: linear-gradient(90deg, rgba(109,40,217,0.28), rgba(159,122,234,0.28));
@@ -642,6 +618,14 @@ strong, b {
     background: linear-gradient(90deg, rgba(180,83,9,0.28), rgba(245,158,11,0.28));
     color: var(--color-white);
     border-color: rgba(245,158,11,0.08);
+}
+
+/* Card badges container */
+.card-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+    margin-top: var(--space-3);
 }
 
 /* Theme Toggle Button */

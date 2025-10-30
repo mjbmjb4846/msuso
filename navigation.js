@@ -259,29 +259,71 @@ customElements.define('msu-navbar', MsuNavbar);
 customElements.define('msu-footer', MsuFooter);
 
 /**
- * Setup smooth scrolling for all anchor links
+ * Setup link handling with smart fallback for .html extensions
+ * - On production (GitHub Pages): links work without .html
+ * - In local testing: links try without .html first, then fall back to .html
  */
-function setupSmoothScrolling() {
-    // Use event delegation for dynamically added links
+function setupLinkHandling() {
     document.addEventListener('click', (e) => {
-        const link = e.target.closest('a[href^="#"]');
-        if (link) {
+        const link = e.target.closest('a[href]');
+        if (!link) return;
+        
+        const href = link.getAttribute('href');
+        
+        // Handle anchor links (smooth scroll)
+        if (href.startsWith('#')) {
             e.preventDefault();
-            const target = document.querySelector(link.getAttribute('href'));
+            const target = document.querySelector(href);
             if (target) {
                 target.scrollIntoView({
                     behavior: 'smooth',
                     block: 'start'
                 });
             }
+            return;
+        }
+        
+        // Handle page links with smart .html fallback
+        if (!href.startsWith('http') && !href.startsWith('mailto:')) {
+            e.preventDefault();
+            attemptNavigation(href);
         }
     });
 }
 
-// Initialize smooth scrolling when DOM is ready
+/**
+ * Attempt to navigate to a URL with smart .html fallback
+ * Strategy: Try clean URL first (production/GitHub Pages), then fall back to .html (local testing)
+ * This allows links to work seamlessly in both production and local testing
+ */
+async function attemptNavigation(url) {
+    // Remove .html extension if present to get the clean URL
+    let cleanUrl = url;
+    if (url.endsWith('.html')) {
+        cleanUrl = url.slice(0, -5); // Remove '.html' from end
+    }
+    
+    // Try clean URL first (works on GitHub Pages)
+    try {
+        const response = await fetch(cleanUrl, { method: 'HEAD' });
+        if (response.ok || response.status === 405) {
+            // 200 OK or 405 Method Not Allowed - file exists
+            window.location.href = cleanUrl;
+            return;
+        }
+    } catch (e) {
+        // Network error or file not found - will try fallback
+    }
+    
+    // Fallback: try with .html (local testing scenario)
+    const urlWithHtml = cleanUrl.endsWith('/') ? cleanUrl + 'index.html' : cleanUrl + '.html';
+    window.location.href = urlWithHtml;
+}
+
+// Initialize link handling and smooth scrolling when DOM is ready
 if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', setupSmoothScrolling);
+    document.addEventListener('DOMContentLoaded', setupLinkHandling);
 } else {
-    setupSmoothScrolling();
+    setupLinkHandling();
 }
 

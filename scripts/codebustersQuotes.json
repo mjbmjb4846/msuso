@@ -1,0 +1,828 @@
+{
+  "cypherTypes": [
+    {
+      "cipher": "Aristocrat",
+      "level": ["b", "c"],
+      "competition": ["regional", "state", "national"]
+    },
+    {
+      "cipher": "Patristocrat",
+      "level": ["b", "c"],
+      "competition": ["regional", "state", "national"]
+    },
+    {
+      "cipher": "Xenocrypt (Spanish)",
+      "level": ["b", "c"],
+      "competition": ["regional", "state", "national"]
+    },
+    {
+      "cipher": "Baconian Cipher",
+      "level": ["b", "c"],
+      "competition": ["regional", "state", "national"]
+    },
+    {
+      "cipher": "Fractionated Morse Cipher",
+      "level": ["b", "c"],
+      "competition": ["regional", "state", "national"]
+    },
+    {
+      "cipher": "Cryptarithms",
+      "level": ["b", "c"],
+      "competition": ["regional", "state", "national"]
+    },
+    {
+      "cipher": "Porta Cipher",
+      "level": ["b", "c"],
+      "competition": ["regional", "state", "national"]
+    },
+    {
+      "cipher": "Complete Columnar Transposition Cipher (≤9 columns)",
+      "level": ["b", "c"],
+      "competition": ["regional"]
+    },
+    {
+      "cipher": "Nihilist Cipher",
+      "level": ["b", "c"],
+      "competition": ["regional"]
+    },
+    {
+      "cipher": "Hill Cipher (2x2 encryption matrix)",
+      "level": ["b", "c"],
+      "competition": ["regional"]
+    },
+    {
+      "cipher": "5x5 Checkerboard Cipher",
+      "level": ["b", "c"],
+      "competition": ["regional"]
+    },
+    {
+      "cipher": "Cryptanalysis of the Porta Cipher with a crib",
+      "level": ["b", "c"],
+      "competition": ["state", "national"]
+    },
+    {
+      "cipher": "Hill Cipher (3x3 decryption matrix)",
+      "level": ["b", "c"],
+      "competition": ["state", "national"]
+    },
+    {
+      "cipher": "Cryptanalysis of the Nihilist Cipher with a crib",
+      "level": ["b", "c"],
+      "competition": ["state", "national"]
+    },
+    {
+      "cipher": "Cryptanalysis of the Complete Columnar Transposition Cipher (≤11 columns)",
+      "level": ["b", "c"],
+      "competition": ["state", "national"]
+    },
+    {
+      "cipher": "Cryptanalysis of the 5x5 Checkerboard Cipher",
+      "level": ["b", "c"],
+      "competition": ["state", "national"]
+    }
+  ],
+  "quotes": [
+    {
+      "author": "Albert Einstein",
+      "difficulty": 2,
+      "quote": "Life is like riding a bicycle. To keep your balance, you must keep moving.",
+      "hint": "A quote about balance and motion by a famous physicist",
+      "cipherTypes": ["aristocrat", "patristocrat", "baconian", "xenocrypt"]
+    },
+    {
+      "author": "Stephen Hawking",
+      "difficulty": 3,
+      "quote": "Remember to look up at the stars and not down at your feet.",
+      "hint": "Look upward - wisdom from a renowned cosmologist",
+      "cipherTypes": ["aristocrat", "patristocrat", "baconian"]
+    },
+    {
+      "author": "Marie Curie",
+      "difficulty": 2,
+      "quote": "Nothing in life is to be feared, it is only to be understood.",
+      "hint": "A message about understanding from a pioneering scientist",
+      "cipherTypes": ["aristocrat", "patristocrat", "baconian", "xenocrypt"]
+    },
+    {
+      "author": "Carl Sagan",
+      "difficulty": 3,
+      "quote": "Somewhere, something incredible is waiting to be known.",
+      "hint": "Discovery awaits - words from an astronomer",
+      "cipherTypes": ["aristocrat", "patristocrat", "baconian"]
+    },
+    {
+      "author": "Nikola Tesla",
+      "difficulty": 3,
+      "quote": "The present is theirs; the future, for which I really worked, is mine.",
+      "hint": "An inventor reflects on time and legacy",
+      "cipherTypes": ["aristocrat", "patristocrat", "baconian", "xenocrypt"]
+    },
+    {
+      "author": "Richard Feynman",
+      "difficulty": 2,
+      "quote": "The first principle is that you must not fool yourself.",
+      "hint": "Honesty in thinking - from a legendary physicist",
+      "cipherTypes": ["aristocrat", "patristocrat", "baconian"]
+    },
+    {
+      "author": "Galileo Galilei",
+      "difficulty": 3,
+      "quote": "Passion is the genesis of genius.",
+      "hint": "Ancient wisdom about inspiration and talent",
+      "cipherTypes": ["aristocrat", "patristocrat", "baconian", "xenocrypt"]
+    },
+    {
+      "author": "Jane Goodall",
+      "difficulty": 2,
+      "quote": "What you do makes a difference, and you have to decide what kind of difference you want to make.",
+      "hint": "About impact and choice from a conservationist",
+      "cipherTypes": ["aristocrat", "patristocrat", "baconian"]
+    },
+    {
+      "author": "Bill Nye",
+      "difficulty": 1,
+      "quote": "Science rules!",
+      "hint": "A famous catchphrase about science",
+      "cipherTypes": ["aristocrat", "patristocrat", "baconian", "xenocrypt"]
+    },
+    {
+      "author": "Isaac Newton",
+      "difficulty": 3,
+      "quote": "If I have seen further, it is by standing on the shoulders of giants.",
+      "hint": "Gratitude for those who came before",
+      "cipherTypes": ["aristocrat", "patristocrat", "baconian"]
+    },
+    {
+      "author": "Dorothy Hodgkin",
+      "difficulty": 4,
+      "quote": "You look at science or at least talk of it as something very complicated.",
+      "hint": "A chemist questions perception of science",
+      "cipherTypes": ["aristocrat", "patristocrat", "baconian", "xenocrypt"]
+    },
+    {
+      "author": "Rosalind Franklin",
+      "difficulty": 3,
+      "quote": "You look at science or at least talk of it as something very complicated.",
+      "hint": "Scientific complexity - from a pioneering chemist",
+      "cipherTypes": ["aristocrat", "patristocrat", "baconian", "xenocrypt"]
+    },
+    {
+      "author": "Steve Jobs",
+      "difficulty": 2,
+      "quote": "Innovation distinguishes between a leader and a follower.",
+      "hint": "About the power of innovation",
+      "cipherTypes": ["aristocrat", "patristocrat", "baconian"]
+    },
+    {
+      "author": "Grace Hopper",
+      "difficulty": 3,
+      "quote": "The most dangerous phrase in the language is, 'We've always done it this way.'",
+      "hint": "A computer pioneer questions tradition",
+      "cipherTypes": ["aristocrat", "patristocrat", "baconian", "xenocrypt"]
+    },
+    {
+      "author": "Neil deGrasse Tyson",
+      "difficulty": 2,
+      "quote": "The Universe is a pretty big place. If it's just us, seems like an awful waste of space.",
+      "hint": "Cosmic perspective on existence",
+      "cipherTypes": ["aristocrat", "patristocrat", "baconian"]
+    },
+    {
+      "author": "Rachel Carson",
+      "difficulty": 3,
+      "quote": "In every outthrust headland, in every curving beach, in every grain of sand there is the story of the earth.",
+      "hint": "Nature's narrative - from an environmental writer",
+      "cipherTypes": ["aristocrat", "patristocrat", "baconian"]
+    },
+    {
+      "author": "Elon Musk",
+      "difficulty": 2,
+      "quote": "When something is important enough, you do it even if the odds are not in your favor.",
+      "hint": "Determination in the face of difficulty",
+      "cipherTypes": ["aristocrat", "patristocrat", "baconian", "xenocrypt"]
+    },
+    {
+      "author": "Katherine Johnson",
+      "difficulty": 2,
+      "quote": "We counted. We computed. We analyzed. We launched.",
+      "hint": "A mathematician describes space exploration",
+      "cipherTypes": ["aristocrat", "patristocrat", "baconian"]
+    },
+    {
+      "author": "Hedy Lamarr",
+      "difficulty": 3,
+      "quote": "Most women would like to be prettier than they are. Most men would like to be richer than they are.",
+      "hint": "Social commentary from an actress-inventor",
+      "cipherTypes": ["aristocrat", "patristocrat", "baconian", "xenocrypt"]
+    },
+    {
+      "author": "Alan Turing",
+      "difficulty": 4,
+      "quote": "Can a machine think? This question may be compared with the question, 'Can a machine swim?'",
+      "hint": "A computer pioneer questions machine consciousness",
+      "cipherTypes": ["aristocrat", "patristocrat", "baconian"]
+    },
+    {
+      "author": "Vera Rubin",
+      "difficulty": 3,
+      "quote": "Science is something very human. It's done by human beings who have real personalities and real lives.",
+      "hint": "Humanizing science from an astronomer",
+      "cipherTypes": ["aristocrat", "patristocrat", "baconian"]
+    },
+    {
+      "author": "Hidden Figures",
+      "difficulty": 3,
+      "quote": "We have a problem and we are going to solve it.",
+      "hint": "Determination from a famous film about scientists",
+      "cipherTypes": ["aristocrat", "patristocrat", "baconian", "xenocrypt"]
+    },
+    {
+      "author": "Back to the Future",
+      "difficulty": 2,
+      "quote": "Where we are going, we do not need roads.",
+      "hint": "A legendary line from a time-travel movie",
+      "cipherTypes": ["aristocrat", "patristocrat", "baconian"]
+    },
+    {
+      "author": "The Martian",
+      "difficulty": 2,
+      "quote": "I am going to have to science the heck out of this.",
+      "hint": "Problem-solving on Mars from a film",
+      "cipherTypes": ["aristocrat", "patristocrat", "baconian", "xenocrypt"]
+    },
+    {
+      "author": "Dylan Thomas / Interstellar",
+      "difficulty": 2,
+      "quote": "Do not go gentle into that good night.",
+      "hint": "A famous poem quoted in a space film",
+      "cipherTypes": ["aristocrat", "patristocrat", "baconian"]
+    },
+    {
+      "author": "The Big Bang Theory",
+      "difficulty": 3,
+      "quote": "Bazinga!",
+      "hint": "A catchphrase from a TV show about scientists",
+      "cipherTypes": ["aristocrat", "patristocrat", "baconian", "xenocrypt"]
+    },
+    {
+      "author": "Benjamin Franklin",
+      "difficulty": 2,
+      "quote": "Tell me and I forget, teach me and I may remember, involve me and I learn.",
+      "hint": "About learning methods from a founding father",
+      "cipherTypes": ["aristocrat", "patristocrat", "baconian"]
+    },
+    {
+      "author": "Carl Sagan",
+      "difficulty": 4,
+      "quote": "For small creatures such as we, the vastness is bearable only through love.",
+      "hint": "Deep thoughts on love and scale",
+      "cipherTypes": ["aristocrat", "patristocrat", "baconian"]
+    },
+    {
+      "author": "Ada Lovelace",
+      "difficulty": 3,
+      "quote": "The Analytical Engine has no pretensions whatever to originate anything. It can only do what we know how to order it to perform.",
+      "hint": "An early computer programmer's insight",
+      "cipherTypes": ["aristocrat", "patristocrat", "baconian"]
+    },
+    {
+      "author": "Richard Dawkins",
+      "difficulty": 3,
+      "quote": "The universe does not have a purpose, but we do.",
+      "hint": "Meaning-making from an evolutionary biologist",
+      "cipherTypes": ["aristocrat", "patristocrat", "baconian", "xenocrypt"]
+    },
+    {
+      "author": "Walt Disney",
+      "difficulty": 2,
+      "quote": "All our dreams can come true, if we have the courage to pursue them.",
+      "hint": "Dreams and courage from an animation pioneer",
+      "cipherTypes": ["aristocrat", "patristocrat", "baconian"]
+    },
+    {
+      "author": "The Emperor (Mulan)",
+      "difficulty": 2,
+      "quote": "The flower that blooms in adversity is the most rare and beautiful of all.",
+      "hint": "Sage advice from an emperor in a Disney film",
+      "cipherTypes": ["aristocrat", "patristocrat", "baconian", "xenocrypt"]
+    },
+    {
+      "author": "Rafiki (The Lion King)",
+      "difficulty": 3,
+      "quote": "Oh yes, the past can hurt. But from the way I see it, you can either run from it or learn from it.",
+      "hint": "A wise mandrill in the savanna",
+      "cipherTypes": ["aristocrat", "patristocrat", "baconian"]
+    },
+    {
+      "author": "Moana",
+      "difficulty": 1,
+      "quote": "The ocean chose you for a reason.",
+      "hint": "A girl called by the sea",
+      "cipherTypes": ["aristocrat", "patristocrat", "baconian"]
+    },
+    {
+      "author": "Anton Ego (Ratatouille)",
+      "difficulty": 2,
+      "quote": "Not everyone can become a great artist, but a great artist can come from anywhere.",
+      "hint": "A food critic changes his mind",
+      "cipherTypes": ["aristocrat", "patristocrat", "baconian", "xenocrypt"]
+    },
+    {
+      "author": "Edna Mode (The Incredibles)",
+      "difficulty": 1,
+      "quote": "I never look back, darling. It distracts from the now.",
+      "hint": "A superhero costume designer's mantra",
+      "cipherTypes": ["aristocrat", "patristocrat", "baconian"]
+    },
+    {
+      "author": "Gandalf (The Lord of the Rings)",
+      "difficulty": 2,
+      "quote": "All we have to decide is what to do with the time that is given us.",
+      "hint": "Guidance from a gray wizard",
+      "cipherTypes": ["aristocrat", "patristocrat", "baconian"]
+    },
+    {
+      "author": "Samwise Gamgee (The Lord of the Rings)",
+      "difficulty": 2,
+      "quote": "There's some good in this world, and it's worth fighting for.",
+      "hint": "Hope from a faithful friend",
+      "cipherTypes": ["aristocrat", "patristocrat", "baconian"]
+    },
+    {
+      "author": "Aragorn (The Lord of the Rings)",
+      "difficulty": 3,
+      "quote": "A day may come when the courage of men fails, but it is not this day.",
+      "hint": "A king rallies his army",
+      "cipherTypes": ["aristocrat", "patristocrat", "baconian"]
+    },
+    {
+      "author": "J. R. R. Tolkien",
+      "difficulty": 3,
+      "quote": "Faithless is he that says farewell when the road darkens.",
+      "hint": "A line from a fantasy epic's verse",
+      "cipherTypes": ["aristocrat", "patristocrat", "baconian", "xenocrypt"]
+    },
+    {
+      "author": "Martin Luther King Jr.",
+      "difficulty": 2,
+      "quote": "The arc of the moral universe is long, but it bends toward justice.",
+      "hint": "A civil rights leader on justice",
+      "cipherTypes": ["aristocrat", "patristocrat", "baconian", "xenocrypt"]
+    },
+    {
+      "author": "John F. Kennedy",
+      "difficulty": 3,
+      "quote": "We choose to go to the Moon in this decade not because it is easy, but because it is hard.",
+      "hint": "A presidential pledge about space",
+      "cipherTypes": ["aristocrat", "patristocrat", "baconian"]
+    },
+    {
+      "author": "Barack Obama",
+      "difficulty": 2,
+      "quote": "If you're walking down the right path and you're willing to keep walking, eventually you'll make progress.",
+      "hint": "Perseverance from a modern president",
+      "cipherTypes": ["aristocrat", "patristocrat", "baconian", "xenocrypt"]
+    },
+    {
+      "author": "Winston Churchill",
+      "difficulty": 3,
+      "quote": "Success is not final, failure is not fatal: it is the courage to continue that counts.",
+      "hint": "Resolve in the face of adversity",
+      "cipherTypes": ["aristocrat", "patristocrat", "baconian"]
+    },
+    {
+      "author": "Eleanor Roosevelt",
+      "difficulty": 2,
+      "quote": "The future belongs to those who believe in the beauty of their dreams.",
+      "hint": "Optimism from a First Lady",
+      "cipherTypes": ["aristocrat", "patristocrat", "baconian", "xenocrypt"]
+    },
+    {
+      "author": "Maya Angelou",
+      "difficulty": 2,
+      "quote": "You will face many defeats in life, but never let yourself be defeated.",
+      "hint": "Resilience from a celebrated poet",
+      "cipherTypes": ["aristocrat", "patristocrat", "baconian", "xenocrypt"]
+    },
+    {
+      "author": "Confucius",
+      "difficulty": 2,
+      "quote": "It does not matter how slowly you go as long as you do not stop.",
+      "hint": "Steady progress from an ancient philosopher",
+      "cipherTypes": ["aristocrat", "patristocrat", "baconian"]
+    },
+    {
+      "author": "Socrates",
+      "difficulty": 3,
+      "quote": "The only true wisdom is in knowing you know nothing.",
+      "hint": "Humility from a classical thinker",
+      "cipherTypes": ["aristocrat", "patristocrat", "baconian", "xenocrypt"]
+    },
+    {
+      "author": "Mahatma Gandhi",
+      "difficulty": 3,
+      "quote": "The best way to find yourself is to lose yourself in the service of others.",
+      "hint": "Service and self-discovery from a peacemaker",
+      "cipherTypes": ["aristocrat", "patristocrat", "baconian"]
+    },
+    {
+      "author": "Malala Yousafzai",
+      "difficulty": 2,
+      "quote": "One child, one teacher, one book, and one pen can change the world.",
+      "hint": "Education can transform the world",
+      "cipherTypes": ["aristocrat", "patristocrat", "baconian", "xenocrypt"]
+    },
+    {
+      "author": "Neil Armstrong",
+      "difficulty":1,
+      "quote": "That's one small step for man, one giant leap for mankind.",
+      "hint": "First words from the Moon",
+      "cipherTypes": ["aristocrat", "patristocrat", "baconian"]
+    },
+    {
+      "author": "Sally Ride",
+      "difficulty": 2,
+      "quote": "Science is fun. Science is curiosity. We all have natural curiosity.",
+      "hint": "America's first woman in space on curiosity",
+      "cipherTypes": ["aristocrat", "patristocrat", "baconian", "xenocrypt"]
+    },
+    {
+      "author": "Tim Berners-Lee",
+      "difficulty": 2,
+      "quote": "The Web does not just connect machines, it connects people.",
+      "hint": "The inventor of the World Wide Web on connection",
+      "cipherTypes": ["aristocrat", "patristocrat", "baconian"]
+    },
+    {
+      "author": "Niels Bohr",
+      "difficulty": 3,
+      "quote": "An expert is a person who has made all the mistakes that can be made in a very narrow field.",
+      "hint": "On expertise from a Nobel laureate in physics",
+      "cipherTypes": ["aristocrat", "patristocrat", "baconian", "xenocrypt"]
+    },
+    {
+      "author": "Florence Nightingale",
+      "difficulty": 2,
+      "quote": "I attribute my success to this: I never gave or took an excuse.",
+      "hint": "Determination from the founder of modern nursing",
+      "cipherTypes": ["aristocrat", "patristocrat", "baconian"]
+    },
+    {
+      "author": "Leonardo da Vinci",
+      "difficulty": 2,
+      "quote": "Simplicity is the ultimate sophistication.",
+      "hint": "A Renaissance polymath on elegant design",
+      "cipherTypes": ["aristocrat", "patristocrat", "baconian"]
+    },
+    {
+      "author": "Thomas Edison",
+      "difficulty": 2,
+      "quote": "Genius is one percent inspiration and ninety-nine percent perspiration.",
+      "hint": "An inventor on work and inspiration",
+      "cipherTypes": ["aristocrat", "patristocrat", "baconian", "xenocrypt"]
+    },
+    {
+      "author": "Donald Knuth",
+      "difficulty": 3,
+      "quote": "Premature optimization is the root of all evil.",
+      "hint": "A computer scientist warns about priorities",
+      "cipherTypes": ["aristocrat", "patristocrat", "baconian"]
+    },
+    {
+      "author": "Linus Torvalds",
+      "difficulty": 2,
+      "quote": "Talk is cheap. Show me the code.",
+      "hint": "Open-source pioneer on action over words",
+      "cipherTypes": ["aristocrat", "patristocrat", "baconian"]
+    },
+    {
+      "author": "Claude Shannon",
+      "difficulty": 3,
+      "quote": "Information is the resolution of uncertainty.",
+      "hint": "The father of information theory on information",
+      "cipherTypes": ["aristocrat", "patristocrat", "baconian", "xenocrypt"]
+    },
+    {
+      "author": "Yoda (Star Wars)",
+      "difficulty": 1,
+      "quote": "Do or do not. There is no try.",
+      "hint": "A Jedi Master's concise advice",
+      "cipherTypes": ["aristocrat", "patristocrat", "baconian"]
+    },
+    {
+      "author": "Spock (Star Trek)",
+      "difficulty": 1,
+      "quote": "Live long and prosper.",
+      "hint": "A Vulcan salute in words",
+      "cipherTypes": ["aristocrat", "patristocrat", "baconian", "xenocrypt"]
+    },
+    {
+      "author": "The Matrix",
+      "difficulty": 1,
+      "quote": "There is no spoon.",
+      "hint": "A mind-bending lesson from a sci-fi film",
+      "cipherTypes": ["aristocrat", "patristocrat", "baconian"]
+    },
+    {
+      "author": "Albus Dumbledore",
+      "difficulty": 3,
+      "quote": "It is our choices that show what we truly are, far more than our abilities.",
+      "hint": "Wisdom from a headmaster about character",
+      "cipherTypes": ["aristocrat", "patristocrat", "baconian"]
+    },
+    {
+      "author": "Harvey Dent (The Dark Knight)",
+      "difficulty": 3,
+      "quote": "You either die a hero or live long enough to see yourself become the villain.",
+      "hint": "A stark line about heroism and time",
+      "cipherTypes": ["aristocrat", "patristocrat", "baconian", "xenocrypt"]
+    },
+    {
+      "author": "Tony Stark (Iron Man)",
+      "difficulty": 2,
+      "quote": "Sometimes you gotta run before you can walk.",
+      "hint": "A futurist pushes to move fast",
+      "cipherTypes": ["aristocrat", "patristocrat", "baconian"]
+    },
+    {
+      "author": "The Mandalorian",
+      "difficulty": 1,
+      "quote": "This is the way.",
+      "hint": "A creed repeated by armored warriors",
+      "cipherTypes": ["aristocrat", "patristocrat", "baconian", "xenocrypt"]
+    },
+    {
+      "author": "Gene Kranz (Apollo 13)",
+      "difficulty": 2,
+      "quote": "Failure is not an option.",
+      "hint": "A mission control mantra",
+      "cipherTypes": ["aristocrat", "patristocrat", "baconian"]
+    },
+    {
+      "author": "Mae Jemison",
+      "difficulty": 2,
+      "quote": "Never limit yourself because of others' limited imagination.",
+      "hint": "An astronaut on self-belief and vision",
+      "cipherTypes": ["aristocrat", "patristocrat", "baconian", "xenocrypt"]
+    },
+    {
+      "author": "John Muir",
+      "difficulty": 1,
+      "quote": "The mountains are calling and I must go.",
+      "hint": "A naturalist hears the call of wild places",
+      "cipherTypes": ["aristocrat", "patristocrat", "baconian"]
+    },
+    {
+      "author": "Jane Austen",
+      "difficulty": 2,
+      "quote": "There is no charm equal to tenderness of heart.",
+      "hint": "A novelist on kindness and character",
+      "cipherTypes": ["aristocrat", "patristocrat", "baconian", "xenocrypt"]
+    },
+    {
+      "author": "Aristotle",
+      "difficulty": 3,
+      "quote": "We are what we repeatedly do. Excellence, then, is not an act, but a habit.",
+      "hint": "Ancient philosophy on practice and excellence",
+      "cipherTypes": ["aristocrat", "patristocrat", "baconian"]
+    },
+    {
+      "author": "Plato",
+      "difficulty": 2,
+      "quote": "The beginning is the most important part of the work.",
+      "hint": "A philosopher emphasizes strong starts",
+      "cipherTypes": ["aristocrat", "patristocrat", "baconian", "xenocrypt"]
+    },
+    {
+      "author": "Archimedes",
+      "difficulty": 3,
+      "quote": "Give me a lever long enough and a fulcrum on which to place it, and I shall move the world.",
+      "hint": "A physicist on leverage and possibility",
+      "cipherTypes": ["aristocrat", "patristocrat", "baconian"]
+    },
+    {
+      "author": "Hypatia",
+      "difficulty": 4,
+      "quote": "Reserve your right to think, for even to think wrongly is better than not to think at all.",
+      "hint": "A scholar defends independent thought",
+      "cipherTypes": ["aristocrat", "patristocrat", "baconian", "xenocrypt"]
+    },
+    {
+      "author": "Arthur C. Clarke",
+      "difficulty": 2,
+      "quote": "Any sufficiently advanced technology is indistinguishable from magic.",
+      "hint": "One of Clarke's three laws",
+      "cipherTypes": ["aristocrat", "patristocrat", "baconian"]
+    },
+    {
+      "author": "Isaac Asimov",
+      "difficulty": 3,
+      "quote": "Science gathers knowledge faster than society gathers wisdom.",
+      "hint": "A writer reflects on progress and prudence",
+      "cipherTypes": ["aristocrat", "patristocrat", "baconian", "xenocrypt"]
+    },
+    {
+      "author": "Margaret Mead",
+      "difficulty": 2,
+      "quote": "Never doubt that a small group of thoughtful, committed citizens can change the world; indeed, it is the only thing that ever has.",
+      "hint": "An anthropologist on the power of groups",
+      "cipherTypes": ["aristocrat", "patristocrat", "baconian"]
+    },
+    {
+      "author": "Alan Kay",
+      "difficulty": 2,
+      "quote": "The best way to predict the future is to invent it.",
+      "hint": "A computer pioneer on building tomorrow",
+      "cipherTypes": ["aristocrat", "patristocrat", "baconian", "xenocrypt"]
+    },
+    {
+      "author": "Henry Ford",
+      "difficulty": 2,
+      "quote": "Whether you think you can, or you think you can't, you're right.",
+      "hint": "Mindset from an industrial innovator",
+      "cipherTypes": ["aristocrat", "patristocrat", "baconian"]
+    },
+    {
+      "author": "Ian Malcolm (Jurassic Park)",
+      "difficulty": 1,
+      "quote": "Life finds a way.",
+      "hint": "A chaotician's famous line",
+      "cipherTypes": ["aristocrat", "patristocrat", "baconian", "xenocrypt"]
+    },
+    {
+      "author": "George Orwell",
+      "difficulty": 3,
+      "quote": "Who controls the past controls the future. Who controls the present controls the past.",
+      "hint": "A warning from 1984 about power and history",
+      "cipherTypes": ["aristocrat", "patristocrat", "baconian"]
+    },
+    {
+      "author": "Aldous Huxley",
+      "difficulty": 2,
+      "quote": "Community, Identity, Stability.",
+      "hint": "The motto of a manufactured society",
+      "cipherTypes": ["aristocrat", "patristocrat", "baconian", "xenocrypt"]
+    },
+    {
+      "author": "Aldous Huxley",
+      "difficulty": 2,
+      "quote": "Facts do not cease to exist because they are ignored.",
+      "hint": "Truth persists even when overlooked",
+      "cipherTypes": ["aristocrat", "patristocrat", "baconian"]
+    },
+    {
+      "author": "Margaret Atwood",
+      "difficulty": 3,
+      "quote": "Better never means better for everyone. It always means worse for some.",
+      "hint": "Unequal outcomes in a controlled society",
+      "cipherTypes": ["aristocrat", "patristocrat", "baconian", "xenocrypt"]
+    },
+    {
+      "author": "Ray Bradbury",
+      "difficulty": 2,
+      "quote": "It was a pleasure to burn.",
+      "hint": "A stark opening line about censorship",
+      "cipherTypes": ["aristocrat", "patristocrat", "baconian"]
+    },
+    {
+      "author": "Suzanne Collins",
+      "difficulty": 1,
+      "quote": "May the odds be ever in your favor.",
+      "hint": "A televised ritual's chilling catchphrase",
+      "cipherTypes": ["aristocrat", "patristocrat", "baconian", "xenocrypt"]
+    },
+    {
+      "author": "Lois Lowry",
+      "difficulty": 2,
+      "quote": "We gained control of many things. But we had to let go of others.",
+      "hint": "The cost of sameness in a controlled world",
+      "cipherTypes": ["aristocrat", "patristocrat", "baconian"]
+    },
+    {
+      "author": "Veronica Roth",
+      "difficulty": 3,
+      "quote": "Becoming fearless isn't the point. That's impossible. It's learning how to control your fear.",
+      "hint": "Courage defined in a factioned city",
+      "cipherTypes": ["aristocrat", "patristocrat", "baconian", "xenocrypt"]
+    },
+    {
+      "author": "Cormac McCarthy",
+      "difficulty": 3,
+      "quote": "You forget what you want to remember, and you remember what you want to forget.",
+      "hint": "Memory in a bleak journey",
+      "cipherTypes": ["aristocrat", "patristocrat", "baconian"]
+    },
+    {
+      "author": "Philip K. Dick",
+      "difficulty": 3,
+      "quote": "Reality is that which, when you stop believing in it, doesn't go away.",
+      "hint": "A mind-bending definition of reality",
+      "cipherTypes": ["aristocrat", "patristocrat", "baconian", "xenocrypt"]
+    },
+    {
+      "author": "Frank Herbert",
+      "difficulty": 3,
+      "quote": "Fear is the mind-killer.",
+      "hint": "A line from the Bene Gesserit litany",
+      "cipherTypes": ["aristocrat", "patristocrat", "baconian"]
+    },
+    {
+      "author": "Ursula K. Le Guin",
+      "difficulty": 3,
+      "quote": "It is good to have an end to journey toward; but it is the journey that matters, in the end.",
+      "hint": "Wisdom on goals and journeys from a sci-fi master",
+      "cipherTypes": ["aristocrat", "patristocrat", "baconian", "xenocrypt"]
+    },
+    {
+      "author": "Robert A. Heinlein",
+      "difficulty": 4,
+      "quote": "Specialization is for insects.",
+      "hint": "A polymath's creed from a classic author",
+      "cipherTypes": ["aristocrat", "patristocrat", "baconian"]
+    },
+    {
+      "author": "Octavia E. Butler",
+      "difficulty": 2,
+      "quote": "All that you Touch You Change. All that you Change Changes you.",
+      "hint": "Interdependence in a parable of change",
+      "cipherTypes": ["aristocrat", "patristocrat", "baconian", "xenocrypt"]
+    },
+    {
+      "author": "William Gibson",
+      "difficulty": 2,
+      "quote": "The future is already here—it's just not evenly distributed.",
+      "hint": "On uneven arrival of the future from a cyberpunk pioneer",
+      "cipherTypes": ["aristocrat", "patristocrat", "baconian"]
+    },
+    {
+      "author": "Dory (Finding Nemo)",
+      "difficulty": 1,
+      "quote": "Just keep swimming.",
+      "hint": "A fish's simple persistence mantra",
+      "cipherTypes": ["aristocrat", "patristocrat", "baconian", "xenocrypt"]
+    },
+    {
+      "author": "Buzz Lightyear (Toy Story)",
+      "difficulty": 1,
+      "quote": "To infinity and beyond!",
+      "hint": "A space ranger's battle cry",
+      "cipherTypes": ["aristocrat", "patristocrat", "baconian"]
+    },
+    {
+      "author": "Olaf (Frozen)",
+      "difficulty": 2,
+      "quote": "Some people are worth melting for.",
+      "hint": "A snowman's warmhearted line",
+      "cipherTypes": ["aristocrat", "patristocrat", "baconian", "xenocrypt"]
+    },
+    {
+      "author": "Ellie (Up)",
+      "difficulty": 1,
+      "quote": "Adventure is out there!",
+      "hint": "A rallying cry from a book of dreams",
+      "cipherTypes": ["aristocrat", "patristocrat", "baconian"]
+    },
+    {
+      "author": "Lilo & Stitch",
+      "difficulty": 2,
+      "quote": "Ohana means family. Family means nobody gets left behind or forgotten.",
+      "hint": "A Hawaiian lesson on belonging",
+      "cipherTypes": ["aristocrat", "patristocrat", "baconian", "xenocrypt"]
+    },
+    {
+      "author": "Seneca",
+      "difficulty": 2,
+      "quote": "Luck is what happens when preparation meets opportunity.",
+      "hint": "Stoic wisdom on making your own luck",
+      "cipherTypes": ["aristocrat", "patristocrat", "baconian"]
+    },
+    {
+      "author": "Amelia Earhart",
+      "difficulty": 2,
+      "quote": "The most effective way to do it, is to do it.",
+      "hint": "An aviator's take on action",
+      "cipherTypes": ["aristocrat", "patristocrat", "baconian", "xenocrypt"]
+    },
+    {
+      "author": "W. Edwards Deming",
+      "difficulty": 2,
+      "quote": "In God we trust; all others must bring data.",
+      "hint": "Quality guru's demand for evidence",
+      "cipherTypes": ["aristocrat", "patristocrat", "baconian"]
+    },
+    {
+      "author": "Peter Drucker",
+      "difficulty": 2,
+      "quote": "What gets measured gets managed.",
+      "hint": "Management insight on metrics and behavior",
+      "cipherTypes": ["aristocrat", "patristocrat", "baconian", "xenocrypt"]
+    },
+    {
+      "author": "Rumi",
+      "difficulty": 2,
+      "quote": "What you seek is seeking you.",
+      "hint": "A mystic poet on attraction and purpose",
+      "cipherTypes": ["aristocrat", "patristocrat", "baconian"]
+    }
+  ]
+}

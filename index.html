@@ -1,247 +1,433 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="MSUSO - Coming Soon">
-    <title>MSUSO - Coming Soon</title>
-    <style>
-        :root{
-            --green-900: #064e3b; /* dark */
-            --green-700: #059669;
-            --green-500: #34d399;
-            --white: #ffffff;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            /* subtle green gradient */
-            background: linear-gradient(135deg, var(--green-700) 0%, var(--green-500) 100%);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-            color: var(--green-900);
-        }
-
-        .container {
-            text-align: center;
-            color: var(--green-900);
-            max-width: 680px;
-            padding: 2rem;
-            position: relative;
-            z-index: 2;
-            background: rgba(255,255,255,0.96);
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(6,78,59,0.15);
-        }
-
-        .logo {
-            font-size: 3.5rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            letter-spacing: 4px;
-            animation: fadeInDown 1s ease-out;
-        }
-
-        .subtitle {
-            font-size: 1.25rem;
-            margin-bottom: 1.25rem;
-            opacity: 0.95;
-            color: rgba(6,78,59,0.9);
-            animation: fadeInUp 1s ease-out 0.25s both;
-        }
-
-        .description {
-            font-size: 1.05rem;
-            line-height: 1.6;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-            animation: fadeInUp 1s ease-out 0.5s both;
-        }
-
-        .progress-container {
-            background: rgba(5,150,105,0.06);
-            border-radius: 25px;
-            padding: 10px;
-            margin-bottom: 1.5rem;
-            animation: fadeInUp 1s ease-out 0.8s both;
-            border: 1px solid rgba(6,78,59,0.06);
-        }
-
-        .progress-bar {
-            background: linear-gradient(90deg, var(--green-500), var(--green-700));
-            height: 10px;
-            border-radius: 20px;
-            width: 45%; /* will animate to target */
-            animation: progressFill 2s ease-out 1s both;
-        }
-
-        .progress-text {
-            margin-top: 0.75rem;
-            font-size: 0.95rem;
-            opacity: 0.85;
-            color: rgba(6,78,59,0.9);
-        }
-
-        .contact-info {
-            animation: fadeInUp 1s ease-out 1.1s both;
-        }
-
-        .contact-info a {
-            color: var(--green-700);
-            text-decoration: none;
-            font-weight: 600;
-            border-bottom: 1px solid rgba(5,150,105,0.18);
-            transition: border-color 0.2s ease, color 0.2s ease;
-        }
-
-        .contact-info a:hover {
-            border-color: var(--green-700);
-            color: var(--green-900);
-        }
-
-        .floating-shapes {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-            pointer-events: none;
-            mix-blend-mode: screen;
-            opacity: 0.9;
-        }
-
-        .shape {
-            position: absolute;
-            background: rgba(255, 255, 255, 0.12);
-            border-radius: 50%;
-            animation: float 6s ease-in-out infinite;
-            box-shadow: 0 6px 20px rgba(6,78,59,0.08);
-        }
-
-        .shape:nth-child(1) {
-            width: 90px;
-            height: 90px;
-            top: 18%;
-            left: 8%;
-            animation-delay: 0s;
-        }
-
-        .shape:nth-child(2) {
-            width: 140px;
-            height: 140px;
-            top: 62%;
-            right: 8%;
-            animation-delay: 2s;
-            background: rgba(255,255,255,0.08);
-        }
-
-        .shape:nth-child(3) {
-            width: 70px;
-            height: 70px;
-            bottom: 18%;
-            left: 18%;
-            animation-delay: 4s;
-            background: rgba(255,255,255,0.12);
-        }
-
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-24px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes progressFill {
-            from {
-                width: 0%;
-            }
-            to {
-                width: 45%; /* matches the percentage shown */
-            }
-        }
-
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0px) rotate(0deg);
-            }
-            50% {
-                transform: translateY(-16px) rotate(160deg);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                padding: 1rem;
-            }
-            
-            .logo {
-                font-size: 2.5rem;
-                letter-spacing: 2px;
-            }
-            
-            .subtitle {
-                font-size: 1.1rem;
-            }
-            
-            .description {
-                font-size: 1rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .logo {
-                font-size: 1.75rem;
-            }
-            
-            .subtitle {
-                font-size: 0.95rem;
-            }
-        }
-    </style>
+    <meta name="description" content="Michigan State University Science Olympiad - Supporting Michigan Science Olympiad">
+    <title>MSU Science Olympiad</title>
+    <link rel="stylesheet" href="global.css">
+    <!-- Ionicons: modern icon library -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="navigation.js"></script>
+    <script src="scripts/card.js"></script>
 </head>
 <body>
-    <div class="floating-shapes">
-        <div class="shape"></div>
-        <div class="shape"></div>
-        <div class="shape"></div>
-    </div>
+    <!-- Navigation Component -->
+    <msu-navbar page-links='[{"href":"#about","text":"About"},{"href":"#events","text":"Events"},{"href":"#events","text":"Resources"},{"href":"#contact","text":"Contact"}]'></msu-navbar>
 
-    <div class="container">
-        <h1 class="logo">MSUSO</h1>
-        <h2 class="subtitle">Something Amazing is Coming Soon</h2>
-        <p class="description">
-            We're working hard to get our site up and running! Stay tuned!
-        </p>
-        
-        <div class="progress-container">
-            <div class="progress-bar"></div>
-            <div class="progress-text">Development Progress: 45%</div>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container hero-content">
+            <msu-badge>2026 Season</msu-badge>
+            <h1>Michigan State University<br>Science Olympiad</h1>
+            <p>This site is still a work-in progress!</p>
+            <p>Supporting Michigan Science Olympiad through tournament volunteering, resource development, and community building</p>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="#about" class="btn btn-primary btn-lg">Learn More</a>
+                <a href="#events" class="btn btn-secondary btn-lg">View Events</a>
+            </div>
         </div>
-    </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section bg-secondary" id="about">
+        <div class="container">
+            <div class="text-center" style="max-width: 800px; margin: 0 auto;">
+                <h2>About MSU Science Olympiad</h2>
+                <p style="font-size: var(--font-size-lg);">
+                    We are a college student organization dedicated to supporting Science Olympiad across Michigan. 
+                    Our volunteers help run tournaments, develop educational resources, and create event kit designs 
+                    all to empower middle and high school students to excel in STEM competitions.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Grid -->
+    <section class="section">
+        <div class="container">
+            <h2 class="text-center mb-8">What We Do</h2>
+            <div class="grid grid-3">
+                <msu-card
+                    title="Tournament Volunteering"
+                    description="Our members volunteer at regional and invitational tournaments across Michigan, serving as event supervisors, test writers, and coaches."
+                    variant="green"
+                    icon="people-outline">
+                </msu-card>
+
+                <msu-card
+                    title="State Tournament"
+                    description="Each year, MSU hosts the Michigan Science Olympiad state tournament. Our members help to create this world-class competition experience."
+                    variant="green"
+                    icon="trophy-outline">
+                </msu-card>
+
+                <msu-card
+                    title="Resources & Kits"
+                    description="We develop comprehensive resources, study guides, and build event kit designs to help teams prepare and tournaments run smoothly."
+                    variant="green"
+                    icon="book-outline">
+                </msu-card>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section class="section bg-tertiary" id="events">
+        <div class="container">
+            <h2 class="text-center mb-8">2026 Division C Events</h2>
+            
+            <!-- Earth & Space Science -->
+            <h3 style="margin-bottom: var(--space-4); color: var(--color-primary);">Earth & Space Science</h3>
+            <div class="grid grid-4" style="margin-bottom: var(--space-8);">
+                <msu-card 
+                    title="Astronomy"
+                    description="Explore stellar evolution, galaxies, and deep space objects."
+                    badges='["Space"]'
+                    color-badges='[{"text":"Test","color":"#3b82f6"}]'
+                    href="events/astronomy.html">
+                </msu-card>
+                
+                <msu-card 
+                    title="Dynamic Planet"
+                    description="Study Earth's dynamic processes and geological features."
+                    badges='["Earth"]'
+                    color-badges='[{"text":"Test","color":"#3b82f6"}]'
+                    href="events/dynamic-planet.html">
+                </msu-card>
+                
+                <msu-card 
+                    title="Remote Sensing"
+                    description="Analyze satellite imagery and remote sensing technologies."
+                    badges='["Earth", "Space"]'
+                    color-badges='[{"text":"Test","color":"#3b82f6"}]'
+                    href="events/remote-sensing.html">
+                </msu-card>
+                
+                <msu-card 
+                    title="Rocks and Minerals"
+                    description="Identify and classify rocks, minerals, and their properties."
+                    badges='["Earth"]'
+                    color-badges='[{"text":"Test","color":"#3b82f6"}]'
+                    href="events/rocks-and-minerals.html">
+                </msu-card>
+            </div>
+
+            <!-- Inquiry & Nature of Science -->
+            <h3 style="margin-bottom: var(--space-4); color: var(--color-primary);">Inquiry & Nature of Science</h3>
+            <div class="grid grid-4" style="margin-bottom: var(--space-8);">
+                <msu-card 
+                    title="Bungee Drop"
+                    description="Design a bungee cord to stop a falling mass at a target point."
+                    badges='["Inquiry"]'
+                    color-badges='[{"text":"Build","color":"purple"}]'
+                    href="events/bungee-drop.html">
+                </msu-card>
+                
+                <msu-card 
+                    title="Codebusters"
+                    description="Crack codes and ciphers using cryptography techniques."
+                    badges='["Inquiry"]'
+                    color-badges='[{"text":"Test","color":"#3b82f6"}]'
+                    href="events/codebusters.html">
+                </msu-card>
+                
+                <msu-card 
+                    title="Experimental Design"
+                    description="Design and conduct experiments using the scientific method."
+                    badges='["Inquiry"]'
+                    color-badges='[{"text":"Test","color":"#3b82f6"}]'
+                    href="events/experimental-design.html">
+                </msu-card>
+                
+                <msu-card 
+                    title="Engineering CAD"
+                    description="Create computer-aided designs and technical drawings."
+                    badges='["Inquiry", "Engineering"]'
+                    color-badges='[{"text":"Lab","color":"orange"}]'
+                    href="events/engineering-cad.html">
+                </msu-card>
+            </div>
+
+            <!-- Life, Personal & Social Science -->
+            <h3 style="margin-bottom: var(--space-4); color: var(--color-primary);">Life, Personal & Social Science</h3>
+            <div class="grid grid-4" style="margin-bottom: var(--space-8);">
+                <msu-card
+                    title="Anatomy and Physiology"
+                    description="Master human body systems through detailed study and testing."
+                    badges='["Biology"]'
+                    color-badges='[{"text":"Test","color":"#3b82f6"}]'
+                    href="events/anatomy-and-physiology.html">
+                </msu-card>
+
+                <msu-card
+                    title="Disease Detectives"
+                    description="Investigate disease outbreaks and epidemiological patterns."
+                    badges='["Biology"]'
+                    color-badges='[{"text":"Test","color":"#3b82f6"}]'
+                    href="events/disease-detectives.html">
+                </msu-card>
+
+                <msu-card
+                    title="Designer Genes"
+                    description="Explore molecular biology, genetics, and biotechnology."
+                    badges='["Biology"]'
+                    color-badges='[{"text":"Test","color":"#3b82f6"}]'
+                    href="events/designer-genes.html">
+                </msu-card>
+
+                <msu-card
+                    title="Entomology"
+                    description="Study insect classification, ecology, and behavior."
+                    badges='["Biology"]'
+                    color-badges='[{"text":"Test","color":"#3b82f6"}]'
+                    href="events/entomology.html">
+                </msu-card>
+
+                <msu-card
+                    title="Water Quality"
+                    description="Test and analyze water samples for chemical and biological quality."
+                    badges='["Biology"]'
+                    color-badges='[{"text":"Build","color":"purple"},{"text":"Test","color":"#3b82f6"}]'
+                    href="events/water-quality.html">
+                </msu-card>
+            </div>
+
+            <!-- Physical Science & Chemistry -->
+            <h3 style="margin-bottom: var(--space-4); color: var(--color-primary);">Physical Science & Chemistry</h3>
+            <div class="grid grid-4" style="margin-bottom: var(--space-8);">
+                <msu-card 
+                    title="Chemistry Lab"
+                    description="Conduct experiments and analyze chemical reactions in real-time."
+                    badges='["Chemistry"]'
+                    color-badges='[{"text":"Lab","color":"orange"},{"text":"Test","color":"#3b82f6"}]'
+                    href="events/chemistry-lab.html">
+                </msu-card>
+                
+                <msu-card 
+                    title="Circuit Lab"
+                    description="Design and analyze electrical circuits and components."
+                    badges='["Physics", "Engineering"]'
+                    color-badges='[{"text":"Lab","color":"orange"},{"text":"Test","color":"#3b82f6"}]'
+                    href="events/circuit-lab.html">
+                </msu-card>
+                
+                <msu-card 
+                    title="Forensics"
+                    description="Analyze evidence and solve crimes using scientific methods."
+                    badges='["Chemistry"]'
+                    color-badges='[{"text":"Lab","color":"orange"}]'
+                    href="events/forensics.html">
+                </msu-card>
+                
+                <msu-card 
+                    title="Hovercraft"
+                    description="Build and race a hovercraft powered by batteries."
+                    badges='["Physics", "Engineering"]'
+                    color-badges='[{"text":"Build","color":"purple"}]'
+                    href="events/hovercraft.html">
+                </msu-card>
+                
+                <msu-card 
+                    title="Machines"
+                    description="Build a device using simple and compound machines."
+                    badges='["Physics"]'
+                    color-badges='[{"text":"Build","color":"purple"},{"text":"Test","color":"#3b82f6"}]'
+                    href="events/machines.html">
+                </msu-card>
+                
+                <msu-card 
+                    title="Materials Science"
+                    description="Study material properties, structures, and applications."
+                    badges='["Chemistry"]'
+                    color-badges='[{"text":"Lab","color":"orange"},{"text":"Test","color":"#3b82f6"}]'
+                    href="events/materials-science.html">
+                </msu-card>
+            </div>
+
+            <!-- Technology & Engineering -->
+            <h3 style="margin-bottom: var(--space-4); color: var(--color-primary);">Technology & Engineering</h3>
+            <div class="grid grid-4" style="margin-bottom: var(--space-8);">
+                <msu-card
+                    title="Robot Tour"
+                    description="Design a robot to navigate a course and complete tasks."
+                    badges='["Engineering"]'
+                    color-badges='[{"text":"Build","color":"purple"}]'
+                    href="events/robot-tour.html">
+                </msu-card>
+
+                <msu-card
+                    title="Electric Vehicle"
+                    description="Build an electric vehicle optimized for distance and speed."
+                    badges='["Engineering"]'
+                    color-badges='[{"text":"Build","color":"purple"}]'
+                    href="events/electric-vehicle.html">
+                </msu-card>
+
+                <msu-card
+                    title="Boomilever"
+                    description="Construct a lightweight cantilever beam to support maximum load."
+                    badges='["Engineering"]'
+                    color-badges='[{"text":"Build","color":"purple"}]'
+                    href="events/boomilever.html">
+                </msu-card>
+
+                <msu-card
+                    title="Helicopter"
+                    description="Build and fly a rubber-powered helicopter for flight time."
+                    badges='["Engineering"]'
+                    color-badges='[{"text":"Build","color":"purple"}]'
+                    href="events/helicopter.html">
+                </msu-card>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="text-center mb-8">Our Impact</h2>
+            <div class="grid grid-4">
+                <div class="text-center">
+                    <div style="font-size: var(--font-size-5xl); font-weight: var(--font-weight-bold); color: var(--color-primary); margin-bottom: var(--space-2);">370+</div>
+                    <p style="font-size: var(--font-size-lg); color: var(--color-text-secondary);">Michigan SciOly Teams</p>
+                </div>
+                <div class="text-center">
+                    <div style="font-size: var(--font-size-5xl); font-weight: var(--font-weight-bold); color: var(--color-primary); margin-bottom: var(--space-2);">23+</div>
+                    <p style="font-size: var(--font-size-lg); color: var(--color-text-secondary);">SciOly and Trial Events</p>
+                </div>
+                <div class="text-center">
+                    <div style="font-size: var(--font-size-5xl); font-weight: var(--font-weight-bold); color: var(--color-primary); margin-bottom: var(--space-2);">6+</div>
+                    <p style="font-size: var(--font-size-lg); color: var(--color-text-secondary);">Annual Tournaments Attended</p>
+                </div>
+                <div class="text-center">
+                    <div style="font-size: var(--font-size-5xl); font-weight: var(--font-weight-bold); color: var(--color-primary); margin-bottom: var(--space-2);">3</div>
+                    <p style="font-size: var(--font-size-lg); color: var(--color-text-secondary);">National Tournaments Hosted</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Executive Board Section -->
+    <section class="section bg-secondary">
+        <div class="container">
+            <h2 class="text-center mb-8">Executive Board</h2>
+            <div class="grid grid-4">
+                <div class="text-center">
+                    <h4 style="margin-bottom: var(--space-2);">Lexi</h4>
+                    <p style="color: var(--color-text-secondary); margin-bottom: 0;">President</p>
+                </div>
+                <div class="text-center">
+                    <h4 style="margin-bottom: var(--space-2);">Kierra</h4>
+                    <p style="color: var(--color-text-secondary); margin-bottom: 0;">Vice President</p>
+                </div>
+                <div class="text-center">
+                    <h4 style="margin-bottom: var(--space-2);">Michael</h4>
+                    <p style="color: var(--color-text-secondary); margin-bottom: 0;">Treasurer</p>
+                </div>
+                <div class="text-center">
+                    <h4 style="margin-bottom: var(--space-2);">Rowan</h4>
+                    <p style="color: var(--color-text-secondary); margin-bottom: 0;">Recruitment Director</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="section bg-primary">
+        <div class="container text-center">
+            <h2>Get Involved</h2>
+            <p style="font-size: var(--font-size-lg); max-width: 600px; margin: 0 auto var(--space-8);">
+                Whether you're interested in volunteering at tournaments, developing resources, 
+                or helping with event supervision, we welcome MSU students passionate about STEM education.
+            </p>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="#contact" class="btn btn-primary btn-lg">Join Our Team</a>
+                <a href="#events" class="btn btn-secondary btn-lg">View Resources</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Typography Showcase -->
+    <!--
+    <section class="section" id="resources">
+        <div class="container">
+            <h2 class="text-center mb-8">Typography & Component Examples</h2>
+            <div class="grid grid-2">
+                <div>
+                    <h3>Heading Levels</h3>
+                    <h1 style="font-size: var(--font-size-3xl); margin-bottom: var(--space-2);">Heading 1</h1>
+                    <h2 style="font-size: var(--font-size-2xl); margin-bottom: var(--space-2);">Heading 2</h2>
+                    <h3 style="font-size: var(--font-size-xl); margin-bottom: var(--space-2);">Heading 3</h3>
+                    <h4 style="font-size: var(--font-size-lg); margin-bottom: var(--space-2);">Heading 4</h4>
+                    <p>Regular paragraph text with <a href="#">link styles</a> and <strong>bold text</strong> for emphasis.</p>
+                </div>
+
+                <div>
+                    <h3>Button Variations</h3>
+                    <div style="display: flex; flex-direction: column; gap: var(--space-3); align-items: flex-start;">
+                        <button class="btn btn-primary">Primary Button</button>
+                        <button class="btn btn-secondary">Secondary Button</button>
+                        <button class="btn btn-primary btn-lg">Large Button</button>
+                        <button class="btn btn-primary btn-sm">Small Button</button>
+                    </div>
+                    <div style="margin-top: var(--space-4);">
+                        <h4>Badges</h4>
+                        <div style="display: flex; gap: var(--space-2); flex-wrap: wrap; margin-top: var(--space-2);">
+                            <span class="badge">New</span>
+                            <span class="badge">Popular</span>
+                            <span class="badge">Featured</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    -->
+
+    <!-- Contact Section -->
+    <section class="section bg-secondary" id="contact">
+        <div class="container text-center">
+            <h2>Contact Us</h2>
+            <p style="font-size: var(--font-size-lg); max-width: 600px; margin: 0 auto var(--space-6);">
+                Interested in volunteering or learning more about MSU Science Olympiad? 
+                We'd love to hear from you!
+            </p>
+            <p style="font-size: var(--font-size-xl); margin-bottom: var(--space-4);">
+                <a href="mailto:scioly@msuso.org" style="font-weight: var(--font-weight-semibold);">scioly@msuso.org</a>
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer Component -->
+    <msu-footer page-links='[{"href":"#about","text":"About"},{"href":"#events","text":"Events"},{"href":"#resources","text":"Resources"},{"href":"#contact","text":"Contact"}]'></msu-footer>
+
+    <!-- Animation Script -->
+    <script>
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards
+        document.querySelectorAll('.card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+            observer.observe(card);
+        });
+    </script>
 </body>
 </html>

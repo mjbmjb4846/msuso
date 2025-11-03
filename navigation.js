@@ -5,8 +5,7 @@
 
 // Default site-wide navigation links (pages)
 const defaultSiteLinks = [
-    { href: '/index.html', text: 'Home' },
-    { href: '/future.html', text: 'Demo' }
+    { href: '/index.html', text: 'Home' }
 ];
 
 // Global configuration
@@ -52,7 +51,7 @@ class MsuNavbar extends HTMLElement {
         this.innerHTML = `
             <nav class="navbar">
                 <div class="container navbar-content">
-                    <div class="navbar-brand">${siteConfig.brandName}</div>
+                    <a href="/index.html" class="navbar-brand">${siteConfig.brandName}</a>
                     
                     <!-- Desktop Navigation -->
                     <ul class="navbar-nav">

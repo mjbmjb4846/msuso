@@ -12,7 +12,7 @@ A website for the Michigan State University Science Olympiad organization!
 
 ## File Structure
 
-```
+```txt
 msuso/
 ├── index.html              # Landing page (under construction)
 ├── future.html             # Main website (events, about, features)
@@ -27,6 +27,7 @@ msuso/
 ### Navigation Components
 
 #### `<msu-navbar>`
+
 Creates a responsive navigation bar with mobile menu support.
 
 ```html
@@ -34,6 +35,7 @@ Creates a responsive navigation bar with mobile menu support.
 ```
 
 #### `<msu-footer>`
+
 Generates a footer with sitemap and social links.
 
 ```html
@@ -43,6 +45,7 @@ Generates a footer with sitemap and social links.
 ### Content Components
 
 #### `<msu-badge>`
+
 Creates styled badges with color variants. **Uses Shadow DOM for style encapsulation.**
 
 ```html
@@ -57,15 +60,18 @@ Creates styled badges with color variants. **Uses Shadow DOM for style encapsula
 ```
 
 **Attributes:**
+
 - `variant`: `'purple'` or `'orange'` for predefined colors
 - `color`: Custom hex, rgb, or rgba color
 
 **Technical Notes:**
+
 - Self-contained with embedded styles (no global CSS dependency)
 - Automatically updates when theme changes
 - Works standalone or within cards
 
 #### `<msu-card>`
+
 Creates event or feature cards with badges.
 
 ```html
@@ -80,6 +86,7 @@ Creates event or feature cards with badges.
 ```
 
 **Attributes:**
+
 - `title` (required): Card title
 - `description` (required): Card description
 - `badges`: JSON array of badge texts
@@ -182,6 +189,7 @@ The site includes a built-in theme toggle that switches between light and dark m
 - Opera 54+
 
 Requires support for:
+
 - Custom Elements (Web Components)
 - CSS Custom Properties
 - ES6 JavaScript
@@ -197,16 +205,19 @@ Mobile menu activates below 768px.
 ## Color Palette
 
 ### Light Theme
+
 - Primary Green: `#1a9659`
 - Background: `#ffffff`
 - Text: `#111827`
 
 ### Dark Theme
+
 - Primary Green: `#4ade80`
 - Background: `#0a0f0d`
 - Text: `#f3f4f6`
 
 ### Badge Colors
+
 - Default: Green (theme-based)
 - Purple: `#6d28d9` (light) / gradient (dark)
 - Orange: `#b45309` (light) / gradient (dark)

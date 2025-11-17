@@ -51,7 +51,11 @@ class MsuNavbar extends HTMLElement {
         this.innerHTML = `
             <nav class="navbar">
                 <div class="container navbar-content">
-                    <a href="/index.html" class="navbar-brand">${siteConfig.brandName}</a>
+                    <a href="/index.html" class="navbar-brand">
+                        <img src="/assets/icons/logo.svg" alt="MSU SO Logo" class="navbar-logo navbar-logo-light" aria-hidden="true">
+                        <img src="/assets/icons/logo_mono.svg" alt="MSU SO Logo" class="navbar-logo navbar-logo-dark" aria-hidden="true">
+                        <span class="navbar-brand-text">${siteConfig.brandName}</span>
+                    </a>
                     
                     <!-- Desktop Navigation -->
                     <ul class="navbar-nav">
@@ -77,7 +81,11 @@ class MsuNavbar extends HTMLElement {
             <!-- Mobile Menu Drawer -->
             <div class="mobile-menu" id="mobileMenu">
                 <div class="mobile-menu-header">
-                    <div class="mobile-menu-brand">${siteConfig.brandName}</div>
+                    <div class="mobile-menu-brand">
+                        <img src="/assets/icons/logo.svg" alt="MSU SO Logo" class="navbar-logo navbar-logo-light" aria-hidden="true">
+                        <img src="/assets/icons/logo_mono.svg" alt="MSU SO Logo" class="navbar-logo navbar-logo-dark" aria-hidden="true">
+                        <span class="navbar-brand-text">${siteConfig.brandName}</span>
+                    </div>
                     <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">
                         <ion-icon id="mobileCloseIcon" name="close-outline" style="font-size:1.2rem;"></ion-icon>
                     </button>

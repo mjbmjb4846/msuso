@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Michigan State University Science Olympiad - Supporting Michigan Science Olympiad">
-    <title>MSU Science Olympiad</title>
+    <meta name="description" content="Resources for Science Olympiad coaches, students, and event supervisors - MSU Science Olympiad">
+    <title>Resources - MSU Science Olympiad</title>
     
     <!-- Favicons -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -22,60 +21,115 @@
 </head>
 <body>
     <!-- Navigation Component -->
-    <msu-navbar page-links='[{"href":"#about","text":"About"},{"href":"#events","text":"Events"},{"href":"resources.html","text":"Resources"},{"href":"#contact","text":"Contact"}]'></msu-navbar>
+    <msu-navbar page-links='[{"href":"index.html#about","text":"About"},{"href":"index.html#events","text":"Events"},{"href":"resources.html","text":"Resources"},{"href":"index.html#contact","text":"Contact"}]'></msu-navbar>
 
     <!-- Hero Section -->
-    <section class="hero" id="home">
+    <section class="hero" style="padding: var(--space-16) 0;">
         <div class="container hero-content">
-            <msu-badge>2026 Season</msu-badge>
-            <h1>Michigan State University<br>Science Olympiad</h1>
-            <p><i>This site is still a work in progress!</i></p>
-            <p>Supporting Michigan Science Olympiad through tournament volunteering, resource development, and community building</p>
-            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                <a href="#about" class="btn btn-primary btn-lg">Learn More</a>
-                <a href="#events" class="btn btn-secondary btn-lg">View Events</a>
-            </div>
+            <h1>Resources</h1>
+            <p style="font-size: var(--font-size-lg); max-width: 800px; margin: 0 auto;">
+                <i>This page is still in the works!</i><br><br>Comprehensive resources for coaches, students, and event supervisors to excel in Science Olympiad competitions
+            </p>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section class="section bg-secondary" id="about">
+    <!-- Coaching Resources Section -->
+    <section class="section" id="coaching-resources">
         <div class="container">
+            <h2 class="text-center mb-8">Coaching Resources</h2>
             <div class="text-center" style="max-width: 800px; margin: 0 auto;">
-                <h2>About MSU Science Olympiad</h2>
-                <p style="font-size: var(--font-size-lg);">
-                    We are a college student organization dedicated to supporting Science Olympiad across Michigan. 
-                    Our volunteers help run tournaments, develop educational resources, and create event kit designs 
-                    all to empower middle and high school students to excel in STEM competitions.
+                <p style="font-size: var(--font-size-lg); color: var(--color-text-secondary); margin-bottom: var(--space-8);">
+                    Tools and guides to help coaches build successful Science Olympiad programs
                 </p>
             </div>
-        </div>
-    </section>
-
-    <!-- Features Grid -->
-    <section class="section">
-        <div class="container">
-            <h2 class="text-center mb-8">What We Do</h2>
             <div class="grid grid-3">
                 <msu-card
-                    title="Tournament Volunteering"
-                    description="Our members volunteer at regional and invitational tournaments across Michigan, serving as event supervisors, test writers, and coaches."
+                    title="Getting Started"
+                    description="Essential information for new coaches setting up a Science Olympiad team."
+                    variant="green"
+                    icon="compass-outline">
+                </msu-card>
+                
+                <msu-card
+                    title="Team Management"
+                    description="Best practices for organizing practices, assigning events, and building team culture."
                     variant="green"
                     icon="people-outline">
                 </msu-card>
-
+                
                 <msu-card
-                    title="State Tournament"
-                    description="Each year, MSU hosts the Michigan Science Olympiad state tournament. Our members help to create this world-class competition experience."
+                    title="Tournament Preparation"
+                    description="Tips for preparing your team for invitational and state competitions."
                     variant="green"
                     icon="trophy-outline">
                 </msu-card>
+            </div>
+        </div>
+    </section>
 
+    <!-- Club Activities and Games Section -->
+    <section class="section bg-secondary" id="club-activities">
+        <div class="container">
+            <h2 class="text-center mb-8">Club Activities and Games</h2>
+            <div class="text-center" style="max-width: 800px; margin: 0 auto;">
+                <p style="font-size: var(--font-size-lg); color: var(--color-text-secondary); margin-bottom: var(--space-8);">
+                    Fun and educational activities to keep your team engaged and learning
+                </p>
+            </div>
+            <div class="grid grid-3">
                 <msu-card
-                    title="Resources & Kits"
-                    description="We develop comprehensive resources, study guides, and build event kit designs to help teams prepare and tournaments run smoothly."
+                    title="Team Building Games"
+                    description="Interactive activities to strengthen teamwork and communication skills."
                     variant="green"
-                    icon="book-outline">
+                    icon="game-controller-outline">
+                </msu-card>
+                
+                <msu-card
+                    title="Science Challenges"
+                    description="Quick challenges and mini-competitions to practice skills in a low-pressure environment."
+                    variant="green"
+                    icon="flask-outline">
+                </msu-card>
+                
+                <msu-card
+                    title="Trivia and Quizzes"
+                    description="Science trivia games to review concepts and keep practices engaging."
+                    variant="green"
+                    icon="school-outline">
+                </msu-card>
+            </div>
+        </div>
+    </section>
+
+    <!-- Event Supervisor Resources Section -->
+    <section class="section" id="supervisor-resources">
+        <div class="container">
+            <h2 class="text-center mb-8">Event Supervisor Resources</h2>
+            <div class="text-center" style="max-width: 800px; margin: 0 auto;">
+                <p style="font-size: var(--font-size-lg); color: var(--color-text-secondary); margin-bottom: var(--space-8);">
+                    Materials and guidelines for volunteers running events at tournaments
+                </p>
+            </div>
+            <div class="grid grid-3">
+                <msu-card
+                    title="Event Kits"
+                    description="Equipment lists and setup guides for running Science Olympiad events."
+                    variant="green"
+                    icon="construct-outline">
+                </msu-card>
+                
+                <msu-card
+                    title="Scoring Systems"
+                    description="Rubrics and scoring procedures to ensure fair and consistent judging."
+                    variant="green"
+                    icon="calculator-outline">
+                </msu-card>
+                
+                <msu-card
+                    title="Supervisor Guides"
+                    description="Step-by-step instructions for supervising specific events at tournaments."
+                    variant="green"
+                    icon="document-text-outline">
                 </msu-card>
             </div>
         </div>
@@ -84,7 +138,12 @@
     <!-- Events Section -->
     <section class="section bg-tertiary" id="events">
         <div class="container">
-            <h2 class="text-center mb-8">2026 Division C Events</h2>
+            <h2 class="text-center mb-8">2025-2026 Events</h2>
+            <div class="text-center" style="max-width: 800px; margin: 0 auto;">
+                <p style="font-size: var(--font-size-lg); color: var(--color-text-secondary); margin-bottom: var(--space-8);">
+                    Explore resources and information for each Division C event
+                </p>
+            </div>
             
             <!-- Earth & Space Science -->
             <h3 style="margin-bottom: var(--space-4); color: var(--color-primary);">Earth & Space Science</h3>
@@ -292,52 +351,104 @@
         </div>
     </section>
 
-    <!-- Stats Section -->
-    <section class="section">
+    <!-- Study Event Tips Section -->
+    <section class="section" id="study-event-tips">
         <div class="container">
-            <h2 class="text-center mb-8">Our Impact</h2>
-            <div class="grid grid-4">
-                <div class="text-center">
-                    <div style="font-size: var(--font-size-5xl); font-weight: var(--font-weight-bold); color: var(--color-primary); margin-bottom: var(--space-2);">370+</div>
-                    <p style="font-size: var(--font-size-lg); color: var(--color-text-secondary);">Michigan SciOly Teams</p>
-                </div>
-                <div class="text-center">
-                    <div style="font-size: var(--font-size-5xl); font-weight: var(--font-weight-bold); color: var(--color-primary); margin-bottom: var(--space-2);">23+</div>
-                    <p style="font-size: var(--font-size-lg); color: var(--color-text-secondary);">SciOly and Trial Events</p>
-                </div>
-                <div class="text-center">
-                    <div style="font-size: var(--font-size-5xl); font-weight: var(--font-weight-bold); color: var(--color-primary); margin-bottom: var(--space-2);">6+</div>
-                    <p style="font-size: var(--font-size-lg); color: var(--color-text-secondary);">Annual Tournaments Attended</p>
-                </div>
-                <div class="text-center">
-                    <div style="font-size: var(--font-size-5xl); font-weight: var(--font-weight-bold); color: var(--color-primary); margin-bottom: var(--space-2);">3</div>
-                    <p style="font-size: var(--font-size-lg); color: var(--color-text-secondary);">National Tournaments Hosted</p>
-                </div>
+            <h2 class="text-center mb-8">Study Event Tips</h2>
+            <div class="text-center" style="max-width: 800px; margin: 0 auto;">
+                <p style="font-size: var(--font-size-lg); color: var(--color-text-secondary); margin-bottom: var(--space-8);">
+                    Strategies and techniques for mastering knowledge-based events
+                </p>
+            </div>
+            <div class="grid grid-3">
+                <msu-card
+                    title="Study Strategies"
+                    description="Effective methods for organizing notes, creating study guides, and retaining information."
+                    variant="green"
+                    icon="library-outline">
+                </msu-card>
+                
+                <msu-card
+                    title="Resource Lists"
+                    description="Curated lists of textbooks, websites, and materials for each study event."
+                    variant="green"
+                    icon="list-outline">
+                </msu-card>
+                
+                <msu-card
+                    title="Test-Taking Skills"
+                    description="Tips for managing time, handling difficult questions, and maximizing scores."
+                    variant="green"
+                    icon="timer-outline">
+                </msu-card>
             </div>
         </div>
     </section>
 
-    <!-- Executive Board Section -->
-    <section class="section bg-secondary">
+    <!-- Build Event Tips Section -->
+    <section class="section bg-secondary" id="build-event-tips">
         <div class="container">
-            <h2 class="text-center mb-8">Executive Board</h2>
-            <div class="grid grid-4">
-                <div class="text-center">
-                    <h4 style="margin-bottom: var(--space-2);">Lexi</h4>
-                    <p style="color: var(--color-text-secondary); margin-bottom: 0;">President</p>
-                </div>
-                <div class="text-center">
-                    <h4 style="margin-bottom: var(--space-2);">Kierra</h4>
-                    <p style="color: var(--color-text-secondary); margin-bottom: 0;">Vice President</p>
-                </div>
-                <div class="text-center">
-                    <h4 style="margin-bottom: var(--space-2);">Michael</h4>
-                    <p style="color: var(--color-text-secondary); margin-bottom: 0;">Treasurer</p>
-                </div>
-                <div class="text-center">
-                    <h4 style="margin-bottom: var(--space-2);">Rowan</h4>
-                    <p style="color: var(--color-text-secondary); margin-bottom: 0;">Recruitment Director</p>
-                </div>
+            <h2 class="text-center mb-8">Build Event Tips</h2>
+            <div class="text-center" style="max-width: 800px; margin: 0 auto;">
+                <p style="font-size: var(--font-size-lg); color: var(--color-text-secondary); margin-bottom: var(--space-8);">
+                    Construction techniques and optimization strategies for building events
+                </p>
+            </div>
+            <div class="grid grid-3">
+                <msu-card
+                    title="Design Principles"
+                    description="Fundamental engineering concepts for creating efficient and competitive devices."
+                    variant="green"
+                    icon="construct-outline">
+                </msu-card>
+                
+                <msu-card
+                    title="Materials Guide"
+                    description="Information on selecting and working with different materials for optimal performance."
+                    variant="green"
+                    icon="cube-outline">
+                </msu-card>
+                
+                <msu-card
+                    title="Testing & Iteration"
+                    description="Methods for testing devices, analyzing results, and making improvements."
+                    variant="green"
+                    icon="reload-outline">
+                </msu-card>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lab Event Tips Section -->
+    <section class="section" id="lab-event-tips">
+        <div class="container">
+            <h2 class="text-center mb-8">Lab Event Tips</h2>
+            <div class="text-center" style="max-width: 800px; margin: 0 auto;">
+                <p style="font-size: var(--font-size-lg); color: var(--color-text-secondary); margin-bottom: var(--space-8);">
+                    Laboratory techniques and practical skills for hands-on events
+                </p>
+            </div>
+            <div class="grid grid-3">
+                <msu-card
+                    title="Lab Safety"
+                    description="Essential safety procedures and best practices for working in laboratory settings."
+                    variant="green"
+                    icon="shield-checkmark-outline">
+                </msu-card>
+                
+                <msu-card
+                    title="Technique Videos"
+                    description="Visual guides for proper use of laboratory equipment and experimental procedures."
+                    variant="green"
+                    icon="play-circle-outline">
+                </msu-card>
+                
+                <msu-card
+                    title="Practice Problems"
+                    description="Sample scenarios and problems to build proficiency with lab equipment and analysis."
+                    variant="green"
+                    icon="create-outline">
+                </msu-card>
             </div>
         </div>
     </section>
@@ -345,71 +456,20 @@
     <!-- Call to Action -->
     <section class="section bg-primary">
         <div class="container text-center">
-            <h2>Get Involved</h2>
+            <h2>Need More Help?</h2>
             <p style="font-size: var(--font-size-lg); max-width: 600px; margin: 0 auto var(--space-8);">
-                Whether you're interested in volunteering at tournaments, developing resources, 
-                or helping with event supervision, we welcome MSU students passionate about STEM education.
+                Have questions about a specific event or need additional resources? 
+                We're here to help support your Science Olympiad journey.
             </p>
             <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                <a href="#contact" class="btn btn-primary btn-lg">Join Our Team</a>
-                <a href="resources.html" class="btn btn-secondary btn-lg">View Resources</a>
+                <a href="index.html#contact" class="btn btn-primary btn-lg">Contact Us</a>
+                <a href="index.html#events" class="btn btn-secondary btn-lg">View Events</a>
             </div>
-        </div>
-    </section>
-
-    <!-- Typography Showcase -->
-    <!--
-    <section class="section" id="resources">
-        <div class="container">
-            <h2 class="text-center mb-8">Typography & Component Examples</h2>
-            <div class="grid grid-2">
-                <div>
-                    <h3>Heading Levels</h3>
-                    <h1 style="font-size: var(--font-size-3xl); margin-bottom: var(--space-2);">Heading 1</h1>
-                    <h2 style="font-size: var(--font-size-2xl); margin-bottom: var(--space-2);">Heading 2</h2>
-                    <h3 style="font-size: var(--font-size-xl); margin-bottom: var(--space-2);">Heading 3</h3>
-                    <h4 style="font-size: var(--font-size-lg); margin-bottom: var(--space-2);">Heading 4</h4>
-                    <p>Regular paragraph text with <a href="#">link styles</a> and <strong>bold text</strong> for emphasis.</p>
-                </div>
-
-                <div>
-                    <h3>Button Variations</h3>
-                    <div style="display: flex; flex-direction: column; gap: var(--space-3); align-items: flex-start;">
-                        <button class="btn btn-primary">Primary Button</button>
-                        <button class="btn btn-secondary">Secondary Button</button>
-                        <button class="btn btn-primary btn-lg">Large Button</button>
-                        <button class="btn btn-primary btn-sm">Small Button</button>
-                    </div>
-                    <div style="margin-top: var(--space-4);">
-                        <h4>Badges</h4>
-                        <div style="display: flex; gap: var(--space-2); flex-wrap: wrap; margin-top: var(--space-2);">
-                            <span class="badge">New</span>
-                            <span class="badge">Popular</span>
-                            <span class="badge">Featured</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    -->
-
-    <!-- Contact Section -->
-    <section class="section bg-secondary" id="contact">
-        <div class="container text-center">
-            <h2>Contact Us</h2>
-            <p style="font-size: var(--font-size-lg); max-width: 600px; margin: 0 auto var(--space-6);">
-                Interested in volunteering or learning more about MSU Science Olympiad? 
-                We'd love to hear from you!
-            </p>
-            <p style="font-size: var(--font-size-xl); margin-bottom: var(--space-4);">
-                <a href="mailto:scioly@msuso.org" style="font-weight: var(--font-weight-semibold);">scioly@msuso.org</a>
-            </p>
         </div>
     </section>
 
     <!-- Footer Component -->
-    <msu-footer page-links='[{"href":"#about","text":"About"},{"href":"#events","text":"Events"},{"href":"resources.html","text":"Resources"},{"href":"#contact","text":"Contact"}]'></msu-footer>
+    <msu-footer page-links='[{"href":"index.html#about","text":"About"},{"href":"index.html#events","text":"Events"},{"href":"resources.html","text":"Resources"},{"href":"index.html#contact","text":"Contact"}]'></msu-footer>
 
     <!-- Animation Script -->
     <script>

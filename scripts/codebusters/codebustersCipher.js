@@ -26,7 +26,7 @@ class CodebustersCipherGame {
 
     async init() {
         try {
-            const response = await fetch('../scripts/codebustersQuotes.json');
+            const response = await fetch('../scripts/codebusters/codebustersQuotes.json');
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }

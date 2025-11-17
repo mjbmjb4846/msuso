@@ -419,6 +419,44 @@ strong, b {
     font-size: var(--font-size-xl);
     font-weight: var(--font-weight-bold);
     color: var(--color-primary);
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    text-decoration: none;
+    transition: opacity var(--transition-fast);
+}
+
+.navbar-brand:hover {
+    opacity: 0.8;
+}
+
+.navbar-logo {
+    height: 2.5rem;
+    width: auto;
+    transition: opacity var(--transition-fast);
+}
+
+/* Theme-based logo visibility */
+.navbar-logo-light {
+    display: block;
+}
+
+.navbar-logo-dark {
+    display: none;
+}
+
+[data-theme="dark"] .navbar-logo-light {
+    display: none;
+}
+
+[data-theme="dark"] .navbar-logo-dark {
+    display: block;
+}
+
+.navbar-brand-text {
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-primary);
 }
 
 .navbar-nav {
@@ -514,6 +552,9 @@ strong, b {
     font-size: var(--font-size-xl);
     font-weight: var(--font-weight-bold);
     color: var(--color-primary);
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
 }
 
 .mobile-menu-close {
@@ -706,6 +747,15 @@ strong, b {
         display: block;
     }
 
+    /* Navbar logo responsive sizing */
+    .navbar-logo {
+        height: 2rem;
+    }
+
+    .navbar-brand-text {
+        font-size: var(--font-size-lg);
+    }
+
     .hero h1 {
         font-size: var(--font-size-4xl);
     }
@@ -723,6 +773,19 @@ strong, b {
         --space-16: 2rem;
         --space-24: 3rem;
         --container-padding: var(--space-3);
+    }
+
+    /* Smaller logo for mobile */
+    .navbar-logo {
+        height: 1.75rem;
+    }
+
+    .navbar-brand-text {
+        font-size: var(--font-size-base);
+    }
+
+    .navbar-brand {
+        gap: var(--space-2);
     }
 
     h1 {

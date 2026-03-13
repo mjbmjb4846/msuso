@@ -26,7 +26,7 @@ class CodebustersCipherGame {
 
     async init() {
         try {
-            const response = await fetch('../scripts/codebusters/codebustersQuotes.json');
+            const response = await fetch('../../scripts/codebusters/codebustersQuotes.json');
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
@@ -893,15 +893,8 @@ class CodebustersCipherGame {
                         setTimeout(() => this.checkSolution(), 100);
                     }
                     
-                    // Move to next box
-                    const wrapper = e.target.closest('.letter-box-wrapper');
-                    let nextWrapper = wrapper?.nextElementSibling;
-                    while (nextWrapper && !nextWrapper.querySelector('.letter-box')) {
-                        nextWrapper = nextWrapper.nextElementSibling;
-                    }
-                    if (nextWrapper?.querySelector('.letter-box')) {
-                        nextWrapper.querySelector('.letter-box').focus();
-                    }
+                    // Move to next unfilled box
+                    this.moveToNextUnfilledBox(e.target);
                 } else if (e.key === 'Backspace' || e.key === 'Delete') {
                     e.preventDefault();
                     e.target.value = '';
@@ -914,24 +907,10 @@ class CodebustersCipherGame {
                     }
                 } else if (e.key === 'ArrowRight') {
                     e.preventDefault();
-                    const wrapper = e.target.closest('.letter-box-wrapper');
-                    let nextWrapper = wrapper?.nextElementSibling;
-                    while (nextWrapper && !nextWrapper.querySelector('.letter-box')) {
-                        nextWrapper = nextWrapper.nextElementSibling;
-                    }
-                    if (nextWrapper?.querySelector('.letter-box')) {
-                        nextWrapper.querySelector('.letter-box').focus();
-                    }
+                    this.moveToNextUnfilledBox(e.target);
                 } else if (e.key === 'ArrowLeft') {
                     e.preventDefault();
-                    const wrapper = e.target.closest('.letter-box-wrapper');
-                    let prevWrapper = wrapper?.previousElementSibling;
-                    while (prevWrapper && !prevWrapper.querySelector('.letter-box')) {
-                        prevWrapper = prevWrapper.previousElementSibling;
-                    }
-                    if (prevWrapper?.querySelector('.letter-box')) {
-                        prevWrapper.querySelector('.letter-box').focus();
-                    }
+                    this.moveToPreviousUnfilledBox(e.target);
                 }
             });
 
@@ -976,15 +955,8 @@ class CodebustersCipherGame {
                         setTimeout(() => this.checkSolution(), 100);
                     }
                     
-                    // Move to next box
-                    const wrapper = e.target.closest('.letter-box-wrapper');
-                    let nextWrapper = wrapper?.nextElementSibling;
-                    while (nextWrapper && !nextWrapper.querySelector('.letter-box')) {
-                        nextWrapper = nextWrapper.nextElementSibling;
-                    }
-                    if (nextWrapper?.querySelector('.letter-box')) {
-                        nextWrapper.querySelector('.letter-box').focus();
-                    }
+                    // Move to next unfilled box
+                    this.moveToNextUnfilledBox(e.target);
                 } else if (e.key === 'Backspace' || e.key === 'Delete') {
                     e.preventDefault();
                     e.target.value = '';
@@ -996,27 +968,67 @@ class CodebustersCipherGame {
                     }
                 } else if (e.key === 'ArrowRight') {
                     e.preventDefault();
-                    const wrapper = e.target.closest('.letter-box-wrapper');
-                    let nextWrapper = wrapper?.nextElementSibling;
-                    while (nextWrapper && !nextWrapper.querySelector('.letter-box')) {
-                        nextWrapper = nextWrapper.nextElementSibling;
-                    }
-                    if (nextWrapper?.querySelector('.letter-box')) {
-                        nextWrapper.querySelector('.letter-box').focus();
-                    }
+                    this.moveToNextUnfilledBox(e.target);
                 } else if (e.key === 'ArrowLeft') {
                     e.preventDefault();
-                    const wrapper = e.target.closest('.letter-box-wrapper');
-                    let prevWrapper = wrapper?.previousElementSibling;
-                    while (prevWrapper && !prevWrapper.querySelector('.letter-box')) {
-                        prevWrapper = prevWrapper.previousElementSibling;
-                    }
-                    if (prevWrapper?.querySelector('.letter-box')) {
-                        prevWrapper.querySelector('.letter-box').focus();
-                    }
+                    this.moveToPreviousUnfilledBox(e.target);
                 }
             });
         });
+    }
+
+    moveToNextUnfilledBox(currentBox) {
+        const allBoxes = Array.from(this.container.querySelectorAll('.letter-box'));
+        const currentIndex = allBoxes.indexOf(currentBox);
+        
+        if (currentIndex === -1 || allBoxes.length === 0) return;
+        
+        // Start searching from the next box after current
+        let searchIndex = (currentIndex + 1) % allBoxes.length;
+        let foundBox = null;
+        
+        // Search forward for an unfilled box
+        for (let i = 0; i < allBoxes.length; i++) {
+            const box = allBoxes[searchIndex];
+            if (!box.value || box.value.trim() === '') {
+                foundBox = box;
+                break;
+            }
+            searchIndex = (searchIndex + 1) % allBoxes.length;
+        }
+        
+        // If we found an unfilled box, focus it
+        if (foundBox) {
+            foundBox.focus();
+            foundBox.select();
+        }
+    }
+
+    moveToPreviousUnfilledBox(currentBox) {
+        const allBoxes = Array.from(this.container.querySelectorAll('.letter-box'));
+        const currentIndex = allBoxes.indexOf(currentBox);
+        
+        if (currentIndex === -1 || allBoxes.length === 0) return;
+        
+        // Start searching from the previous box before current
+        let searchIndex = (currentIndex - 1 + allBoxes.length) % allBoxes.length;
+        let foundBox = null;
+        
+        // Search backward for an unfilled box
+        for (let i = 0; i < allBoxes.length; i++) {
+            const box = allBoxes[searchIndex];
+            if (!box.value || box.value.trim() === '') {
+                foundBox = box;
+                break;
+            }
+            searchIndex = (searchIndex - 1 + allBoxes.length) % allBoxes.length;
+        }
+        
+        // If we found an unfilled box, focus it
+        if (foundBox) {
+            foundBox.focus();
+            foundBox.select();
+        }
     }
 
     fillSameCipherLetters(cipherLetter, value) {

@@ -250,7 +250,7 @@ class MsuBadge extends HTMLElement {
  *     badges='["Test", "Space"]'
  *     color-badges='[{"text":"Build","color":"purple"}]'
  *     icon="planet-outline"
- *     href="events/astronomy">
+ *     href="events/c/astronomy">
  * </msu-card>
  */
 class MsuCard extends HTMLElement {

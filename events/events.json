@@ -1,0 +1,433 @@
+[
+  {
+    "name": "Anatomy and Physiology",
+    "active": true,
+    "division": [
+      "B",
+      "C"
+    ],
+    "tags": [],
+    "event-type": [
+      "test"
+    ],
+    "event parameters": {},
+    "event-category": "Life, Personal & Social Science"
+  },
+  {
+    "name": "Astronomy",
+    "active": true,
+    "division": [
+      "C"
+    ],
+    "tags": [],
+    "event-type": [
+      "test"
+    ],
+    "event parameters": {},
+    "event-category": "Earth & Space Science"
+  },
+  {
+    "name": "Boomilever",
+    "active": true,
+    "division": [
+      "B",
+      "C"
+    ],
+    "tags": [],
+    "event-type": [
+      "build"
+    ],
+    "event parameters": {},
+    "event-category": "Technology & Engineering"
+  },
+  {
+    "name": "Botany",
+    "active": true,
+    "division": [
+      "B",
+      "C"
+    ],
+    "tags": [],
+    "event-type": [
+      "lab"
+    ],
+    "event parameters": {},
+    "event-category": "Life, Personal & Social Science"
+  },
+  {
+    "name": "Chemistry Lab",
+    "active": true,
+    "division": [
+      "C"
+    ],
+    "tags": [],
+    "event-type": [
+      "lab"
+    ],
+    "event parameters": {},
+    "event-category": "Physical Science & Chemistry"
+  },
+  {
+    "name": "Circuit Lab",
+    "active": true,
+    "division": [
+      "B",
+      "C"
+    ],
+    "tags": [],
+    "event-type": [
+      "test",
+      "lab"
+    ],
+    "event parameters": {},
+    "event-category": "Physical Science & Chemistry"
+  },
+  {
+    "name": "Codebusters",
+    "active": true,
+    "division": [
+      "B",
+      "C"
+    ],
+    "tags": [],
+    "event-type": [
+      "test"
+    ],
+    "event parameters": {},
+    "event-category": "Inquiry & Nature of Science"
+  },
+  {
+    "name": "Crime Busters",
+    "active": true,
+    "division": [
+      "B"
+    ],
+    "tags": [],
+    "event-type": [
+      "lab"
+    ],
+    "event parameters": {},
+    "event-category": "Life, Personal & Social Science"
+  },
+  {
+    "name": "Designer Genes",
+    "active": true,
+    "division": [
+      "C"
+    ],
+    "tags": [],
+    "event-type": [
+      "test"
+    ],
+    "event parameters": {},
+    "event-category": "Life, Personal & Social Science"
+  },
+  {
+    "name": "Disease Detectives",
+    "active": true,
+    "division": [
+      "B",
+      "C"
+    ],
+    "tags": [],
+    "event-type": [
+      "test"
+    ],
+    "event parameters": {},
+    "event-category": "Life, Personal & Social Science"
+  },
+  {
+    "name": "Dynamic Planet",
+    "active": true,
+    "division": [
+      "B",
+      "C"
+    ],
+    "tags": [],
+    "event-type": [
+      "test"
+    ],
+    "event parameters": {},
+    "event-category": "Earth & Space Science"
+  },
+  {
+    "name": "Electric Vehicle",
+    "active": true,
+    "division": [
+      "C"
+    ],
+    "tags": [],
+    "event-type": [
+      "build"
+    ],
+    "event parameters": {},
+    "event-category": "Technology & Engineering"
+  },
+  {
+    "name": "Engineering CAD",
+    "active": true,
+    "division": [
+      "C"
+    ],
+    "tags": [],
+    "event-type": [
+      "lab"
+    ],
+    "event parameters": {},
+    "event-category": "Inquiry & Nature of Science"
+  },
+  {
+    "name": "Experimental Design",
+    "active": true,
+    "division": [
+      "B",
+      "C"
+    ],
+    "tags": [],
+    "event-type": [
+      "test"
+    ],
+    "event parameters": {},
+    "event-category": "Inquiry & Nature of Science"
+  },
+  {
+    "name": "Food Science",
+    "active": true,
+    "division": [
+      "B"
+    ],
+    "tags": [],
+    "event-type": [
+      "test"
+    ],
+    "event parameters": {},
+    "event-category": "Physical Science & Chemistry"
+  },
+  {
+    "name": "Forensics",
+    "active": true,
+    "division": [
+      "C"
+    ],
+    "tags": [],
+    "event-type": [
+      "lab"
+    ],
+    "event parameters": {},
+    "event-category": "Physical Science & Chemistry"
+  },
+  {
+    "name": "Glider",
+    "active": true,
+    "division": [
+      "B"
+    ],
+    "tags": [],
+    "event-type": [
+      "build"
+    ],
+    "event parameters": {},
+    "event-category": "Technology & Engineering"
+  },
+  {
+    "name": "Heredity",
+    "active": true,
+    "division": [
+      "B"
+    ],
+    "tags": [],
+    "event-type": [
+      "test"
+    ],
+    "event parameters": {},
+    "event-category": "Life, Personal & Social Science"
+  },
+  {
+    "name": "Hovercraft",
+    "active": true,
+    "division": [
+      "B",
+      "C"
+    ],
+    "tags": [],
+    "event-type": [
+      "build"
+    ],
+    "event parameters": {},
+    "event-category": "Technology & Engineering"
+  },
+  {
+    "name": "Meteorology",
+    "active": true,
+    "division": [
+      "B"
+    ],
+    "tags": [],
+    "event-type": [
+      "test"
+    ],
+    "event parameters": {},
+    "event-category": "Earth & Space Science"
+  },
+  {
+    "name": "Mission Possible",
+    "active": true,
+    "division": [
+      "C"
+    ],
+    "tags": [],
+    "event-type": [
+      "build"
+    ],
+    "event parameters": {},
+    "event-category": "Technology & Engineering"
+  },
+  {
+    "name": "Ping Pong Parachute",
+    "active": true,
+    "division": [
+      "B",
+      "C"
+    ],
+    "tags": [],
+    "event-type": [
+      "build"
+    ],
+    "event parameters": {},
+    "event-category": "Technology & Engineering"
+  },
+  {
+    "name": "Protein Modeling",
+    "active": true,
+    "division": [
+      "C"
+    ],
+    "tags": [],
+    "event-type": [
+      "lab"
+    ],
+    "event parameters": {},
+    "event-category": "Life, Personal & Social Science"
+  },
+  {
+    "name": "Remote Sensing",
+    "active": true,
+    "division": [
+      "B",
+      "C"
+    ],
+    "tags": [],
+    "event-type": [
+      "test"
+    ],
+    "event parameters": {},
+    "event-category": "Earth & Space Science"
+  },
+  {
+    "name": "Rocks and Minerals",
+    "active": true,
+    "division": [
+      "B",
+      "C"
+    ],
+    "tags": [],
+    "event-type": [
+      "test"
+    ],
+    "event parameters": {},
+    "event-category": "Earth & Space Science"
+  },
+  {
+    "name": "Roller Coaster",
+    "active": true,
+    "division": [
+      "B"
+    ],
+    "tags": [],
+    "event-type": [
+      "build"
+    ],
+    "event parameters": {},
+    "event-category": "Technology & Engineering"
+  },
+  {
+    "name": "Scrambler",
+    "active": true,
+    "division": [
+      "B"
+    ],
+    "tags": [],
+    "event-type": [
+      "build"
+    ],
+    "event parameters": {},
+    "event-category": "Technology & Engineering"
+  },
+  {
+    "name": "Solar System",
+    "active": true,
+    "division": [
+      "B"
+    ],
+    "tags": [],
+    "event-type": [
+      "test"
+    ],
+    "event parameters": {},
+    "event-category": "Earth & Space Science"
+  },
+  {
+    "name": "Thermodynamics",
+    "active": true,
+    "division": [
+      "B",
+      "C"
+    ],
+    "tags": [],
+    "event-type": [
+      "test"
+    ],
+    "event parameters": {},
+    "event-category": "Physical Science & Chemistry"
+  },
+  {
+    "name": "Water Quality",
+    "active": true,
+    "division": [
+      "B",
+      "C"
+    ],
+    "tags": [],
+    "event-type": [
+      "lab"
+    ],
+    "event parameters": {},
+    "event-category": "Life, Personal & Social Science"
+  },
+  {
+    "name": "Wright Stuff",
+    "active": true,
+    "division": [
+      "C"
+    ],
+    "tags": [],
+    "event-type": [
+      "build"
+    ],
+    "event parameters": {},
+    "event-category": "Technology & Engineering"
+  },
+  {
+    "name": "Write It Do It",
+    "active": true,
+    "division": [
+      "B"
+    ],
+    "tags": [],
+    "event-type": [
+      "test"
+    ],
+    "event parameters": {},
+    "event-category": "Inquiry & Nature of Science"
+  }
+]

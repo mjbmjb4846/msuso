@@ -89,11 +89,13 @@
 .cipher-area {
   position: relative;
   margin: var(--space-6) 0;
-  transition: filter 200ms ease;
+  /* filter transition is applied when pausing to children so overlay isn't blurred */
 }
 
-.cipher-area.paused {
+/* Blur only the visible content when paused; keep the overlay clear and interactive */
+.cipher-area.paused > :not(.pause-overlay) {
   filter: blur(8px);
+  transition: filter 200ms ease;
   pointer-events: none;
 }
 
@@ -109,6 +111,7 @@
   justify-content: center;
   border-radius: var(--border-radius-lg);
   z-index: 10;
+  pointer-events: auto;
 }
 
 .cipher-text-section,

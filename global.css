@@ -344,6 +344,27 @@ strong, b {
     color: var(--color-text-on-primary);
 }
 
+/* Hero Section Button Contrast Adjustments */
+.hero .btn-secondary {
+    color: var(--color-white);
+    border-color: var(--color-white);
+}
+
+.hero .btn-secondary:hover {
+    background-color: var(--color-white);
+    color: var(--color-primary);
+}
+
+[data-theme="dark"] .hero .btn-secondary {
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+}
+
+[data-theme="dark"] .hero .btn-secondary:hover {
+    background-color: var(--color-primary);
+    color: var(--color-text-on-primary);
+}
+
 .btn-lg {
     padding: var(--space-4) var(--space-8);
     font-size: var(--font-size-lg);

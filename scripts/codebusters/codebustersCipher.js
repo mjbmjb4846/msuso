@@ -198,8 +198,8 @@ class CodebustersCipherGame {
         for (let char of plain) {
             if (baconianMap[char]) {
                 ciphertext.push(baconianMap[char]);
-            } else {
-                // Non-letters stay as-is (spaces, punctuation)
+            } else if (char !== ' ') {
+                // Non-letters stay as-is (spaces removed to match Patristocrat style)
                 ciphertext.push(char);
             }
         }
@@ -605,7 +605,7 @@ class CodebustersCipherGame {
             // Render each character in the word
             for (const char of word.text) {
                 if (/[A-Z]/.test(char)) {
-                    html += `<div class="cipher-block"><span class="cipher-letter">${char}</span></div>`;
+                    html += `<div class="cipher-block" data-cipher-target="${char}"><span class="cipher-letter">${char}</span></div>`;
                 } else {
                     html += `<div class="cipher-block"><span class="cipher-non-letter">${this.escapeHtml(char)}</span></div>`;
                 }
@@ -624,7 +624,7 @@ class CodebustersCipherGame {
         // Patristocrat: continuous text, just render all characters in order
         for (const char of text) {
             if (/[A-Z]/.test(char)) {
-                html += `<div class="cipher-block"><span class="cipher-letter">${char}</span></div>`;
+                html += `<div class="cipher-block" data-cipher-target="${char}"><span class="cipher-letter">${char}</span></div>`;
             } else {
                 html += `<div class="cipher-block"><span class="cipher-non-letter">${this.escapeHtml(char)}</span></div>`;
             }
@@ -636,6 +636,7 @@ class CodebustersCipherGame {
     renderBaconianCipherDisplay() {
         const ciphertext = this.currentCipher.ciphertext;
         let html = '';
+        let boxIndex = 0;
         
         for (let i = 0; i < ciphertext.length; i++) {
             const item = ciphertext[i];
@@ -645,26 +646,11 @@ class CodebustersCipherGame {
                 const letters = item.split('').map(letter => 
                     `<span class="baconian-letter ${letter.toLowerCase()}">${letter}</span>`
                 ).join('');
-                html += `<div class="cipher-block baconian-block"><span class="baconian-group"><div class="baconian-letters">${letters}</div></span></div>`;
-                
-                // Check what comes next for spacing
-                if (i + 1 < ciphertext.length) {
-                    const nextItem = ciphertext[i + 1];
-                    // If next is a space, check if it's double space (word boundary)
-                    if (nextItem === ' ') {
-                        if (i + 2 < ciphertext.length && ciphertext[i + 2] === ' ') {
-                            // Double space - add extra spacing block
-                            html += `<div class="baconian-word-boundary"></div>`;
-                            i += 2; // Skip both spaces
-                        } else {
-                            // Single space - margin on block handles it
-                            i += 1; // Skip the space
-                        }
-                    }
-                }
-            } else if (item !== ' ') {
+                html += `<div class="cipher-block baconian-block" data-baconian-target="${boxIndex}"><span class="baconian-group"><div class="baconian-letters">${letters}</div></span></div>`;
+                boxIndex++;
+            } else {
                 // Punctuation
-                html += `<div class="cipher-block"><span class="cipher-non-letter">${this.escapeHtml(item)}</span></div>`;
+                html += `<div class="cipher-block baconian-block"><span class="cipher-non-letter" style="width:100%">${this.escapeHtml(item)}</span></div>`;
             }
         }
         
@@ -780,25 +766,14 @@ class CodebustersCipherGame {
                     </div>
                 `;
                 boxIndex++;
-                
-                // Check what comes next for spacing
-                if (i + 1 < ciphertext.length) {
-                    const nextItem = ciphertext[i + 1];
-                    // If next is a space, check if it's double space (word boundary)
-                    if (nextItem === ' ') {
-                        if (i + 2 < ciphertext.length && ciphertext[i + 2] === ' ') {
-                            // Double space - add extra spacing block
-                            html += `<div class="baconian-word-boundary"></div>`;
-                            i += 2; // Skip both spaces
-                        } else {
-                            // Single space - margin on block handles it
-                            i += 1; // Skip the space
-                        }
-                    }
-                }
-            } else if (item !== ' ') {
+            } else {
                 // Punctuation
-                html += `<div class="cipher-block"><span class="solution-non-letter">${this.escapeHtml(item)}</span></div>`;
+                html += `
+                    <div class="letter-box-wrapper baconian-input">
+                        <div class="letter-label"></div>
+                        <div class="solution-non-letter" style="width:100%">${this.escapeHtml(item)}</div>
+                    </div>
+                `;
             }
         }
         
@@ -914,7 +889,7 @@ class CodebustersCipherGame {
                 }
             });
 
-            box.addEventListener('click', (e) => {
+            box.addEventListener('focus', (e) => {
                 const cipherLetter = e.target.dataset.cipherLetter;
                 this.highlightSameCipherLetters(cipherLetter, e.target);
             });
@@ -973,6 +948,11 @@ class CodebustersCipherGame {
                     e.preventDefault();
                     this.moveToPreviousUnfilledBox(e.target);
                 }
+            });
+
+            box.addEventListener('focus', (e) => {
+                const baconianIndex = e.target.dataset.baconianIndex;
+                this.highlightBaconianCipherLetters(baconianIndex, e.target);
             });
         });
     }
@@ -1042,14 +1022,34 @@ class CodebustersCipherGame {
         const allBoxes = this.container.querySelectorAll('.letter-box');
         allBoxes.forEach(box => box.classList.remove('selected'));
 
+        const allTargets = this.container.querySelectorAll('.selected-cipher');
+        allTargets.forEach(t => t.classList.remove('selected-cipher'));
+
         const boxes = this.container.querySelectorAll(`.letter-box[data-cipher-letter="${cipherLetter}"]`);
         boxes.forEach(box => {
             box.classList.add('selected');
-            // Only select/focus the box that was actually clicked
-            if (clickedBox && box === clickedBox) {
-                box.select();
-            }
         });
+
+        const targets = this.container.querySelectorAll(`.cipher-block[data-cipher-target="${cipherLetter}"]`);
+        targets.forEach(t => t.classList.add('selected-cipher'));
+    }
+
+    highlightBaconianCipherLetters(baconianIndex, clickedBox = null) {
+        const allBoxes = this.container.querySelectorAll('.letter-box');
+        allBoxes.forEach(box => box.classList.remove('selected'));
+
+        const allTargets = this.container.querySelectorAll('.selected-cipher');
+        allTargets.forEach(t => t.classList.remove('selected-cipher'));
+
+        const box = this.container.querySelector(`.letter-box[data-baconian-index="${baconianIndex}"]`);
+        if (box) {
+            box.classList.add('selected');
+        }
+
+        const target = this.container.querySelector(`.cipher-block[data-baconian-target="${baconianIndex}"]`);
+        if (target) {
+            target.classList.add('selected-cipher');
+        }
     }
 
     areAllBoxesFilled() {

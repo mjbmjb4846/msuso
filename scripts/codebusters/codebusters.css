@@ -166,16 +166,9 @@
   margin-right: 44px; /* Single space after each block */
 }
 
-/* Baconian word boundary - double space */
-.baconian-word-boundary {
-  width: 44px; /* Additional space to make double */
-  height: 54px;
-  display: inline-flex;
-  flex-shrink: 0;
-}
-
 /* Baconian input boxes in solution */
 .letter-box-wrapper.baconian-input {
+  width: 132px;
   margin-right: 44px; /* Single space after each input */
 }
 
@@ -345,20 +338,16 @@
   background: #6366f1;
 }
 
-/* Space between Baconian groups - one full letter width */
-.cipher-non-letter.baconian-space {
-  display: inline-flex;
-  width: 40px;
-  text-align: center;
-  flex-shrink: 0;
+/* Cipher Text Selection Highlight */
+.cipher-block.selected-cipher .cipher-letter {
+  background: var(--color-primary-hover, #16a34a);
+  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.4);
 }
 
-/* Space between Baconian words - two letter widths */
-.cipher-non-letter.baconian-word-space {
-  display: inline-flex;
-  width: 80px;
-  text-align: center;
-  flex-shrink: 0;
+.cipher-block.selected-cipher .baconian-letters {
+  background: rgba(34, 197, 94, 0.2);
+  border-radius: var(--border-radius-sm, 4px);
+  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.3);
 }
 
 .cipher-buttons {
@@ -444,6 +433,16 @@
   background: #7f1d1d;
   border-color: #ef4444;
   color: #fca5a5;
+}
+
+[data-theme="dark"] .cipher-block.selected-cipher .cipher-letter {
+  background: var(--color-green-800);
+  box-shadow: 0 0 0 3px rgba(74, 222, 128, 0.4);
+}
+
+[data-theme="dark"] .cipher-block.selected-cipher .baconian-letters {
+  background: rgba(74, 222, 128, 0.15);
+  box-shadow: 0 0 0 3px rgba(74, 222, 128, 0.3);
 }
 
 /* Responsive */

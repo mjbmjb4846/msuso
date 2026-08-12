@@ -25,6 +25,7 @@ DEFAULT_EMPTY_EVENT_FIELDS: Dict[str, Any] = {
     "event-type": [],
     "event parameters": {},
     "event-category": "",
+    "description": "",
 }
 
 
@@ -47,16 +48,16 @@ HTML_TEMPLATE = """<!doctype html>
   <script src=\"../../card.js\" defer></script>
 </head>
 <body>
-    <msu-navbar page-links='[{{"href":"../../index.html#about","text":"About"}},{{"href":"../../index.html#events","text":"Events"}},{{"href":"../../resources.html","text":"Resources"}},{{"href":"../../index.html#contact","text":"Contact"}}]'></msu-navbar>
+        <msu-navbar></msu-navbar>
 
-  <main class=\"section\">
-    <div class=\"container\">
+  <main class="section">
+    <div class="container">
       <h1>{title}</h1>
       <!-- Event content to be added here -->
     </div>
   </main>
 
-    <msu-footer page-links='[{{"href":"../../index.html#about","text":"About"}},{{"href":"../../index.html#events","text":"Events"}},{{"href":"../../index.html#events","text":"Resources"}},{{"href":"../../index.html#contact","text":"Contact"}}]'></msu-footer>
+    <msu-footer></msu-footer>
 </body>
 </html>
 """

@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Science Olympiad Card Studio | MSU Science Olympiad</title>
+
+<!-- Favicons -->
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="icon" type="image/x-ycon" sizes="32x32" href="../favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="../favicon.png">
+<link rel="manifest" href="../site.webmanifest">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Exo+2:ital,wght@0,300;0,400;0,600;0,700;0,900;1,400&family=Share+Tech+Mono&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- Styles -->
+<link rel="stylesheet" href="global.css">
+<link rel="stylesheet" href="scripts/tradingCard/card.css">
+<style>
+  /* Studio UI Polish Enhancements */
+  .sb-header .icon { display: flex; align-items: center; justify-content: center; }
+  .sb-header .icon ion-icon { font-size: 1.25rem; color: var(--color-primary); }
+  .sb-header .chev { font-size: 1.1rem; color: var(--color-text-tertiary); transition: transform 0.3s ease; }
+  .sb-section.open .chev { transform: rotate(180deg); }
+  
+  .uz-icon ion-icon { font-size: 2.5rem; color: var(--color-text-tertiary); transition: color 0.2s ease; }
+  .upload-zone:hover .uz-icon ion-icon { color: var(--color-primary); }
+  
+  .ebc-icon ion-icon { font-size: 2rem; color: var(--color-primary); margin-bottom: 0.25rem; transition: transform 0.2s ease; }
+  .ebc:hover .ebc-icon ion-icon { transform: scale(1.1); }
+  
+  .studio-title {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-primary-hover));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+    font-weight: 900;
+    letter-spacing: -0.5px;
+  }
+  
+  .drag-handle ion-icon { font-size: 1.25rem; color: var(--color-text-tertiary); cursor: grab; vertical-align: middle; }
+  .sort-del ion-icon { font-size: 1.25rem; color: var(--color-text-secondary); cursor: pointer; vertical-align: middle; transition: color 0.2s; }
+  .sort-del:hover ion-icon { color: var(--color-error, #ef4444); }
+
+  .btn-import {
+    display: flex; align-items: center; justify-content: center; gap: 0.5rem;
+    width: 100%; border: 1px dashed var(--color-border); background: var(--color-background-secondary);
+    color: var(--color-text-primary); border-radius: var(--radius-md); padding: var(--space-2);
+    cursor: pointer; font-weight: 600; transition: all 0.2s;
+  }
+  .btn-import:hover { border-color: var(--color-primary); color: var(--color-primary); }
+</style>
+
+<!-- Scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+<script src="../scripts/navigation.js"></script>
+<script src="../scripts/tradingCard/tradingCard.js" defer></script>
+</head>
+<body>
+
+<!-- Navigation Component -->
+<msu-navbar page-links='[{"href":"../index.html#about","text":"About"},{"href":"../index.html#events","text":"Events"},{"href":"../resources.html","text":"Resources"},{"href":"../join.html","text":"Join"},{"href":"../index.html#contact","text":"Contact"}]'></msu-navbar>
+
+<div class="app">
+<div class="sidebar" id="sidebar">
+
+   <!-- IDENTITY -->
+  <div class="sb-section open" id="sec-identity">
+    <div class="sb-header" onclick="toggleSec('sec-identity')">
+      <div class="icon"><ion-icon name="person-outline"></ion-icon></div><span class="lbl">Identity</span><ion-icon name="chevron-down-outline" class="chev"></ion-icon>
+    </div>
+    <div class="sb-body">
+      <div class="field"><label class="fl">Full Name</label>
+        <input type="text" id="f-name" placeholder="Alex Johnson" oninput="render()"></div>
+      <div class="field"><label class="fl">School / Club / Organization</label>
+        <input type="text" id="f-org" placeholder="Lincoln High Science Olympiad" oninput="render()"></div>
+      <div class="field"><label class="fl">Season / Year</label>
+        <input type="text" id="f-season" placeholder="2026–27" oninput="render()"></div>
+      <div class="field"><label class="fl">Team Website</label>
+        <input type="url" id="f-url" placeholder="https://lincoln-scioly.org" oninput="render()"></div>
+    </div>
+  </div>
+
+  <!-- PRESETS -->
+  <div class="sb-section open" id="sec-presets">
+    <div class="sb-header" onclick="toggleSec('sec-presets')">
+      <div class="icon"><ion-icon name="options-outline"></ion-icon></div><span class="lbl">Presets</span><ion-icon name="chevron-down-outline" class="chev"></ion-icon>
+    </div>
+    <div class="sb-body">
+      <div class="field" style="margin-bottom: 12px;">
+        <button class="btn-import" onclick="document.getElementById('import-json').click()"><ion-icon name="download-outline"></ion-icon> Import JSON Settings</button>
+        <input type="file" id="import-json" accept=".json" style="display:none" onchange="importJSON(event)">
+      </div>
+      <div class="field"><label class="fl">User Type</label>
+        <div class="pill-group" id="pg-user">
+          <div class="pill active" data-val="varsity" onclick="setPill('pg-user',this)">Varsity</div>
+          <div class="pill" data-val="jv" onclick="setPill('pg-user',this)">JV</div>
+          <div class="pill" data-val="coach" onclick="setPill('pg-user',this)">Coach</div>
+          <div class="pill" data-val="es" onclick="setPill('pg-user',this)">Event Sup.</div>
+          <div class="pill" data-val="volunteer" onclick="setPill('pg-user',this)">Volunteer</div>
+        </div>
+      </div>
+      <div class="field"><label class="fl">Style</label>
+        <div class="pill-group" id="pg-style">
+          <div class="pill active" data-val="regular" onclick="setPill('pg-style',this)">Regular Art</div>
+          <div class="pill" data-val="full" onclick="setPill('pg-style',this)">Full Art</div>
+          <div class="pill" data-val="noart" onclick="setPill('pg-style',this)">No Artwork</div>
+        </div>
+      </div>
+      <div class="field"><label class="fl">Color Scheme</label>
+        <div class="pill-group" id="pg-color">
+          <div class="pill active" data-val="regular" onclick="setPill('pg-color',this)">Regular</div>
+          <div class="pill" data-val="mono" onclick="setPill('pg-color',this)">Mono</div>
+          <div class="pill" data-val="rainbow" onclick="setPill('pg-color',this)">Rainbow</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- COLORS -->
+  <div class="sb-section open" id="sec-colors">
+    <div class="sb-header" onclick="toggleSec('sec-colors')">
+      <div class="icon"><ion-icon name="color-palette-outline"></ion-icon></div><span class="lbl">Colors</span><ion-icon name="chevron-down-outline" class="chev"></ion-icon>
+    </div>
+    <div class="sb-body">
+      <div class="sub-tabs">
+        <button class="sub-tab active" onclick="switchSubTab('color-main',this)">Main</button>
+        <button class="sub-tab" onclick="switchSubTab('color-adv',this)">Advanced</button>
+      </div>
+      <div class="sub-panel active" id="color-main">
+        <div class="field">
+          <label class="fl">Primary / Base Color</label>
+          <div class="color-row">
+            <input type="color" id="f-c1" value="#1a3a6b" title="Primary / Base Color" oninput="syncC('f-c1','f-c1t');render()">
+            <input type="text" id="f-c1t" value="#1a3a6b" title="Primary / Base Color (hex)" oninput="syncCT('f-c1t','f-c1');render()" maxlength="7">
+          </div>
+          <p class="hint mt-1">Recommend: one of your team colors</p>
+        </div>
+        <div class="field">
+          <label class="fl">Accent / Secondary Color</label>
+          <div class="color-row">
+            <input type="color" id="f-c2" value="#d4a017" title="Accent / Secondary Color" oninput="syncC('f-c2','f-c2t');onC2Change();render()">
+            <input type="text" id="f-c2t" value="#d4a017" title="Accent / Secondary Color (hex)" oninput="syncCT('f-c2t','f-c2');onC2Change();render()" maxlength="7">
+          </div>
+          <p class="hint mt-1">Recommend: second team color. Sets rim color by default.</p>
+        </div>
+        <div class="field" id="overlay-field" style="display:none">
+          <label class="fl">Text Overlay (Full Art)</label>
+          <div class="color-row">
+            <input type="color" id="f-overlay" value="#000000" oninput="render()">
+            <input type="text" value="Opacity →" style="background:transparent;border:none;color:var(--color-text-tertiary);font-size:11px;padding:0;cursor:default">
+          </div>
+          <div class="range-row">
+            <input type="range" id="f-overlay-op" min="0" max="100" value="55" oninput="this.nextElementSibling.textContent=this.value+'%';render()">
+            <span class="range-val">55%</span>
+          </div>
+        </div>
+        <div class="field" id="brightness-field" style="display:none">
+          <label class="fl">Artwork Brightness</label>
+          <div class="range-row">
+            <input type="range" id="f-bright" min="20" max="120" value="85" oninput="this.nextElementSibling.textContent=this.value+'%';render()">
+            <span class="range-val">85%</span>
+          </div>
+        </div>
+      </div>
+      <div class="sub-panel" id="color-adv">
+        <div class="field" id="tc-field">
+          <label class="fl">Custom Text Color <span style="color:var(--color-text-tertiary)">(optional)</span></label>
+          <div class="color-row">
+            <input type="color" id="f-tc" value="#000000" title="Custom Text Color" oninput="syncC('f-tc','f-tct');S.useCustomTc=true;render()">
+            <input type="text" id="f-tct" value="#000000" title="Custom Text Color (hex)" oninput="syncCT('f-tct','f-tc');S.useCustomTc=true;render()" maxlength="7">
+          </div>
+          <button class="btn btn-ghost btn-sm mt-1" onclick="resetTc()">Reset to Auto</button>
+        </div>
+        <div class="field" id="tcs-field">
+          <label class="fl">Secondary Text Color <span style="color:var(--color-text-tertiary)">(optional)</span></label>
+          <div class="color-row">
+            <input type="color" id="f-tcs" value="#555555" title="Secondary Text Color" oninput="syncC('f-tcs','f-tcst');S.useCustomTcs=true;render()">
+            <input type="text" id="f-tcst" value="#555555" title="Secondary Text Color (hex)" oninput="syncCT('f-tcst','f-tcs');S.useCustomTcs=true;render()" maxlength="7">
+          </div>
+          <button class="btn btn-ghost btn-sm mt-1" onclick="resetTcs()">Reset to Auto</button>
+        </div>
+        <div class="field" id="rim-field">
+          <label class="fl">Rim Color <span style="color:var(--color-text-tertiary)">(JV / Coach / Volunteer)</span></label>
+          <div class="color-row">
+            <input type="color" id="f-rim" value="#d4a017" title="Rim Color" oninput="syncC('f-rim','f-rimt');S.rimManual=true;render()">
+            <input type="text" id="f-rimt" value="#d4a017" title="Rim Color (hex)" oninput="syncCT('f-rimt','f-rim');S.rimManual=true;render()" maxlength="7">
+          </div>
+          <p class="hint mt-1">Defaults to accent color.</p>
+          <button class="btn btn-ghost btn-sm mt-1" onclick="resetRim()">Reset to Accent</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ARTWORK -->
+  <div class="sb-section open" id="sec-art">
+    <div class="sb-header" onclick="toggleSec('sec-art')">
+      <div class="icon"><ion-icon name="image-outline"></ion-icon></div><span class="lbl">Artwork</span><ion-icon name="chevron-down-outline" class="chev"></ion-icon>
+    </div>
+    <div class="sb-body">
+      <div class="field"><label class="fl">Logo / School Crest</label>
+        <div class="upload-zone" id="uz-logo">
+          <input type="file" accept="image/*" title="Logo / School Crest" onchange="loadImg(this,'logo')">
+          <div class="uz-icon"><ion-icon name="school-outline"></ion-icon></div><div class="uz-text">Click to upload logo</div>
+        </div>
+      </div>
+      <div class="field" id="art-field"><label class="fl">Card Artwork / Photo</label>
+        <div class="upload-zone" id="uz-art">
+          <input type="file" accept="image/*" title="Card Artwork / Photo" onchange="loadImg(this,'art')">
+          <div class="uz-icon"><ion-icon name="camera-outline"></ion-icon></div><div class="uz-text">Click to upload photo or artwork</div>
+        </div>
+      </div>
+      <div class="field" id="artback-field" style="display:none"><label class="fl">Back Artwork (Full Art)</label>
+        <div class="upload-zone" id="uz-artback">
+          <input type="file" accept="image/*" title="Back Artwork (Full Art)" onchange="loadImg(this,'artback')">
+          <div class="uz-icon"><ion-icon name="images-outline"></ion-icon></div><div class="uz-text">Click to upload back artwork</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FRONT INFO -->
+  <div class="sb-section open" id="sec-front">
+    <div class="sb-header" onclick="toggleSec('sec-front')">
+      <div class="icon"><ion-icon name="flash-outline"></ion-icon></div><span class="lbl">Front Info</span><ion-icon name="chevron-down-outline" class="chev"></ion-icon>
+    </div>
+    <div class="sb-body" id="front-fields"></div>
+  </div>
+
+  <!-- BACK INFO -->
+  <div class="sb-section open" id="sec-back">
+    <div class="sb-header" onclick="toggleSec('sec-back')">
+      <div class="icon"><ion-icon name="information-circle-outline"></ion-icon></div><span class="lbl">Back Info</span><ion-icon name="chevron-down-outline" class="chev"></ion-icon>
+    </div>
+    <div class="sb-body" id="back-fields"></div>
+  </div>
+
+  <!-- CUSTOM FIELDS -->
+  <div class="sb-section" id="sec-custom">
+    <div class="sb-header" onclick="toggleSec('sec-custom')">
+      <div class="icon"><ion-icon name="create-outline"></ion-icon></div><span class="lbl">Custom Fields</span><ion-icon name="chevron-down-outline" class="chev"></ion-icon>
+    </div>
+    <div class="sb-body">
+      <p class="hint">Add extra labeled fields to front or back of card. Drag to reorder.</p>
+      <div id="custom-list" class="sortable-list" style="gap:8px"></div>
+      <button class="btn btn-secondary btn-sm mt-2" onclick="addCustomField()"><ion-icon name="add-outline" style="vertical-align: middle;"></ion-icon> Add Custom Field</button>
+    </div>
+  </div>
+
+</div><!-- /sidebar -->
+
+<!-- MAIN -->
+<div class="main">
+  <div class="text-center mb-8">
+    <h1 class="studio-title" style="margin-bottom: var(--space-2);">Card Studio</h1>
+    <p>Science Olympiad Trading Card Generator</p>
+    <div class="mt-4"><span class="pill active">✦ 2026–27 SEASON</span></div>
+  </div>
+
+  <div class="preview-tabs">
+    <button class="preview-tab" onclick="switchTab('front', this)">Front</button>
+    <button class="preview-tab" onclick="switchTab('back', this)">Back</button>
+    <button class="preview-tab active" onclick="switchTab('both', this)">Both</button>
+  </div>
+  <div class="preview-cards" id="preview-cards">
+    <div class="card-wrapper" id="front-wrapper">
+      <div class="card-label">FRONT</div>
+      <div id="card-front" class="card"></div>
+    </div>
+    <div class="card-wrapper" id="back-wrapper" style="display:none">
+      <div class="card-label">BACK</div>
+      <div id="card-back" class="card"></div>
+    </div>
+  </div>
+  <div class="export-panel mt-8">
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
+      <h3 style="margin-bottom:0; display:flex; align-items:center; gap:8px;"><ion-icon name="share-outline" style="color:var(--color-primary);"></ion-icon> EXPORT CARDS</h3>
+      <div style="display:flex; align-items:center; gap:8px;">
+        <label style="font-family:var(--font-u); font-size:11px; font-weight:600; letter-spacing:1px; text-transform:uppercase; color:var(--color-text-secondary);">Resolution:</label>
+        <select id="export-scale" title="Export resolution" style="width:auto; padding:4px 8px; font-size:12px; height:auto; min-height:0; border-radius:4px;" class="field">
+          <option value="4">Standard (400 DPI)</option>
+          <option value="6">High Quality (600 DPI)</option>
+          <option value="12" selected>Ultra Quality (1200 DPI)</option>
+        </select>
+      </div>
+    </div>
+    <div class="export-grid">
+      <div class="ebc" onclick="exportPNG('front')"><div class="ebc-icon"><ion-icon name="image-outline"></ion-icon></div><div class="ebc-label">PNG</div><div class="ebc-desc">Front only</div></div>  
+      <div class="ebc" onclick="exportPNG('back')"><div class="ebc-icon"><ion-icon name="image-outline"></ion-icon></div><div class="ebc-label">PNG</div><div class="ebc-desc">Back only</div></div>
+      <div class="ebc" onclick="exportJSON()"><div class="ebc-icon"><ion-icon name="save-outline"></ion-icon></div><div class="ebc-label">JSON</div><div class="ebc-desc">Save Data</div></div>
+      <div class="ebc" onclick="exportJPG('front')"><div class="ebc-icon"><ion-icon name="camera-outline"></ion-icon></div><div class="ebc-label">JPG</div><div class="ebc-desc">Front only</div></div>
+      <div class="ebc" onclick="exportJPG('back')"><div class="ebc-icon"><ion-icon name="camera-outline"></ion-icon></div><div class="ebc-label">JPG</div><div class="ebc-desc">Back only</div></div>
+      <div class="ebc" onclick="showPDFModal()"><div class="ebc-icon"><ion-icon name="document-text-outline"></ion-icon></div><div class="ebc-label">PDF</div><div class="ebc-desc">Print-ready</div></div>
+    </div>
+    <p class="hint">PDF: cards are rotated sideways on 8.5×11 paper — up to 8 per sheet (2 rows × 4 cols). Duplex long-edge flip aligns front and back.</p>
+  </div>
+</div>
+</div>
+
+<!-- PDF MODAL -->
+<div class="modal-overlay" id="pdf-modal" style="display:none">
+  <div class="modal">
+    <h3 style="margin-bottom: var(--space-4); display: flex; align-items: center; gap: 8px;"><ion-icon name="document-lock-outline" style="color: var(--color-primary); font-size: 1.5rem;"></ion-icon> PDF EXPORT</h3>
+    <div class="flex-col gap-2">
+      <div class="field">
+        <label class="fl">Copies</label>
+        <input type="number" id="pdf-copies" min="1" max="8" value="1">
+        <p class="hint mt-1">Max 8 per page (cards printed sideways, 2 rows×4 columns).</p>
+      </div>
+      <div class="field mt-4">
+        <label class="fl">Card Side</label>
+        <div class="pill-group" id="pg-pdf-side">
+          <div class="pill active" data-val="both" onclick="setPill('pg-pdf-side',this)">Both (duplex)</div>
+          <div class="pill" data-val="front" onclick="setPill('pg-pdf-side',this)">Front only</div>
+          <div class="pill" data-val="back" onclick="setPill('pg-pdf-side',this)">Back only</div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn-ghost" onclick="closePDFModal()">Cancel</button>
+      <button class="btn btn-primary" onclick="exportPDF()">Generate PDF</button>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

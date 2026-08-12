@@ -8,6 +8,26 @@ const defaultSiteLinks = [
     { href: '/index.html', text: 'Home' }
 ];
 
+// Default navigation links (can be overridden by page attributes)
+const defaultNavbar = [
+    {"href":"index.html#about","text":"About"},
+    {"href":"index.html#events","text":"Events"},
+    //{"href":"resources.html","text":"Resources"},
+    {"href":"invitational.html","text":"2027 EL Invitational"},
+    {"href":"join.html","text":"Join"},
+    {"href":"index.html#contact","text":"Contact"}
+];
+
+// Default footer links (can be overridden by page attributes)
+const defaultFooter = [
+    {"href":"index.html#about","text":"About"},
+    {"href":"index.html#events","text":"Events"},
+    //{"href":"resources.html","text":"Resources"},
+    {"href":"invitational.html","text":"2027 EL Invitational"},
+    {"href":"join.html","text":"Join"},
+    {"href":"index.html#contact","text":"Contact"}
+];
+
 // Global configuration
 const siteConfig = {
     brandName: 'MSU SO',
@@ -28,7 +48,7 @@ class MsuNavbar extends HTMLElement {
     connectedCallback() {
         // Parse page-specific links from attribute
         const pageLinksAttr = this.getAttribute('page-links');
-        const pageLinks = pageLinksAttr ? JSON.parse(pageLinksAttr) : [];
+        const pageLinks = pageLinksAttr ? JSON.parse(pageLinksAttr) : defaultNavbar;
         
         // Combine site links and page links
         const allLinks = [...defaultSiteLinks, ...pageLinks];
@@ -205,26 +225,35 @@ class MsuNavbar extends HTMLElement {
 
 /**
  * Custom Footer Component
- * Usage: <msu-footer page-links='[{"href":"#about","text":"About"},...]'></msu-footer>
+ * Usage: <msu-footer page-links='[{"href":"#about","text":"About"},...]' 
+ *                    contact-emails='[{"label":"General","address":"scioly@msuso.org"}]'></msu-footer>
  */
 class MsuFooter extends HTMLElement {
     connectedCallback() {
         // Parse page-specific links from attribute
         const pageLinksAttr = this.getAttribute('page-links');
-        const pageLinks = pageLinksAttr ? JSON.parse(pageLinksAttr) : [];
+        const pageLinks = pageLinksAttr ? JSON.parse(pageLinksAttr) : defaultFooter;
         
         // Combine site links and page links (exclude home from quick links)
         const allLinks = [...defaultSiteLinks, ...pageLinks].filter(link => 
             !link.href.includes('#home') && link.href !== 'index.html'
         );
         
-        this.render(allLinks);
+        // Parse page-specific emails from attribute
+        const emailsAttr = this.getAttribute('contact-emails');
+        const emails = emailsAttr ? JSON.parse(emailsAttr) : [{ label: 'Email', address: siteConfig.email }];
+        
+        this.render(allLinks, emails);
     }
 
-    render(links) {
+    render(links, emails) {
         const quickLinks = links.map(link =>
             `<li><a href="${link.href}" style="color: var(--color-text-secondary); font-size: var(--font-size-sm);">${link.text}</a></li>`
         ).join('');
+
+        const emailLinks = emails.map(e => 
+            `${e.label}: <a href="mailto:${e.address}">${e.address}</a>`
+        ).join('<br>');
 
         this.innerHTML = `
             <footer class="bg-secondary" style="padding: var(--space-12) 0; margin-top: var(--space-16);">
@@ -245,7 +274,7 @@ class MsuFooter extends HTMLElement {
                         <div>
                             <h5 style="margin-bottom: var(--space-3);">Connect</h5>
                             <p style="color: var(--color-text-secondary); font-size: var(--font-size-sm);">
-                                Email: <a href="mailto:${siteConfig.email}">${siteConfig.email}</a><br>
+                                ${emailLinks}<br>
                                 Follow us on social media for updates and announcements.
                             </p>
                         </div>
@@ -333,4 +362,3 @@ if (document.readyState === 'loading') {
 } else {
     setupLinkHandling();
 }
-

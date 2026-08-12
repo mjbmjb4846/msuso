@@ -10,8 +10,11 @@
     "event-type": [
       "test"
     ],
-    "event parameters": {},
-    "event-category": "Life, Personal & Social Science"
+    "event parameters": {
+      "focus": "Digestive, Immune, and Respiratory systems"
+    },
+    "event-category": "Life, Personal & Social Science",
+    "description": "Explore the complex inner workings of the human body. Participants will demonstrate their knowledge of the digestive, immune, and respiratory systems and how they fight off illness."
   },
   {
     "name": "Astronomy",
@@ -24,7 +27,8 @@
       "test"
     ],
     "event parameters": {},
-    "event-category": "Earth & Space Science"
+    "event-category": "Earth & Space Science",
+    "description": "Journey through the cosmos to uncover the mysteries of deep space. Teams will demonstrate their understanding of stellar evolution, star formation, and celestial objects."
   },
   {
     "name": "Boomilever",
@@ -38,7 +42,8 @@
       "build"
     ],
     "event parameters": {},
-    "event-category": "Technology & Engineering"
+    "event-category": "Technology & Engineering",
+    "description": "Put your engineering skills to the test. Teams design, build, and test a lightweight Boomilever structure engineered to support a maximum load with the highest structural efficiency."
   },
   {
     "name": "Botany",
@@ -52,7 +57,8 @@
       "lab"
     ],
     "event parameters": {},
-    "event-category": "Life, Personal & Social Science"
+    "event-category": "Life, Personal & Social Science",
+    "description": "Explore the vital world of plant biology. Participants will be tested on their knowledge of agriculture, botany principles, and how plant life sustains our planet."
   },
   {
     "name": "Chemistry Lab",
@@ -64,8 +70,11 @@
     "event-type": [
       "lab"
     ],
-    "event parameters": {},
-    "event-category": "Physical Science & Chemistry"
+    "event parameters": {
+      "focus": "Kinetics and Gases"
+    },
+    "event-category": "Physical Science & Chemistry",
+    "description": "Apply your knowledge of chemical processes in a laboratory setting. Teams will complete hands-on tasks and analyze data focusing on kinetics and gases."
   },
   {
     "name": "Circuit Lab",
@@ -80,7 +89,8 @@
       "lab"
     ],
     "event parameters": {},
-    "event-category": "Physical Science & Chemistry"
+    "event-category": "Physical Science & Chemistry",
+    "description": "Explore the forces that power our modern world. Participants will complete tasks and answer questions related to electricity, magnetism, and direct current (DC) circuits."
   },
   {
     "name": "Codebusters",
@@ -94,7 +104,8 @@
       "test"
     ],
     "event parameters": {},
-    "event-category": "Inquiry & Nature of Science"
+    "event-category": "Inquiry & Nature of Science",
+    "description": "Race against the clock to crack secret codes. Teams will use cryptanalysis techniques to decipher hidden messages and solve complex historical and modern ciphers."
   },
   {
     "name": "Crime Busters",
@@ -107,7 +118,8 @@
       "lab"
     ],
     "event parameters": {},
-    "event-category": "Life, Personal & Social Science"
+    "event-category": "Life, Personal & Social Science",
+    "description": "Step into the role of a forensic investigator. Given a scenario and physical evidence, students will perform a series of tests to analyze powders and liquids to solve a crime."
   },
   {
     "name": "Designer Genes",
@@ -120,7 +132,8 @@
       "test"
     ],
     "event parameters": {},
-    "event-category": "Life, Personal & Social Science"
+    "event-category": "Life, Personal & Social Science",
+    "description": "Unlock the blueprint of life. Participants will solve problems and analyze data related to genetics, DNA, molecular biology, and biotechnology."
   },
   {
     "name": "Disease Detectives",
@@ -134,7 +147,8 @@
       "test"
     ],
     "event parameters": {},
-    "event-category": "Life, Personal & Social Science"
+    "event-category": "Life, Personal & Social Science",
+    "description": "Use your investigative skills to act as a medical detective. Students will study disease outbreaks, health, and epidemiology to learn how public health professionals save lives."
   },
   {
     "name": "Dynamic Planet",
@@ -147,8 +161,11 @@
     "event-type": [
       "test"
     ],
-    "event parameters": {},
-    "event-category": "Earth & Space Science"
+    "event parameters": {
+      "focus": "Earth's Fresh Waters"
+    },
+    "event-category": "Earth & Space Science",
+    "description": "Investigate the powerful processes that shape our dynamic world. Teams will demonstrate their understanding of large-scale geological forces, with a special focus on Earth's fresh waters."
   },
   {
     "name": "Electric Vehicle",
@@ -161,7 +178,8 @@
       "build"
     ],
     "event parameters": {},
-    "event-category": "Technology & Engineering"
+    "event-category": "Technology & Engineering",
+    "description": "Design and build a precise, electric-powered vehicle. Teams must engineer their device to travel quickly and stop as close as possible to a specific target point."
   },
   {
     "name": "Engineering CAD",
@@ -174,7 +192,8 @@
       "lab"
     ],
     "event parameters": {},
-    "event-category": "Inquiry & Nature of Science"
+    "event-category": "Inquiry & Nature of Science",
+    "description": "Bring your ideas to life in 3D. Teams will use computer-aided design (CAD) software to model objects with precision and design innovative solutions to engineering problems."
   },
   {
     "name": "Experimental Design",
@@ -185,10 +204,11 @@
     ],
     "tags": [],
     "event-type": [
-      "test"
+      "lab"
     ],
     "event parameters": {},
-    "event-category": "Inquiry & Nature of Science"
+    "event-category": "Inquiry & Nature of Science",
+    "description": "Design, execute, and analyze a complete experiment from scratch. This event tests a team's ability to conduct scientific inquiry and report findings entirely on-site using provided materials."
   },
   {
     "name": "Food Science",
@@ -201,7 +221,8 @@
       "test"
     ],
     "event parameters": {},
-    "event-category": "Physical Science & Chemistry"
+    "event-category": "Physical Science & Chemistry",
+    "description": "Discover the science behind what we eat. Participants will study the chemistry of food and perform practical lab experiments related to food science."
   },
   {
     "name": "Forensics",
@@ -214,7 +235,8 @@
       "lab"
     ],
     "event parameters": {},
-    "event-category": "Physical Science & Chemistry"
+    "event-category": "Physical Science & Chemistry",
+    "description": "Use advanced laboratory techniques to solve a mystery. Students will identify powders, polymers, and analyze chromatography to piece together evidence and catch a suspect."
   },
   {
     "name": "Glider",
@@ -227,7 +249,8 @@
       "build"
     ],
     "event parameters": {},
-    "event-category": "Technology & Engineering"
+    "event-category": "Technology & Engineering",
+    "description": "Design and construct a graceful, free-flight glider. Participants will engineer their aircraft to achieve maximum flight time and aerodynamic efficiency."
   },
   {
     "name": "Heredity",
@@ -240,7 +263,8 @@
       "test"
     ],
     "event parameters": {},
-    "event-category": "Life, Personal & Social Science"
+    "event-category": "Life, Personal & Social Science",
+    "description": "Discover how traits are passed down through generations. Participants will solve genetic puzzles and analyze data related to basic heredity principles."
   },
   {
     "name": "Hovercraft",
@@ -254,7 +278,8 @@
       "build"
     ],
     "event parameters": {},
-    "event-category": "Technology & Engineering"
+    "event-category": "Technology & Engineering",
+    "description": "Design and build a self-propelled hovercraft. Competitors will construct a device that levitates and glides down a track while also demonstrating their knowledge of classical mechanics."
   },
   {
     "name": "Meteorology",
@@ -266,8 +291,11 @@
     "event-type": [
       "test"
     ],
-    "event parameters": {},
-    "event-category": "Earth & Space Science"
+    "event parameters": {
+      "focus": "Severe Storms"
+    },
+    "event-category": "Earth & Space Science",
+    "description": "Master the science behind the atmosphere's most dramatic phenomena. This event emphasizes basic meteorological principles with a special focus on severe storms."
   },
   {
     "name": "Mission Possible",
@@ -280,7 +308,8 @@
       "build"
     ],
     "event parameters": {},
-    "event-category": "Technology & Engineering"
+    "event-category": "Technology & Engineering",
+    "description": "Design a creative, Rube Goldberg-style chain reaction. Participants will build and document a device that completes a simple final action through a complex series of energy transfers."
   },
   {
     "name": "Ping Pong Parachute",
@@ -294,7 +323,8 @@
       "build"
     ],
     "event parameters": {},
-    "event-category": "Technology & Engineering"
+    "event-category": "Technology & Engineering",
+    "description": "Engineer a powerful bottle rocket. Teams will design and build a pressurized rocket to launch a parachute-suspended ping pong ball, aiming for the maximum time aloft."
   },
   {
     "name": "Protein Modeling",
@@ -307,7 +337,8 @@
       "lab"
     ],
     "event parameters": {},
-    "event-category": "Life, Personal & Social Science"
+    "event-category": "Life, Personal & Social Science",
+    "description": "Explore molecular biology in 3D. Students will use computer visualization and physical modeling tools to understand the intricate structure and function of specific proteins."
   },
   {
     "name": "Remote Sensing",
@@ -321,7 +352,8 @@
       "test"
     ],
     "event parameters": {},
-    "event-category": "Earth & Space Science"
+    "event-category": "Earth & Space Science",
+    "description": "See the world from above. Participants will use cutting-edge satellite imagery, remote sensing data, and computational skills to analyze Earth's changing landscapes."
   },
   {
     "name": "Rocks and Minerals",
@@ -335,7 +367,8 @@
       "test"
     ],
     "event parameters": {},
-    "event-category": "Earth & Space Science"
+    "event-category": "Earth & Space Science",
+    "description": "Dig into Earth's geological history. Teams will demonstrate their knowledge by identifying rock and mineral specimens and answering questions about their properties and formation."
   },
   {
     "name": "Roller Coaster",
@@ -348,7 +381,8 @@
       "build"
     ],
     "event parameters": {},
-    "event-category": "Technology & Engineering"
+    "event-category": "Technology & Engineering",
+    "description": "Design an exciting, gravity-powered track. Teams will build and test a Roller Coaster that precisely controls the speed of a rolling sphere to achieve a target time."
   },
   {
     "name": "Scrambler",
@@ -361,7 +395,8 @@
       "build"
     ],
     "event parameters": {},
-    "event-category": "Technology & Engineering"
+    "event-category": "Technology & Engineering",
+    "description": "Engineer a fast, mechanical vehicle to protect an egg. Competitors will use energy from a falling mass to transport their fragile cargo quickly and stop as close to a terminal barrier as possible."
   },
   {
     "name": "Solar System",
@@ -374,7 +409,8 @@
       "test"
     ],
     "event parameters": {},
-    "event-category": "Earth & Space Science"
+    "event-category": "Earth & Space Science",
+    "description": "Embark on an interplanetary exploration. Students will demonstrate their understanding of the geologic characteristics, evolution, and cosmic wonders of the rocky bodies in our solar neighborhood."
   },
   {
     "name": "Thermodynamics",
@@ -388,7 +424,8 @@
       "test"
     ],
     "event parameters": {},
-    "event-category": "Physical Science & Chemistry"
+    "event-category": "Physical Science & Chemistry",
+    "description": "Master the science of heat flow. Teams will design an efficient insulating device to retain heat and demonstrate their knowledge of thermal energy concepts."
   },
   {
     "name": "Water Quality",
@@ -401,8 +438,11 @@
     "event-type": [
       "lab"
     ],
-    "event parameters": {},
-    "event-category": "Life, Personal & Social Science"
+    "event parameters": {
+      "focus": "Marine, Estuaries"
+    },
+    "event-category": "Life, Personal & Social Science",
+    "description": "Dive into aquatic ecology. Participants will be assessed on their understanding of water systems, with a focus on evaluating and preserving the health of marine and estuary environments."
   },
   {
     "name": "Wright Stuff",
@@ -415,7 +455,8 @@
       "build"
     ],
     "event parameters": {},
-    "event-category": "Technology & Engineering"
+    "event-category": "Technology & Engineering",
+    "description": "Craft a delicate, rubber-band powered airplane. Teams will design, construct, and test their free-flight monoplanes to achieve maximum time aloft."
   },
   {
     "name": "Write It Do It",
@@ -428,6 +469,7 @@
       "test"
     ],
     "event parameters": {},
-    "event-category": "Inquiry & Nature of Science"
+    "event-category": "Inquiry & Nature of Science",
+    "description": "Test your communication and teamwork skills. One partner writes detailed instructions for a mystery object, and the other attempts to recreate it perfectly using only those written directions."
   }
 ]

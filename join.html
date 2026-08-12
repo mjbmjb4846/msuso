@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Join Spartan Science Olympiad - Empower the next generation of STEM leaders">
+    <title>Join Us | MSU Science Olympiad</title>
+    
+    <!-- Favicons -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/x-icon" sizes="32x32" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    
+    <link rel="stylesheet" href="global.css">
+    <!-- Ionicons: modern icon library -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="scripts/navigation.js"></script>
+    <script src="scripts/card.js"></script>
+</head>
+<body>
+    <!-- Navigation Component -->
+    <msu-navbar></msu-navbar>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home" style="padding: var(--space-16) 0;">
+        <div class="container hero-content text-center">
+            <msu-badge variant="purple" style="margin-bottom: var(--space-4);">We're Recruiting!</msu-badge>
+            <h1 style="margin-bottom: var(--space-4);">Become a Part of<br>Science Olympiad at MSU</h1>
+            <p style="font-size: var(--font-size-xl); max-width: 800px; margin: 0 auto var(--space-8); color: var(--color-green-100);">
+                Help us empower the next generation of STEM leaders. Whether you're a Science Olympiad alumni or just passionate about science education, there's a place for you here.
+            </p>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="#apply" class="btn btn-primary btn-lg">Apply Now</a>
+                <a href="#roles" class="btn btn-secondary btn-lg">Explore Roles</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Join Section -->
+    <section class="section bg-secondary" id="why-join">
+        <div class="container">
+            <h2 class="text-center mb-8">Why Join Spartan SciOly?</h2>
+            <div class="grid grid-3">
+                <msu-card
+                    title="Give Back to the Community"
+                    description="Directly impact middle and high school students across Michigan by providing them with high-quality STEM education and competition experiences."
+                    variant="green"
+                    icon="heart-outline">
+                </msu-card>
+                <msu-card
+                    title="Build Your Resume"
+                    description="Gain valuable experience in leadership, event management, test writing, and public speaking to stand out to employers."
+                    variant="green"
+                    icon="document-text-outline">
+                </msu-card>
+                <msu-card
+                    title="Find Your People"
+                    description="Connect with fellow Spartans who share your passion for science, education, and having fun!"
+                    variant="green"
+                    icon="people-outline">
+                </msu-card>
+            </div>
+        </div>
+    </section>
+
+    <!-- Roles / Committees Section -->
+    <section class="section" id="roles">
+        <div class="container">
+            <h2 class="text-center mb-8">Ways to Get Involved</h2>
+            <div class="text-center" style="max-width: 800px; margin: 0 auto;">
+                <p style="font-size: var(--font-size-lg); color: var(--color-text-secondary); margin-bottom: var(--space-8);">
+                    We have many roles tailored to your interests and availability. 
+                    No prior Science Olympiad experience is required!
+                </p>
+            </div>
+            
+            <div class="grid grid-2" style="gap: var(--space-8);">
+                <div class="card" style="padding: var(--space-6);">
+                    <div style="display: flex; align-items: center; gap: var(--space-4); margin-bottom: var(--space-4);">
+                        <ion-icon name="create-outline" style="font-size: 2.5rem; color: var(--color-primary);"></ion-icon>
+                        <h3 style="margin: 0;">Test Writing & Event Supervision</h3>
+                    </div>
+                    <p style="color: var(--color-text-secondary); margin-bottom: var(--space-4);">
+                        Create challenging and engaging exams or supervise hands-on build/lab events at our tournaments. 
+                        Perfect for students wanting to apply their major-specific knowledge.
+                    </p>
+                    <msu-badge>Biology</msu-badge>
+                    <msu-badge>Chemistry</msu-badge>
+                    <msu-badge>Physics</msu-badge>
+                    <msu-badge>Earth Science</msu-badge>
+                    <msu-badge>Engineering</msu-badge>
+                </div>
+
+                <div class="card" style="padding: var(--space-6);">
+                    <div style="display: flex; align-items: center; gap: var(--space-4); margin-bottom: var(--space-4);">
+                        <ion-icon name="calendar-outline" style="font-size: 2.5rem; color: var(--color-primary);"></ion-icon>
+                        <h3 style="margin: 0;">Tournament Logistics</h3>
+                    </div>
+                    <p style="color: var(--color-text-secondary); margin-bottom: var(--space-4);">
+                        Help plan and execute workshops, invitational tournaments, regional tournaments, and state tournament! Roles include scheduling, volunteer coordination, scoring, and opening/closing ceremonies.
+                    </p>
+                    <msu-badge variant="purple">Operations</msu-badge>
+                    <msu-badge variant="purple">Leadership</msu-badge>
+                    <msu-badge variant="purple">Planning</msu-badge>
+                </div>
+
+                <div class="card" style="padding: var(--space-6);">
+                    <div style="display: flex; align-items: center; gap: var(--space-4); margin-bottom: var(--space-4);">
+                        <ion-icon name="megaphone-outline" style="font-size: 2.5rem; color: var(--color-primary);"></ion-icon>
+                        <h3 style="margin: 0;">Outreach & Marketing</h3>
+                    </div>
+                    <p style="color: var(--color-text-secondary); margin-bottom: var(--space-4);">
+                        Manage our social media, design promotional materials, and communicate with teams and schools to grow our impact across the state.
+                    </p>
+                    <msu-badge variant="orange">Social Media</msu-badge>
+                    <msu-badge variant="orange">Design</msu-badge>
+                    <msu-badge variant="orange">Communications</msu-badge>
+                </div>
+
+                <div class="card" style="padding: var(--space-6);">
+                    <div style="display: flex; align-items: center; gap: var(--space-4); margin-bottom: var(--space-4);">
+                        <ion-icon name="code-slash-outline" style="font-size: 2.5rem; color: var(--color-primary);"></ion-icon>
+                        <h3 style="margin: 0;">Tech & Resources</h3>
+                    </div>
+                    <p style="color: var(--color-text-secondary); margin-bottom: var(--space-4);">
+                        Develop our website, build scoring software, or create study materials and kits that teams can use to prepare for their events.
+                    </p>
+                    <msu-badge color="#3b82f6">Web Dev</msu-badge>
+                    <msu-badge color="#3b82f6">Software</msu-badge>
+                    <msu-badge color="#3b82f6">Education</msu-badge>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="section bg-primary" id="apply">
+        <div class="container text-center">
+            <h2>Ready to Make an Impact?</h2>
+            <p style="font-size: var(--font-size-lg); max-width: 600px; margin: 0 auto var(--space-8);">
+                We'd love to have you on the team. Check out the link below or reach out to us if you have any questions!
+            </p>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="#link-to-form-goes-here" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg">Fill Out Interest Form</a>
+                <a href="mailto:scioly@msuso.org" class="btn btn-secondary btn-lg">Email Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Component -->
+    <msu-footer></msu-footer>
+
+    <!-- Animation Script -->
+    <script>
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards
+        document.querySelectorAll('.card, msu-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>

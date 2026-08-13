@@ -31,7 +31,7 @@ const defaultFooter = [
 // Global configuration
 const siteConfig = {
     brandName: 'MSU SO',
-    email: 'scioly@msuso.org',
+    email: 'club@msuso.org',
     description: 'Supporting Michigan Science Olympiad through tournament volunteering, resources, and community building.'
 };
 
@@ -226,7 +226,7 @@ class MsuNavbar extends HTMLElement {
 /**
  * Custom Footer Component
  * Usage: <msu-footer page-links='[{"href":"#about","text":"About"},...]' 
- *                    contact-emails='[{"label":"General","address":"scioly@msuso.org"}]'></msu-footer>
+ *                    contact-emails='[{"label":"General","address":"club@msuso.org"}]'></msu-footer>
  */
 class MsuFooter extends HTMLElement {
     connectedCallback() {

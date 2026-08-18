@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="404 Page Not Found - MSU Science Olympiad">
+    <title>404 - Page Not Found | MSU Science Olympiad</title>
+    
+    <!-- Favicons -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/x-icon" sizes="32x32" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    
+    <link rel="stylesheet" href="global.css">
+    <!-- Ionicons: modern icon library -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="scripts/navigation.js"></script>
+</head>
+<body>
+    <!-- Navigation Component -->
+    <msu-navbar></msu-navbar>
+
+    <main class="container" style="display: flex; align-items: center; justify-content: center; min-height: calc(80vh - 160px); padding: var(--space-8) var(--space-4);">
+        <div style="background: var(--color-bg-secondary); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: var(--space-10) var(--space-8); text-align: center; max-width: 540px; width: 100%; box-shadow: var(--shadow-lg);">
+            <div style="display: inline-flex; align-items: center; justify-content: center; width: 64px; height: 64px; background: rgba(24, 69, 59, 0.1); color: var(--color-primary); border-radius: 50%; margin-bottom: var(--space-4);">
+                <ion-icon name="sad-outline" style="font-size: 2.5rem;"></ion-icon>
+            </div>
+            <h1 style="font-size: var(--font-size-4xl); margin-bottom: var(--space-2); color: var(--color-primary);">404</h1>
+            <h2 style="font-size: var(--font-size-xl); margin-bottom: var(--space-4); font-weight: 600;">Page Not Found</h2>
+            <p style="color: var(--color-text-secondary); margin-bottom: var(--space-6); font-size: var(--font-size-md); line-height: 1.6;">
+                The page you are looking for doesn't exist or has been moved.
+            </p>
+            <div style="display: flex; gap: var(--space-3); justify-content: center; flex-wrap: wrap;">
+                <a href="/index.html" class="btn btn-primary">Return Home</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer Component -->
+    <msu-footer></msu-footer>
+</body>
+</html>

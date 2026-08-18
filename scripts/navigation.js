@@ -13,7 +13,7 @@ const defaultNavbar = [
     {"href":"index.html#about","text":"About"},
     {"href":"index.html#events","text":"Events"},
     //{"href":"resources.html","text":"Resources"},
-    {"href":"invitational.html","text":"2027 EL Invitational"},
+    {"href":"invitational.html","text":"2027 Invitational"},
     {"href":"join.html","text":"Join"},
     {"href":"index.html#contact","text":"Contact"}
 ];
@@ -23,7 +23,7 @@ const defaultFooter = [
     {"href":"index.html#about","text":"About"},
     {"href":"index.html#events","text":"Events"},
     //{"href":"resources.html","text":"Resources"},
-    {"href":"invitational.html","text":"2027 EL Invitational"},
+    {"href":"invitational.html","text":"2027 Invitational"},
     {"href":"join.html","text":"Join"},
     {"href":"index.html#contact","text":"Contact"}
 ];

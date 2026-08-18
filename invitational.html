@@ -6,19 +6,20 @@
   <title>Inaugural ELHS × MSU Science Olympiad Invitational</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   
   <style>
     :root {
-      /* Identity: Precision East Lansing Blue with subtle Spartan Green accent */
       --bg-dark: #080d1a;
       --surface: #0f172a;
+      --surface-hover: #141f36;
       --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-accent: rgba(96, 165, 250, 0.25);
       
       --elhs-blue: #2563eb;
       --elhs-blue-light: #60a5fa;
       --msu-green: #18453b;
-      --msu-green-accent: #2d6a4f;
+      --msu-green-light: #52b788;
       
       --text-primary: #f8fafc;
       --text-secondary: #94a3b8;
@@ -34,32 +35,30 @@
       padding: 0;
     }
 
-    html, body {
-      height: 100%;
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
       background-color: var(--bg-dark);
       color: var(--text-primary);
       font-family: var(--font-body);
-      line-height: 1.5;
+      line-height: 1.6;
       -webkit-font-smoothing: antialiased;
     }
 
-    /* Minimal layout container constrained to fit standard viewport without vertical scrolling */
     .page-wrapper {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
       max-width: 960px;
       margin: 0 auto;
-      padding: 2.5rem 1.5rem;
+      padding: 2rem 1.5rem 4rem;
     }
 
-    /* --- TOP HEADER & HOST LINKS --- */
+    /* --- HEADER --- */
     header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding-bottom: 2rem;
+      padding-bottom: 1.75rem;
       border-bottom: 1px solid var(--border-subtle);
     }
 
@@ -70,7 +69,7 @@
       letter-spacing: 0.08em;
       color: var(--elhs-blue-light);
       background: rgba(37, 99, 235, 0.12);
-      border: 1px solid rgba(37, 99, 235, 0.25);
+      border: 1px solid var(--border-accent);
       padding: 0.35rem 0.75rem;
       border-radius: 4px;
       display: inline-flex;
@@ -112,33 +111,42 @@
     }
 
     .host-links .msu-link {
-      color: #52b788;
+      color: var(--msu-green-light);
     }
 
-    /* --- MAIN HERO AREA --- */
-    main {
-      margin: auto 0;
-      padding: 2.5rem 0;
+    /* --- TOP VIEWPORT HERO --- */
+    .hero-section {
+      min-height: calc(100vh - 120px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 2.5rem 0 1.5rem;
     }
 
-    .title-group {
-      margin-bottom: 2rem;
+    .division-tag {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--msu-green-light);
+      margin-bottom: 0.5rem;
     }
 
     h1 {
-      font-size: clamp(2rem, 4vw, 3rem);
+      font-size: clamp(2.2rem, 5vw, 3.25rem);
       font-weight: 700;
       letter-spacing: -0.03em;
       line-height: 1.15;
       color: var(--text-primary);
-      margin-bottom: 0.75rem;
+      margin-bottom: 1rem;
     }
 
     .subtitle {
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       color: var(--text-secondary);
-      max-width: 680px;
-      font-weight: 400;
+      max-width: 720px;
+      line-height: 1.6;
     }
 
     /* --- SPECIFICATION DATA SHEET --- */
@@ -148,9 +156,9 @@
       gap: 1px;
       background-color: var(--border-subtle);
       border: 1px solid var(--border-subtle);
-      border-radius: 6px;
+      border-radius: 8px;
       overflow: hidden;
-      margin-bottom: 2rem;
+      margin: 2rem 0;
     }
 
     .data-cell {
@@ -180,61 +188,251 @@
       margin-left: 0.25rem;
     }
 
-    .data-value a {
-      color: var(--text-primary);
-      text-decoration: none;
-      border-bottom: 1px dotted var(--text-muted);
-      transition: border-color 0.2s ease;
-    }
-
-    .data-value a:hover {
-      border-color: var(--elhs-blue-light);
-      color: var(--elhs-blue-light);
-    }
-
-    /* --- ACTION BAR --- */
+    /* --- ACTION / STATUS BAR --- */
     .action-bar {
       display: flex;
       align-items: center;
+      justify-content: space-between;
       gap: 1.5rem;
+      flex-wrap: wrap;
     }
 
-    .btn-preregister {
+    .action-group {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
       background-color: var(--elhs-blue);
       color: #ffffff;
       font-family: var(--font-body);
       font-weight: 600;
-      font-size: 0.95rem;
-      padding: 0.85rem 1.75rem;
-      border-radius: 5px;
+      font-size: 0.9rem;
+      padding: 0.8rem 1.5rem;
+      border-radius: 6px;
       text-decoration: none;
-      transition: background-color 0.2s ease, transform 0.1s ease;
+      transition: background-color 0.2s ease;
       display: inline-flex;
       align-items: center;
     }
 
-    .btn-preregister:hover {
+    .btn-primary:hover {
       background-color: #1d4ed8;
     }
 
-    .contact-direct {
+    .btn-secondary {
+      background: transparent;
+      color: var(--text-primary);
+      border: 1px solid var(--border-subtle);
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 0.9rem;
+      padding: 0.8rem 1.35rem;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background-color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .btn-secondary:hover {
+      background-color: var(--surface);
+      border-color: var(--border-accent);
+    }
+
+    .scroll-hint {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      transition: color 0.2s ease;
+    }
+
+    .scroll-hint:hover {
+      color: var(--elhs-blue-light);
+    }
+
+    /* --- DETAILS SECTION (SCROLL DOWN) --- */
+    .details-container {
+      padding-top: 3.5rem;
+      border-top: 1px solid var(--border-subtle);
+      display: flex;
+      flex-direction: column;
+      gap: 3.5rem;
+    }
+
+    .section-header {
+      margin-bottom: 1.25rem;
+    }
+
+    .section-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--elhs-blue-light);
+      margin-bottom: 0.25rem;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--text-primary);
+    }
+
+    /* --- NOTIFICATION / NOTICE BANNER --- */
+    .notice-box {
+      background: rgba(37, 99, 235, 0.08);
+      border: 1px solid rgba(37, 99, 235, 0.25);
+      border-radius: 8px;
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+
+    .notice-box p {
+      font-size: 0.9rem;
+      color: var(--text-primary);
+      line-height: 1.5;
+    }
+
+    .notice-box strong {
+      color: var(--elhs-blue-light);
+    }
+
+    /* --- FEATURE CARDS --- */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+    }
+
+    .feature-card {
+      background-color: var(--surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      padding: 1.35rem;
+      transition: border-color 0.2s ease;
+    }
+
+    .feature-card:hover {
+      border-color: var(--border-accent);
+    }
+
+    .card-tag {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--msu-green-light);
+      margin-bottom: 0.4rem;
+    }
+
+    .feature-card h3 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+      color: var(--text-primary);
+    }
+
+    .feature-card p {
       font-size: 0.875rem;
       color: var(--text-secondary);
+      line-height: 1.5;
     }
 
-    .contact-direct a {
+    /* --- TWO-COLUMN INFO PANELS --- */
+    .two-column-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+    }
+
+    .info-panel {
+      background-color: var(--surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      padding: 1.5rem;
+    }
+
+    .info-panel h3 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
       color: var(--text-primary);
-      text-decoration: none;
-      font-weight: 500;
     }
 
-    .contact-direct a:hover {
-      text-decoration: underline;
+    .policy-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
     }
 
-    /* --- FOOTER & FUTURE ROADMAP --- */
+    .policy-list li {
+      position: relative;
+      padding-left: 1.25rem;
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    .policy-list li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--elhs-blue-light);
+      font-weight: bold;
+    }
+
+    .policy-list strong {
+      color: var(--text-primary);
+    }
+
+    /* --- DOCUMENT ROADMAP --- */
+    .roadmap-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+
+    .roadmap-tile {
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px dashed var(--border-subtle);
+      border-radius: 6px;
+      padding: 1.25rem;
+    }
+
+    .roadmap-tile .tile-status {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 0.25rem;
+    }
+
+    .roadmap-tile .tile-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 0.25rem;
+    }
+
+    .roadmap-tile p {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      line-height: 1.45;
+    }
+
+    /* --- FOOTER --- */
     footer {
-      padding-top: 1.5rem;
+      margin-top: 4rem;
+      padding-top: 2rem;
       border-top: 1px solid var(--border-subtle);
       display: flex;
       justify-content: space-between;
@@ -243,15 +441,40 @@
       color: var(--text-muted);
     }
 
-    .roadmap-note {
+    .footer-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
       font-family: var(--font-mono);
-      font-size: 0.75rem;
     }
 
-    /* --- RESPONSIVE BREAKPOINTS --- */
-    @media (max-width: 768px) {
+    .footer-links a:hover {
+      color: var(--text-primary);
+    }
+
+    /* --- RESPONSIVE --- */
+    @media (max-width: 820px) {
+      .hero-section {
+        min-height: auto;
+        padding: 2rem 0;
+      }
+
+      .data-sheet {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .card-grid,
+      .two-column-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .roadmap-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
       .page-wrapper {
-        padding: 1.5rem 1rem;
+        padding: 1.25rem 1rem 3rem;
       }
 
       header {
@@ -261,25 +484,30 @@
       }
 
       .data-sheet {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
       }
 
       .action-bar {
         flex-direction: column;
         align-items: flex-start;
-        gap: 1rem;
+        gap: 1.25rem;
+      }
+
+      .action-group {
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .btn-primary, .btn-secondary {
+        justify-content: center;
+        text-align: center;
       }
 
       footer {
         flex-direction: column;
         align-items: flex-start;
         gap: 0.75rem;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .data-sheet {
-        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -290,32 +518,33 @@
     
     <!-- TOP BAR -->
     <header>
-      <div class="inaugural-badge">1st Annual Invitational</div>
+      <div class="inaugural-badge">1st Annual &bull; Division C Invitational</div>
       <nav class="host-links">
         <a href="https://elhssoc.com" target="_blank" rel="noopener" class="elhs-link">elhssoc.com &nearr;</a>
         <a href="https://msuso.org" target="_blank" rel="noopener" class="msu-link">msuso.org &nearr;</a>
       </nav>
     </header>
 
-    <!-- MAIN CONTENT (ALL IN VIEWPORT) -->
-    <main>
+    <!-- MAIN VIEWPORT HERO -->
+    <section class="hero-section">
       <div class="title-group">
-        <h1>East Lansing × MSUSO<br>Science Olympiad Invitational</h1>
+        <div class="division-tag">Saturday, January 23, 2027 &bull; East Lansing, MI</div>
+        <h1>Spartan-Trojan<br>Science Olympiad Invitational</h1>
         <p class="subtitle">
-          The inaugural 2027 tournament co-hosted by East Lansing High School and Michigan State University Science Olympiad.
+          Carrying forward the tradition of the former Haslett Invitational, East Lansing High School and Michigan State University Science Olympiad are partnering to host a new Division C tournament in East Lansing.
         </p>
       </div>
 
-      <!-- KEY DETAILS SHEET -->
+      <!-- KEY SPEC DATA SHEET -->
       <div class="data-sheet">
         <div class="data-cell">
-          <div class="data-label">Date</div>
-          <div class="data-value">Jan 23, 2027</div>
+          <div class="data-label">Date & Division</div>
+          <div class="data-value">Jan 23, 2027 <small>Div C</small></div>
         </div>
 
         <div class="data-cell">
-          <div class="data-label">Location</div>
-          <div class="data-value">East Lansing HS<small>MI</small></div>
+          <div class="data-label">Scale</div>
+          <div class="data-value">45 Teams <small>23 Events</small></div>
         </div>
 
         <div class="data-cell">
@@ -324,31 +553,155 @@
         </div>
 
         <div class="data-cell">
-          <div class="data-label">Tournament Contact</div>
-          <div class="data-value">
-            <a href="mailto:james.barger@elps.us">james.barger@elps.us</a>
-          </div>
+          <div class="data-label">Registration Opens</div>
+          <div class="data-value">Sep 13, 2026 <small>5:00 PM ET</small></div>
         </div>
       </div>
 
       <!-- ACTION BAR -->
       <div class="action-bar">
-        <a href="#" class="btn-preregister" onclick="alert('Preregistration form opening soon.'); return false;">
-          Preregister Team
+        <div class="action-group">
+          <a href="#registration" class="btn-primary">
+            Registration & Volunteer Info
+          </a>
+          <a href="mailto:james.barger@elps.us" class="btn-secondary">
+            Contact Coordinator
+          </a>
+        </div>
+        <a href="#details" class="scroll-hint">
+          Tournament Details &darr;
         </a>
-        <div class="contact-direct">
-          Direct inquiries to <a href="mailto:james.barger@elps.us">James Barger</a>
+      </div>
+    </section>
+
+    <!-- DETAILED CONTENT (SCROLL DOWN) -->
+    <div id="details" class="details-container">
+      
+      <!-- CHECK BACK NOTICE -->
+      <div class="notice-box">
+        <div>
+          <p>
+            <strong>Check back on this page:</strong> Official registration forms, daily competition schedule, building maps, and coaches info guide (web & PDF) will all be published directly here as they go live.
+          </p>
         </div>
       </div>
-    </main>
 
-    <!-- FOOTER / FUTURE EXPANSION NOTE -->
+      <!-- TOURNAMENT OVERVIEW -->
+      <section>
+        <div class="section-header">
+          <div class="section-eyebrow">Tournament Format</div>
+          <h2>At a Glance</h2>
+        </div>
+
+        <div class="card-grid">
+          <div class="feature-card">
+            <div class="card-tag">Events & Scheduling</div>
+            <h3>23 Official Events</h3>
+            <p>Running the full 2027 Division C slate, scheduled around the official 2027 National Tournament conflict blocks.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="card-tag">Supervisors</div>
+            <h3>Alumni & Official Event Leads</h3>
+            <p>Events are written and run primarily by experienced state and regional supervisors, MSU students, and alumni so coaches can focus on their teams.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="card-tag">Recognition</div>
+            <h3>Awards Through 8th Place</h3>
+            <p>Individual event medals are awarded through 8th place in all 23 events. Overall team trophies are also presented through 8th place.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="card-tag">Location</div>
+            <h3>Region 11 Site Preview</h3>
+            <p>Held at East Lansing High School, which will also host the 2027 Michigan Science Olympiad Region 11 tournament later in the season.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- REGISTRATION & VOLUNTEERS -->
+      <section id="registration">
+        <div class="section-header">
+          <div class="section-eyebrow">Policies</div>
+          <h2>Registration & Volunteer Requirements</h2>
+        </div>
+
+        <div class="two-column-layout">
+          <!-- Registration Rules -->
+          <div class="info-panel">
+            <h3>Registration Details</h3>
+            <ul class="policy-list">
+              <li>
+                <strong>Opens September 13, 2026 at 5:00 PM ET:</strong> Initial registration allows up to two teams per school.
+              </li>
+              <li>
+                <strong>Third Teams (September 20, 2026):</strong> Schools may register a third team starting September 20 if spots remain.
+              </li>
+              <li>
+                <strong>Capacity:</strong> Capped at 45 teams. Registration closes once capacity is reached.
+              </li>
+              <li>
+                <strong>Fee:</strong> $90 per team. Payment instructions will follow registration confirmation.
+              </li>
+            </ul>
+          </div>
+
+          <!-- Volunteers -->
+          <div class="info-panel">
+            <h3>Team Volunteers</h3>
+            <ul class="policy-list">
+              <li>
+                <strong>Two Volunteers per Team:</strong> Each registered team must provide two adult volunteers on tournament day to assist with general event and facility operations.
+              </li>
+              <li>
+                <strong>Assignments:</strong> Volunteer roles and instructions will be communicated to registered head coaches prior to tournament day.
+              </li>
+              <li>
+                <strong>Questions?</strong> Direct registration or volunteer questions to <a href="mailto:james.barger@elps.us" style="color: var(--elhs-blue-light); text-decoration: none;">james.barger@elps.us</a>.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- PUBLISHING ROADMAP -->
+      <section>
+        <div class="section-header">
+          <div class="section-eyebrow">Resources</div>
+          <h2>What’s Publishing on this Page</h2>
+        </div>
+
+        <div class="roadmap-grid">
+          <div class="roadmap-tile">
+            <div class="tile-status">September 2026</div>
+            <div class="tile-title">Registration Form</div>
+            <p>Direct registration link opens here on September 13 at 5:00 PM ET.</p>
+          </div>
+
+          <div class="roadmap-tile">
+            <div class="tile-status">Late Fall 2026</div>
+            <div class="tile-title">Schedule & Logistics</div>
+            <p>Block schedule, homeroom list, building and parking maps, and food options.</p>
+          </div>
+
+          <div class="roadmap-tile">
+            <div class="tile-status">Late Fall 2026</div>
+            <div class="tile-title">Coaches Info & PDF</div>
+            <p>Complete event guidelines, impound instructions, and downloadable summary sheet.</p>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- FOOTER -->
     <footer>
-      <div class="roadmap-note">
-        Schedule, room details, and other info will publish here late 2026.
-      </div>
       <div>
-        &copy; 2026 ELHS & MSU Science Olympiad
+        &copy; 2026–2027 East Lansing High School & Michigan State University Science Olympiad
+      </div>
+      <div class="footer-links">
+        <a href="mailto:james.barger@elps.us">james.barger@elps.us</a>
       </div>
     </footer>
 

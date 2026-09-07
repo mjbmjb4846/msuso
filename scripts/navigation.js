@@ -35,6 +35,223 @@ const siteConfig = {
     description: 'Supporting Michigan Science Olympiad through tournament volunteering, resources, and community building.'
 };
 
+// Resolve the base URL of this script for fetching sibling assets (e.g. notifications.json)
+const navigationScriptUrl = (function () {
+    if (document.currentScript && document.currentScript.src) {
+        return document.currentScript.src;
+    }
+    const scripts = document.getElementsByTagName('script');
+    for (let i = scripts.length - 1; i >= 0; i--) {
+        const src = scripts[i].src || '';
+        if (src.includes('navigation.js')) {
+            return src;
+        }
+    }
+    return window.location.href;
+})();
+
+/**
+ * Helper to fetch notifications.json with robust fallback URLs
+ */
+async function fetchNotificationsConfig() {
+    let scriptRelativeUrl = '';
+    try {
+        scriptRelativeUrl = new URL('notifications.json', navigationScriptUrl).href;
+    } catch (e) {
+        // ignore
+    }
+
+    const candidateUrls = [
+        scriptRelativeUrl,
+        '/scripts/notifications.json',
+        'scripts/notifications.json',
+        '../scripts/notifications.json',
+        '../../scripts/notifications.json'
+    ].filter(Boolean);
+
+    const uniqueUrls = [...new Set(candidateUrls)];
+
+    for (const url of uniqueUrls) {
+        try {
+            const res = await fetch(url, { cache: 'no-store' });
+            if (res.ok) {
+                const data = await res.json();
+                return data;
+            }
+        } catch (e) {
+            // continue to next candidate
+        }
+    }
+    return null;
+}
+
+/**
+ * Determine if a notification is configured for the current page
+ * Default: displays only on the index page if `pages` is omitted/empty.
+ */
+function isNotificationForPage(notif) {
+    const pages = notif.pages || notif.displayPages || notif.display_pages;
+
+    const pathname = window.location.pathname || '';
+    const segments = pathname.split('/').filter(Boolean);
+    const currentPage = segments.length > 0 ? segments[segments.length - 1].toLowerCase() : 'index.html';
+
+    const isIndex = currentPage === '' ||
+                    currentPage === 'index.html' ||
+                    currentPage === 'index' ||
+                    pathname.endsWith('/') ||
+                    pathname === '';
+
+    // If pages is not provided or empty, default to index page only
+    if (!pages || (Array.isArray(pages) && pages.length === 0)) {
+        return isIndex;
+    }
+
+    const pageList = Array.isArray(pages) ? pages : [pages];
+
+    if (pageList.some(p => p === '*' || (typeof p === 'string' && p.toLowerCase() === 'all'))) {
+        return true;
+    }
+
+    return pageList.some(p => {
+        if (!p || typeof p !== 'string') return false;
+        const clean = p.trim().toLowerCase().replace(/^\//, '');
+        if (clean === 'index' || clean === 'index.html' || clean === '') {
+            return isIndex;
+        }
+        const cleanNoExt = clean.replace(/\.html$/, '');
+        const currentNoExt = currentPage.replace(/\.html$/, '');
+        return currentPage === clean ||
+               currentNoExt === cleanNoExt ||
+               pathname.toLowerCase().endsWith(clean);
+    });
+}
+
+/**
+ * Determine if a notification is currently active based on start and end dates
+ */
+function isNotificationActiveDate(notif, now = new Date()) {
+    const startStr = notif.startDate || notif.start_date || notif.start;
+    const endStr = notif.endDate || notif.end_date || notif.end;
+
+    if (startStr) {
+        const start = new Date(startStr);
+        if (!isNaN(start.getTime()) && now < start) {
+            return false;
+        }
+    }
+
+    if (endStr) {
+        const end = new Date(endStr);
+        if (!isNaN(end.getTime()) && now > end) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+/**
+ * Get active notification from data
+ */
+function getActiveNotification(data) {
+    if (!data) return null;
+    let list = [];
+    if (Array.isArray(data)) {
+        list = data;
+    } else if (Array.isArray(data.notifications)) {
+        list = data.notifications;
+    } else if (typeof data === 'object') {
+        list = [data];
+    }
+
+    const now = new Date();
+    for (const notif of list) {
+        if (isNotificationActiveDate(notif, now) && isNotificationForPage(notif)) {
+            return notif;
+        }
+    }
+    return null;
+}
+
+/**
+ * Generate unique dismissal key for storage
+ */
+function getNotificationKey(notif) {
+    const text = notif.notification || notif.innerHTML || notif.inner_html || '';
+    const start = notif.startDate || notif.start_date || '';
+    let hash = 0;
+    const str = text + '|' + start;
+    for (let i = 0; i < str.length; i++) {
+        hash = ((hash << 5) - hash) + str.charCodeAt(i);
+        hash |= 0;
+    }
+    return 'msuso_notif_dismissed_' + Math.abs(hash);
+}
+
+/**
+ * Create notification bar DOM element
+ */
+function createNotificationBarElement(notif) {
+    const bar = document.createElement('aside');
+    bar.className = 'msu-notification-bar';
+    bar.setAttribute('role', 'region');
+    bar.setAttribute('aria-label', 'Site Announcement');
+
+    const bgColor = notif.backgroundColor || notif.background_color || notif.background || '#18794e';
+    const textColor = notif.textColor || notif.text_color || notif.color || '#ffffff';
+    bar.style.backgroundColor = bgColor;
+    bar.style.color = textColor;
+
+    let contentHtml = '';
+    if (notif.innerHTML || notif.inner_html) {
+        contentHtml = notif.innerHTML || notif.inner_html;
+    } else {
+        const raw = notif.notification || notif.message || '';
+        const temp = document.createElement('div');
+        temp.textContent = raw;
+        contentHtml = temp.innerHTML;
+    }
+
+    bar.innerHTML = `
+        <div class="container msu-notification-content">
+            <div class="msu-notification-message">
+                <span class="msu-notification-icon" aria-hidden="true">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="m3 11 18-5v12L3 14v-3z"></path>
+                        <path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"></path>
+                    </svg>
+                </span>
+                <span class="msu-notification-text">${contentHtml}</span>
+            </div>
+            <button class="msu-notification-close" type="button" aria-label="Dismiss notification">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+    `;
+
+    const closeBtn = bar.querySelector('.msu-notification-close');
+    if (closeBtn) {
+        closeBtn.addEventListener('click', () => {
+            try {
+                const key = getNotificationKey(notif);
+                sessionStorage.setItem(key, 'true');
+            } catch (e) {
+                // ignore
+            }
+            bar.classList.add('msu-notif-closing');
+            setTimeout(() => {
+                bar.remove();
+            }, 350);
+        });
+    }
+
+    return bar;
+}
+
 /**
  * Custom Navigation Bar Component
  * Usage: <msu-navbar page-links='[{"href":"#about","text":"About"},...]'></msu-navbar>
@@ -55,6 +272,7 @@ class MsuNavbar extends HTMLElement {
         
         this.render(allLinks);
         this.attachEventListeners();
+        this.loadNotifications();
     }
 
     render(links) {
@@ -221,6 +439,36 @@ class MsuNavbar extends HTMLElement {
         if (mobileIcon) mobileIcon.setAttribute('name', iconName);
         if (mobileText) mobileText.textContent = `${text} Mode`;
     }
+
+    async loadNotifications() {
+        if (this.querySelector('.msu-notification-bar') || document.querySelector('.msu-notification-bar')) {
+            return;
+        }
+
+        try {
+            const data = await fetchNotificationsConfig();
+            const activeNotif = getActiveNotification(data);
+            if (!activeNotif) return;
+
+            try {
+                const key = getNotificationKey(activeNotif);
+                if (sessionStorage.getItem(key) === 'true') {
+                    return;
+                }
+            } catch (e) {
+                // ignore
+            }
+
+            const bar = createNotificationBarElement(activeNotif);
+            if (this.parentNode) {
+                this.parentNode.insertBefore(bar, this);
+            } else {
+                this.prepend(bar);
+            }
+        } catch (e) {
+            // Silently handle load errors
+        }
+    }
 }
 
 /**
@@ -356,9 +604,34 @@ async function attemptNavigation(url) {
     window.location.href = urlWithHtml;
 }
 
-// Initialize link handling and smooth scrolling when DOM is ready
+// Standalone fallback initialization if msu-navbar is not present
+function initNotificationFallback() {
+    if (!document.querySelector('msu-navbar') && !document.querySelector('.msu-notification-bar')) {
+        fetchNotificationsConfig().then(data => {
+            const activeNotif = getActiveNotification(data);
+            if (!activeNotif) return;
+            try {
+                const key = getNotificationKey(activeNotif);
+                if (sessionStorage.getItem(key) === 'true') return;
+            } catch (e) {}
+            const bar = createNotificationBarElement(activeNotif);
+            const navbarEl = document.querySelector('msu-navbar');
+            if (navbarEl && navbarEl.parentNode) {
+                navbarEl.parentNode.insertBefore(bar, navbarEl);
+            } else if (document.body) {
+                document.body.prepend(bar);
+            }
+        }).catch(() => {});
+    }
+}
+
+// Initialize link handling, smooth scrolling, and notifications when DOM is ready
 if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', setupLinkHandling);
+    document.addEventListener('DOMContentLoaded', () => {
+        setupLinkHandling();
+        initNotificationFallback();
+    });
 } else {
     setupLinkHandling();
+    initNotificationFallback();
 }

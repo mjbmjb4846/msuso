@@ -412,8 +412,144 @@ strong, b {
     border-color: var(--color-green-800);
 }
 
-/* Navigation */
+/* Navigation Component */
+msu-navbar {
+    display: contents;
+}
+
+/* Top Notification / Announcement Bar */
+.msu-notification-bar {
+    width: 100%;
+    position: relative;
+    z-index: 1001;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+    font-size: var(--font-size-sm);
+    line-height: var(--line-height-normal);
+    max-height: 200px;
+    transition: max-height 0.35s ease, opacity 0.35s ease, padding 0.35s ease;
+    overflow: hidden;
+    animation: msuNotifSlideDown 0.3s ease-out;
+}
+
+@keyframes msuNotifSlideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.msu-notification-bar.msu-notif-closing {
+    opacity: 0;
+    max-height: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    transform: translateY(-100%);
+}
+
+.msu-notification-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.625rem var(--container-padding);
+    position: relative;
+    min-height: 2.75rem;
+}
+
+.msu-notification-message {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    text-align: center;
+    flex: 1;
+    padding: 0 2rem;
+}
+
+.msu-notification-icon {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.92;
+}
+
+.msu-notification-text {
+    display: inline;
+}
+
+.msu-notification-text strong,
+.msu-notification-text b {
+    font-weight: var(--font-weight-bold);
+}
+
+.msu-notification-text a {
+    color: inherit;
+    text-decoration: underline;
+    font-weight: var(--font-weight-semibold);
+}
+
+.msu-notification-text a:hover {
+    opacity: 0.85;
+}
+
+.msu-notification-close {
+    position: absolute;
+    right: var(--container-padding);
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    color: inherit;
+    opacity: 0.8;
+    cursor: pointer;
+    padding: var(--space-1);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-sm);
+    transition: opacity var(--transition-fast), background-color var(--transition-fast);
+    line-height: 1;
+}
+
+.msu-notification-close:hover {
+    opacity: 1;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.msu-notification-close:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 2px;
+}
+
+@media (max-width: 640px) {
+    .msu-notification-content {
+        padding: 0.5rem var(--container-padding);
+        min-height: 2.5rem;
+    }
+
+    .msu-notification-message {
+        padding: 0 1.75rem 0 0;
+        text-align: left;
+        align-items: flex-start;
+        gap: var(--space-2);
+        font-size: var(--font-size-xs);
+    }
+
+    .msu-notification-icon {
+        margin-top: 2px;
+    }
+
+    .msu-notification-close {
+        right: var(--container-padding);
+    }
+}
+
 .navbar {
+    width: 100%;
     background-color: var(--color-background);
     border-bottom: 1px solid var(--color-border);
     padding: var(--space-4) 0;

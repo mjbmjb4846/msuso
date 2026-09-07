@@ -1,0 +1,10 @@
+[
+  {
+    "notification": "Our first meeting of the semester is Tuesday, September 8th at 7:00 PM in Bessey Hall room 107!",
+    "backgroundColor": "#FFFF00",
+    "textColor": "#000000",
+    "innerHTML": "Our first meeting of the semester is <strong>Tuesday, September 8th at 7:00 PM</strong> in Bessey Hall room 107!",
+    "startDate": "2026-09-07T00:00:00-04:00",
+    "endDate": "2026-09-08T20:30:00-04:00"
+  }
+]
